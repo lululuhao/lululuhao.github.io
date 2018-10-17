@@ -21,7 +21,72 @@
 
 <body class="loading">
     <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Apologize</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Apologize</h1>
+        <div class="stuff">
+            <span>十月 14, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/L·H/">L·H</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>第三次博客<br>PDF 5开始</p>
+<p>+<br>正则表达式（重点）pdf6        <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>（重点复习）</p>
+<p>通配符是通配的文件名<br>正则表达式是配的字符串，文件的内容<br>【wang】 匹配这四个字符其中的一个<br>grep “[123]” /etc/passwd查询passwd文件夹里包含123中一个数字的文件<br>grep -v “[123]” /etc/passwd查询passwd文件夹里不包含123中一个数字的文件<br>grep “[^123]” /etc/passwd查询passwd文件夹里除了123中一个数字的文件<br>匹配次数：用在要指定次数的字符后面，用于指定前面的字符要出现的次数</p>
+<ul>
+<li>匹配前面的字符任意次，包括0次<br>贪婪模式：尽可能长的匹配<br>.*任意长度的任意字符<br>\?匹配其前面的字符0或1次<br>+匹配其前面的字符至少1次<br>{n}匹配前面的字符n次<br>{m,n}匹配前面的字符至少m次，至多n次<br>{,n}匹配前面的字符至多n次<br>{n,}匹配前面的字符至少n次</li>
+</ul>
+<p>位置锚定：定位出现的位置<br>^ 行首锚定，用于模式的最左侧 grep “^bash” /etc/passwd<br>$ 行尾锚定，用于模式的最右侧 grep “bash$” /etc/passwd<br>^PATTERN$ 用于模式匹配整行<br>^$ 空行<br>^[[:space:]]*$ 空白行<br>\&lt; 或\b词首锚定，用于单词模式的左侧(单词不能包含数字、_、其他字母开头)<br>> 或\b词尾锚定，用于单词模式的右侧<br>\&lt;PATTERN>匹配整个单词<br>id +用户名 查询用户属于哪个组<br>uid 用户编号  编号为0时为管理员<br>gid 主组<br>chfn +用户名  修改用户的id信息<br>getent passwd 用户名  查看单个用户信息<br>id +用户名 查询该用户属于哪个组<br>gid  主组</p>
+<p>+10月份笔记和上课笔记</p>
+<hr>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="http://www.ytmp3.cn/down/35843.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
     
+</div>
+
+
+    </div>
+</div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>

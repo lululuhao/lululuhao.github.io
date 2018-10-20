@@ -11,7 +11,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="LH,"> 
-    <meta name="description" content="命令帮助内部命令：help COMMAND 或man bash外部命令：(1) COMMAND –helpCOMMAND -h(2) 使用手册(manual)man COMMAND(3) 信息页in,"> 
+    
     <meta name="author" content="lululuhao"> 
     <link rel="alternative" href="atom.xml" title="Apologize" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -26,7 +26,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">Apologize</h3>
+    <h3 class="subtitle">文本处理及文件查找</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -43,23 +43,823 @@
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">Apologize</h1>
+        <h1 class="title">文本处理及文件查找</h1>
         <div class="stuff">
             <span>十月 14, 2018</span>
             
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/L·H/">L·H</a></li></ul>
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Find/">Find</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/Sed/">Sed</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/VIM/">VIM</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/shell脚本/">shell脚本</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/正则表达式/">正则表达式</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <p>第三次博客<br>PDF 5开始</p>
-<p>+<br>正则表达式（重点）pdf6        <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>（重点复习）</p>
-<p>通配符是通配的文件名<br>正则表达式是配的字符串，文件的内容<br>【wang】 匹配这四个字符其中的一个<br>grep “[123]” /etc/passwd查询passwd文件夹里包含123中一个数字的文件<br>grep -v “[123]” /etc/passwd查询passwd文件夹里不包含123中一个数字的文件<br>grep “[^123]” /etc/passwd查询passwd文件夹里除了123中一个数字的文件<br>匹配次数：用在要指定次数的字符后面，用于指定前面的字符要出现的次数</p>
-<ul>
-<li>匹配前面的字符任意次，包括0次<br>贪婪模式：尽可能长的匹配<br>.*任意长度的任意字符<br>\?匹配其前面的字符0或1次<br>+匹配其前面的字符至少1次<br>{n}匹配前面的字符n次<br>{m,n}匹配前面的字符至少m次，至多n次<br>{,n}匹配前面的字符至多n次<br>{n,}匹配前面的字符至少n次</li>
-</ul>
-<p>位置锚定：定位出现的位置<br>^ 行首锚定，用于模式的最左侧 grep “^bash” /etc/passwd<br>$ 行尾锚定，用于模式的最右侧 grep “bash$” /etc/passwd<br>^PATTERN$ 用于模式匹配整行<br>^$ 空行<br>^[[:space:]]*$ 空白行<br>\&lt; 或\b词首锚定，用于单词模式的左侧(单词不能包含数字、_、其他字母开头)<br>> 或\b词尾锚定，用于单词模式的右侧<br>\&lt;PATTERN>匹配整个单词<br>id +用户名 查询用户属于哪个组<br>uid 用户编号  编号为0时为管理员<br>gid 主组<br>chfn +用户名  修改用户的id信息<br>getent passwd 用户名  查看单个用户信息<br>id +用户名 查询该用户属于哪个组<br>gid  主组</p>
-<p>+10月份笔记和上课笔记</p>
+            <h1 id="文本处理及正则表达式"><a href="#文本处理及正则表达式" class="headerlink" title="文本处理及正则表达式"></a>文本处理及正则表达式</h1><h3 id="文件查看"><a href="#文件查看" class="headerlink" title="文件查看"></a>文件查看</h3><pre><code>文件查看命令：
+cat，tac，rev  
+cat [OPTION]... [FILE]...
+  -E：显示行结束符$
+  -n：对显示出的每一行进行编号
+  -A：显示所有控制符
+  -b：非空行编号
+  -s：压缩连续的空行成一行
+tac
+rev
+文件查看
+more: 分页查看文件
+more [OPTIONS...] FILE...
+-d: 显示翻页及退出提示
+less：一页一页地查看文件或STDIN输出
+查看时有用的命令包括：
+/文本搜索文本
+n/N跳到下一个或上一个匹配
+less命令是man命令使用的分页器
+</code></pre><h3 id="显示文本前或后行内容"><a href="#显示文本前或后行内容" class="headerlink" title="显示文本前或后行内容*"></a>显示文本前或后行内容<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></h3><pre><code>head [OPTION]... [FILE]...
+-c #: 指定获取前#字节
+-n #: 指定获取前#行
+-#：指定行数
+tail [OPTION]... [FILE]...
+-c #: 指定获取后#字节
+-n #: 指定获取后#行
+-#：同上
+-f: 跟踪显示文件fd新追加的内容,常用日志监控
+相当于--follow=descriptor
+-F: 跟踪文件名，相当于--follow=name --retry
+tailf类似tail –f，当文件不增长时并不访问文件
+</code></pre><h3 id="按列抽取文本cut和合并文件paste-CUT"><a href="#按列抽取文本cut和合并文件paste-CUT" class="headerlink" title="按列抽取文本cut和合并文件paste***CUT"></a>按列抽取文本cut和合并文件paste<strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong>CUT</h3><pre><code>cut [OPTION]... [FILE]...
+-d DELIMITER: 指明分隔符，默认tab
+-f FILEDS:
+...#: 第#个字段
+...#,#[,#]：离散的多个字段，例如1,3,6
+...#-#：连续的多个字段, 例如1-6
+混合使用：1-3,7
+-c按字符切割
+--output-delimiter=STRING指定输出分隔符
+cut和paste
+显示文件或STDIN数据的指定列
+cut-d:-f1/etc/passwd
+cat /etc/passwd|cut-d:-f7
+cut-c2-5/usr/share/dict/words
+paste 合并两个文件同行号的列到一行
+paste [OPTION]... [FILE]...
+-d 分隔符：指定分隔符，默认用TAB
+-s : 所有行合成一行显示
+示例：
+paste f1 f2
+paste -s f1 f2
+</code></pre><h3 id="收集文本统计数据wc-WC"><a href="#收集文本统计数据wc-WC" class="headerlink" title="收集文本统计数据wc*WC"></a>收集文本统计数据wc<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>WC</h3><pre><code>计数单词总数、行总数、字节总数和字符总数
+可以对文件或STDIN中的数据运行
+wcstory.txt
+392371901story.txt
+行数字数字节数
+常用选项
+&gt;-l只计数行数
+&gt;-w只计数单词总数
+&gt;-c只计数字节总数
+&gt;-m只计数字符总数
+&gt;-L显示文件中最长行的长度
+</code></pre><h3 id="文本排序sort"><a href="#文本排序sort" class="headerlink" title="文本排序sort"></a>文本排序sort</h3><pre><code>把整理过的文本显示在STDOUT，不改变原始文件
+sort[options]file(s)
+常用选项
+&gt;-r执行反方向（由上至下）整理
+&gt;-R随机排序
+&gt;-n执行按数字大小整理
+&gt;-f选项忽略（fold）字符串中的字符大小写
+&gt;-u选项（独特，unique）删除输出中的重复行
+&gt;-t c选项使用c做为字段界定符
+&gt;-k X选项按照使用c字符分隔的X列来整理能够使用多次
+</code></pre><h3 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h3><pre><code>uniq命令：从输入中删除前后相接的重复的行
+uniq[OPTION]... [FILE]...
+-c: 显示每行重复出现的次数
+-d: 仅显示重复过的行
+-u: 仅显示不曾重复的行
+注：连续且完全相同方为重复
+常和sort 命令一起配合使用：
+sort userlist.txt | uniq-c
+</code></pre><h3 id="比较文件"><a href="#比较文件" class="headerlink" title="比较文件"></a>比较文件</h3><pre><code>比较两个文件之间的区别
+difffoo.conffoo2.conf
+5c5
+&lt; use_widgets=no
+---
+&gt;use_widgets=yes
+注明第5行有区别（改变）
+</code></pre><h2 id="取出IP地址的几种方法：-（重点）"><a href="#取出IP地址的几种方法：-（重点）" class="headerlink" title="取出IP地址的几种方法： *（重点）"></a>取出IP地址的几种方法： <strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong>（重点）</h2><pre><code>&gt;ifconfig | sed -r &apos;2!d;s/.*inet (addr:)?//;s/ .*//&apos;      6和7通用的取出IP地址  
+ifconfig eth0 | head -2|tail -1| tr -dc &apos;[0-9]. &apos; |tr -s &apos; &apos; |cut -d&quot; &quot; -f2   6系统上  
+ifconfig eth0|sed -n &apos;2p&apos;|sed &apos;s@.*inet @@&apos;|sed &apos;s@ netmask.$@@&apos; 提取出7上的IP地址，其中@@为分隔符  
+ifconfig ens33|sed -nr &apos;2s/.*t (.*) net.*/\1/gp&apos; 扩展的正则表达式取出IP，（）为分组，只有一个括号，所以后面写1  
+ifconfig ens33|sed -nr &apos;2s/（.*t) (.*)( net.*)/\2/gp&apos; 扩展的正则表达式取出IP，（）为分组，有三个括号，所以后面写2留第二个  
+ifconfig | sed -nr &quot;s/.inet (.*) netmask.*/\1/p&quot; | head -n 1   取出7的IP  
+ifconfig | sed -nr &quot;s/.inet (.*) netmask.*/\1/p&quot; 取出7的三个网卡IP  
+</code></pre><h2 id="查询系统信息-重点"><a href="#查询系统信息-重点" class="headerlink" title="查询系统信息  ***重点"></a>查询系统信息  <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>重点</h2><pre><code>..#RED is content color
+..#依次显示出
+..#系统版本
+..#内核版本
+..#CPU型号
+..#内存大小
+..#最大磁盘利用率
+..#hostname
+..#IP地址
+&gt;RED=&quot;\033[1;31m&quot;
+COLOREND=&quot;\033[0m&quot;
+</code></pre><blockquote>
+<p>echo -e “OS version is $RED<code>cat /etc/centos-release</code>$COLOREND”<br>echo -e “kernel version $RED<code>uname -r</code>$COLOREND”<br>echo -e “The cpu type is $RED<code>lscpu |egrep -i &#39;model name&#39;|tr -s &#39; &#39;|cut -d: -f2</code>$COLOREND”<br>echo -e “The memory is $RED<code>free -h|egrep Mem|tr -s &#39; &#39; &#39;:&#39; |cut -d: -f2</code>$COLOREND”<br>echo -e “The max disk used is $RED<code>df |grep  /dev/sd|tr -s &quot; &quot; &quot;:&quot;|cut -d: -f5|sort -nr|head -1</code>$COLOREND”<br>echo -e “The hostname is $RED$(hostname)$COLOREND”<br>echo -e “The ipaddr is $RED<code>ifconfig|head -2|tail -1|tr -s &quot; &quot; &quot;:&quot;|cut -d: -f3</code>$COLOREND”<br>unset RED COLOREND</p>
+</blockquote>
+<h1 id="Linux文本处理三剑客"><a href="#Linux文本处理三剑客" class="headerlink" title="Linux文本处理三剑客"></a>Linux文本处理三剑客</h1><pre><code>grep：文本过滤(模式：pattern)工具
+grep, egrep, fgrep（不支持正则表达式搜索）
+sed：stream editor，文本编辑工具
+awk：Linux上的实现gawk，文本报告生成器
+</code></pre><h2 id="grep-重点"><a href="#grep-重点" class="headerlink" title="grep*(重点)"></a>grep<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>(重点)</h2><pre><code>grep: Global search REgularexpression and Print out the line
+作用：文本搜索工具，根据用户指定的“模式”对目标文本逐行进行匹配检查；打印匹配到的行
+模式：由正则表达式字符及文本字符所编写的过滤条件
+</code></pre><blockquote>
+<p>grep [OPTIONS] PATTERN [FILE…]<br>grep root /etc/passwd<br>grep “$USER” /etc/passwd<br>grep ‘$USER’ /etc/passwd<br>grep <code>whoami</code> /etc/passwd<br>grep命令选项<br>–color=auto: 对匹配到的文本着色显示<br>-v: 显示不被pattern匹配到的行<br>-i: 忽略字符大小写<br>-n：显示匹配的行号<br>-c: 统计匹配的行数<br>-o: 仅显示匹配到的字符串<br>-q: 静默模式，不输出任何信息<br>-A #: after, 后#行<br>-B #: before, 前#行<br>-C #：context, 前后各#行<br>-e：实现多个选项间的逻辑or关系<br>grep –e ‘cat ’ -e ‘dog’ file<br>-w：匹配整个单词<br>-E：使用ERE<br>-F：相当于fgrep，不支持正则表达式<br>-ffile: 根据模式文件处理  </p>
+</blockquote>
+<h1 id="正则表达式-重点"><a href="#正则表达式-重点" class="headerlink" title="正则表达式*重点"></a>正则表达式<strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong>重点</h1><pre><code>REGEXP：Regular Expressions，由一类特殊字符及文本字符所编写的模式，其中有些字符（元字符）不表示字符字面意义，而表示控制或通配的功能
+程序支持：grep,sed,awk,vim, less,nginx,varnish等
+分两类：
+基本正则表达式：BRE
+扩展正则表达式：ERE
+grep -E, egrep
+正则表达式引擎：
+采用不同算法，检查处理正则表达式的软件模块
+PCRE（Perl Compatible Regular Expressions）
+元字符分类：字符匹配、匹配次数、位置锚定、分组
+man 7 regex  
+</code></pre><h3 id="基本正则表达式元字符"><a href="#基本正则表达式元字符" class="headerlink" title="基本正则表达式元字符"></a>基本正则表达式元字符</h3><pre><code>字符匹配:
+. 匹配任意单个字符
+[] 匹配指定范围内的任意单个字符，示例：[wang] [0-9] [a-z] [a-zA-Z]
+[^] 匹配指定范围外的任意单个字符
+[:alnum:] 字母和数字
+[:alpha:] 代表任何英文大小写字符，亦即A-Z, a-z
+[:lower:] 小写字母[:upper:] 大写字母
+[:blank:] 空白字符（空格和制表符）
+[:space:]水平和垂直的空白字符（比[:blank:]包含的范围广）
+[:cntrl:] 不可打印的控制字符（退格、删除、警铃...）
+[:digit:] 十进制数字[:xdigit:]十六进制数字
+[:graph:] 可打印的非空白字符
+[:print:] 可打印字符
+[:punct:] 标点符号
+</code></pre><h3 id="通配符是通配的文件名"><a href="#通配符是通配的文件名" class="headerlink" title="通配符是通配的文件名"></a>通配符是通配的文件名</h3><pre><code>正则表达式是配的字符串，文件的内容
+【wang】 匹配这四个字符其中的一个
+grep &quot;[123]&quot; /etc/passwd查询passwd文件夹里包含123中一个数字的文件
+grep -v &quot;[123]&quot; /etc/passwd查询passwd文件夹里不包含123中一个数字的文件
+grep &quot;[^123]&quot; /etc/passwd查询passwd文件夹里除了123中一个数字的文件
+匹配次数：用在要指定次数的字符后面，用于指定前面的字符要出现的次数
+‘* 匹配前面的字符任意次，包括0次
+贪婪模式：尽可能长的匹配
+.*任意长度的任意字符
+\?匹配其前面的字符0或1次
+\+匹配其前面的字符至少1次
+\{n\}匹配前面的字符n次
+\{m,n\}匹配前面的字符至少m次，至多n次
+\{,n\}匹配前面的字符至多n次
+\{n,\}匹配前面的字符至少n次
+</code></pre><h3 id="位置锚定：定位出现的位置"><a href="#位置锚定：定位出现的位置" class="headerlink" title="位置锚定：定位出现的位置"></a>位置锚定：定位出现的位置</h3><pre><code>^ 行首锚定，用于模式的最左侧 grep &quot;^bash&quot; /etc/passwd
+$ 行尾锚定，用于模式的最右侧 grep &quot;bash$&quot; /etc/passwd
+^PATTERN$ 用于模式匹配整行
+^$ 空行
+^[[:space:]]*$ 空白行
+\&lt; 或\b词首锚定，用于单词模式的左侧(单词不能包含数字、_、其他字母开头)
+\&gt; 或\b词尾锚定，用于单词模式的右侧
+\&lt;PATTERN\&gt;匹配整个单词***************************************************
+</code></pre><h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><pre><code>分组：\(\) 将一个或多个字符捆绑在一起，当作一个整体处理，如：\(root\)\+
+分组括号中的模式匹配到的内容会被正则表达式引擎记录于内部的变量中，这些变量的命名方式为: \1, \2, \3, ...
+\1表示从左侧起第一个左括号以及与之匹配右括号之间的模式所匹配到的字符
+示例：\(string1\+\(string2\)*\)
+\1 ：string1\+\(string2\)*
+\2 ：string2
+后向引用：引用前面的分组括号中的模式所匹配字符，而非模式本身
+或者：\|
+示例：a\|b: a或b C\|cat: C或cat \(C\|c\)at:Cat或cat
+元字符
+&gt;^ 行首  
+$行尾  
+.任意单一字符  
+[][]内任意单一字符  
+[^]除[]内任意单一字符  
+**前面字符重复不确定次数  
+\+\+前面字符重复一次以上不确定次数  
+\?？前面字符重复0或1次  
+\转义符  
+.*任意长度字符  
+\{n\}前面字符重复n次  
+\{n,\}前面字符重复n次以上  
+\{m,n\}前面字符重复m次和n次之间  
+[:alnum:]字母和数字
+[:alpha:]代表任何英文大小写字符，亦即A-Z, a-z
+[:lower:]小写字母
+[:upper:]大写字母
+[:blank:]水平空白字符（空格和制表符）
+[:space:]所有水平和垂直的空白字符（比[:blank:]包含的范围广）
+[:cntrl:]不可打印的控制字符（退格、删除、警铃...）
+[:digit:]十进制数字
+[:graph:]可打印的非空白字符
+[:print:]可打印字符
+[:punct:]标点符号
+[:xdigit:]十六进制数字  
+</code></pre><h2 id="egrep及扩展的正则表达式"><a href="#egrep及扩展的正则表达式" class="headerlink" title="egrep及扩展的正则表达式"></a>egrep及扩展的正则表达式</h2><pre><code>egrep= grep -E
+egrep[OPTIONS] PATTERN [FILE...]
+扩展正则表达式的元字符：
+字符匹配：
+. 任意单个字符
+[] 指定范围的字符
+[^] 不在指定范围的字符
+次数匹配：
+*匹配前面字符任意次
+?0或1次
++1次或多次
+{m}匹配m次
+{m,n}至少m，至多n次
+位置锚定：
+^行首
+$行尾
+\&lt;, \b语首
+\&gt;, \b语尾
+分组：
+()
+后向引用：\1, \2, ...
+或者：
+a|ba或b
+C|catC或cat
+(C|c)atCat或cat
+</code></pre><h1 id="vim简介-重点"><a href="#vim简介-重点" class="headerlink" title="vim简介*重点"></a>vim简介<strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong>重点</h1><pre><code>见PDF6中第32，68，69页图片
+vi: Visual Interface，文本编辑器
+文本：ASCII, Unicode
+文本编辑种类：
+行编辑器: sed
+全屏编辑器：nano, vi
+vim-Vi Improved
+其他编辑器：
+gedit一个简单的图形编辑器
+gvim一个Vim编辑器的图形版本
+</code></pre><h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><pre><code># vim [OPTION]... FILE...
++#打开文件后，让光标处于第#行的行首，+默认行尾
++/PATTERN打开文件后，直接让光标处于第一个被PATTERN匹配到的行的行首
+–b file 二进制方式打开文件
+–d file1 file2… 比较多个文件
+-m file 只读打开文件
+ex file 或vim –e 直接进入ex模式
+如果该文件存在，文件被打开并显示内容
+如果该文件不存在，当编辑后第一次存盘时创建它
+模式转换
+命令模式--&gt; 插入模式
+iinsert, 在光标所在处输入
+I在当前光标所在行的行首输入
+aappend, 在光标所在处后面输入
+A在当前光标所在行的行尾输入
+o在当前光标所在行的下方打开一个新行
+O在当前光标所在行的上方打开一个新行  
+</code></pre><hr>
+<pre><code>插入模式--------&gt; 命令模式
+ESC
+命令模式--------&gt; 扩展命令模式
+:
+扩展命令模式--------&gt; 命令模式
+ESC,enter
+</code></pre><hr>
+<pre><code>扩展命令模式：
+:q退出
+:q!强制退出，丢弃做出的修改
+:wq保存退出
+:x保存退出
+命令模式
+ZZ保存退出
+ZQ不保存退出
+命令模式光标跳转
+字符间跳转：
+h: 左l: 右j: 下k: 上
+.#COMMAND：跳转由#指定的个数的字符******************
+</code></pre><h3 id="单词间跳转："><a href="#单词间跳转：" class="headerlink" title="单词间跳转："></a>单词间跳转：</h3><pre><code>w：下一个单词的词首
+e：当前或下一单词的词尾
+b：当前或前一个单词的词首
+。#COMMAND：由#指定一次跳转的单词数
+当前页跳转：
+H：页首M：页中间行L:页底
+zt：将光标所在当前行移到屏幕顶端
+zz：将光标所在当前行移到屏幕中间
+zb：将光标所在当前行移到屏幕底端
+行首行尾跳转：
+^: 跳转至行首的第一个非空白字符
+0: 跳转至行首
+$: 跳转至行尾
+行间移动：
+.#G、扩展命令模式下：# 跳转至由#指定行
+G：最后一行
+1G, gg: 第一行
+句间移动：
+)：下一句(：上一句
+段落间移动：
+}:下一段{：上一段
+命令模式翻屏操作
+Ctrl+f: 向文件尾部翻一屏
+Ctrl+b: 向文件首部翻一屏
+Ctrl+d: 向文件尾部翻半屏
+Ctrl+u：向文件首部翻半屏
+</code></pre><h3 id="命令模式操作-重点"><a href="#命令模式操作-重点" class="headerlink" title="命令模式操作**重点"></a>命令模式操作<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>重点</h3><pre><code>删除命令：
+d: 删除命令，可结合光标跳转字符，实现范围删除
+d$: 删除到行尾
+d^:删除到非空行首
+d0:删除到行首
+dw:
+de:
+db:
+.#COMMAND
+dd: 删除光标所在的行
+.#dd：多行删除
+D：从当前光标位置一直删除到行尾，等同于d$
+复制命令(y, yank)：
+y: 复制，行为相似于d命令
+y$
+y0
+y^
+ye
+yw
+yb
+.#COMMAND
+yy：复制行
+.#yy: 复制多行
+Y: 复制整行
+</code></pre><h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><pre><code>di&quot; 光标在”“之间，则删除”“之间的内容
+yi( 光标在()之间，则复制()之间的内容
+vi[ 光标在[]之间，则选中[]之间的内容
+dtx删除字符直到遇见光标之后的第一个x 字符
+ytx复制字符直到遇见光标之后的第一个x 字符
+扩展命令模式：地址定界********************按ESC进入命令模式，再按：进入扩展命令模式
+</code></pre><h3 id="地址定界"><a href="#地址定界" class="headerlink" title="地址定界"></a>地址定界</h3><pre><code>:start_pos,end_pos
+# 具体第#行，例如2表示第2行
+#,# 从左侧#表示起始行，到右侧#表示结尾行
+#,+# 从左侧#表示的起始行，加上右侧#表示的行数
+：2,+3 表示2到5行
+. 当前行
+$ 最后一行
+.,$-1 当前行到倒数第二行
+% 全文, 相当于1,$
+/pat1/,/pat2/
+从第一次被pat1模式匹配到的行开始，一直到第一次被pat2匹配到的行结束
+#,/pat/
+/pat/,$
+使用方式：后跟一个编辑命令
+d
+y
+w file: 将范围内的行另存至指定文件中
+r file：在指定位置插入指定文件中的所有内容
+/PATTERN：从当前光标所在处向文件尾部查找
+?PATTERN：从当前光标所在处向文件首部查找
+n：与命令同方向
+N：与命令反方向
+</code></pre><hr>
+<pre><code>s: 在扩展模式下完成查找替换操作************************************重点
+格式：s/要查找的内容/替换为的内容/修饰符
+要查找的内容：可使用模式
+替换为的内容：不能使用模式，但可以使用\1, \2, ...等后向引用符号；还可以使用“&amp;”引用前面查找时查找到的整个内容
+修饰符：
+i: 忽略大小写
+g: 全局替换；默认情况下，每一行只替换第一次出现
+gc:全局替换，每次替换前询问
+查找替换中的分隔符/可替换为其它字符，例如
+s@/etc@/var@g
+s#/boot#/#i
+</code></pre><hr>
+<pre><code>命令模式：撤消更改
+u撤销最近的更改
+#u撤销之前多次更改
+U撤消光标落在这行后所有此行的更改
+按Ctrl-r重做最后的“撤消”更改
+. 重复前一个操作
+n.重复前一个操作n次
+多文件模式
+vim FILE1 FILE2 FILE3 ...
+:next 下一个
+:prev前一个
+:first 第一个
+:last 最后一个
+:wall 保存所有
+:qall退出所有
+:wqall
+</code></pre><hr>
+<h3 id="定制vim的工作特性"><a href="#定制vim的工作特性" class="headerlink" title="定制vim的工作特性"></a>定制vim的工作特性</h3><pre><code>配置文件：永久有效
+全局：/etc/vimrc***********************
+个人：~/.vimrc
+扩展模式：当前vim进程有效
+(1) 行号
+显示：set number, 简写为set nu
+取消显示：set nonumber, 简写为set nonu
+(2) 忽略字符的大小写
+启用：set ic
+不忽略：set noic
+(3) 自动缩进
+启用：set ai
+禁用：set noai
+(4) 智能缩进
+启用：smartindent简写set si
+禁用：set nosi
+(5) 高亮搜索
+启用：set hlsearch
+禁用：set nohlsearch
+(6) 语法高亮
+启用：syntax on
+禁用：syntax off
+(7) 显示Tab和换行符^I 和$显示
+启用：set list
+禁用：set nolist
+(8) 文件格式
+启用windows格式：set fileformat=dos
+启用unix格式：set fileformat=unix
+简写：set ff=dos|unix
+(9) 设置文本宽度
+set textwidth=65 (vimonly)
+set wrapmargin=15
+(10) 设置光标所在行的标识线
+启用：set cursorline，简写cul
+禁用：set no cursorline
+(11) 复制保留格式
+启用：set paste
+禁用：set nopaste
+</code></pre><hr>
+<h2 id="SHELL脚本-重点"><a href="#SHELL脚本-重点" class="headerlink" title="SHELL脚本*重点"></a>SHELL脚本<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>重点</h2><pre><code>创建shell脚本
+第一步：使用文本编辑器来创建文本文件
+第一行必须包括shell声明序列：#!
+.#!/bin/bash
+添加注释
+注释以#开头
+第二步：运行脚本
+给予执行权限，在命令行上指定脚本的绝对或相对路径
+直接运行解释器，将脚本作为解释器程序的参数运行
+脚本规范
+脚本代码开头约定
+1、第一行一般为调用使用的语言
+2、程序名，避免更改文件名为无法找到正确的文件
+3、版本号
+4、更改后的时间
+5、作者相关信息
+6、该程序的作用，及注意事项
+7、最后是各版本的更新简要说明
+shell脚本示例
+#!/bin/bash  
+# ------------------------------------------  
+# Filename: hello.sh 
+# Revision: 1.1  
+# Date: 2017/06/01  
+# Author: wang  
+# Email: wang@gmail.com  
+# Website: www.magedu.com  
+# Description: This is the first script  
+# ------------------------------------------  
+# Copyright: 2017 wang  
+# License: GPL  
+echo “hello world”  
+</code></pre><hr>
+<pre><code>.vimrc文件在根目录下，修改：vim  .vimrc 文件
+可以修改vim的脚本注释作者等信息*******************************************
+</code></pre><hr>
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><pre><code>变量赋值：name=‘value’
+可以使用引用value:
+(1) 可以是直接字串; name=&quot;root&quot;
+(2) 变量引用：name=&quot;$USER&quot;
+(3) 命令引用：name=`COMMAND` name=$(COMMAND)
+变量引用：${name} $name
+&quot;&quot;：弱引用，其中的变量引用会被替换为变量值
+&apos;&apos;：强引用，其中的变量引用不会被替换为变量值，而保持原字符串
+显示已定义的所有变量：set
+删除变量：unset name
+环境变量
+变量声明、赋值：
+export name=VALUE
+declare -x name=VALUE
+变量引用：$name, ${name}
+显示所有环境变量：
+env
+printenv
+export
+declare -x
+删除变量：
+unset name
+退出状态
+进程使用退出状态来报告成功或失败
+•0 代表成功，1－255代表失败
+•$? 变量保存最近的命令退出状态
+例如：
+ping-c1-W1hostdown&amp;&gt;/dev/null
+echo$?
+</code></pre><hr>
+<h3 id="退出状态码-8"><a href="#退出状态码-8" class="headerlink" title="退出状态码***8"></a>退出状态码<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>8</h3><pre><code>bash自定义退出状态码
+exit [n]：自定义退出状态码
+注意：脚本中一旦遇到exit命令，脚本会立即终止；终止退出状态取决于exit命令后面的数字
+注意：如果未给脚本指定退出状态码，整个脚本的退出状态码取决于脚本中执行的最后一条命令的状态码
+</code></pre><h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><pre><code>bash中的算术运算:help let
++, -, *, /, %取模（取余）, **（乘方）
+实现算术运算：
+(1) let var=算术表达式
+(2) var=$[算术表达式]
+(3) var=$((算术表达式))
+(4) var=$(expr arg1 arg2 arg3 ...)
+(5) declare –ivar= 数值
+(6) echo ‘算术表达式’ | bc
+乘法符号有些场景中需要转义，如*
+bash有内建的随机数生成器：$RANDOM（0-32767）
+echo $[$RANDOM%50] ：0-49之间随机数
+增强型赋值：
++=, -=, *=, /=, %=
+let varOPERvalue
+例如:let count+=3
+自加3后自赋值
+自增，自减：
+例子：  
+let var+=1
+let var++
+let var-=1
+let var--
+let n=1+2
+echo $n
+3
+n=$（2+3）
+echo $n
+2
+expr 3+4  错误
+expr 3 + 4
+7
+expr为命令  3+4为参数之间要有空格************************************
+echo $[RANDOM%100+1] 取1-100之间的随机数             **
+RANDOM为随机数，除以100得到的余数为0-99，+1后为1-100     *****
+echo $? 查询命令执行结果
+</code></pre><hr>
+<pre><code>&amp; 与  交集    ****************************************************  
+| 或  并集
+! 非  
+^ 异或 相同为0 不同为1
+&amp;&amp; 短路与 两条命令，第一条为真，则执行第二天2条看真假，第一条为假的情况下直接不执行命令  
+|| 短路或 两条命令，第一条为假，则执行第二天2条看真假，第一条为真的情况下直接不执行命令
+同或 相同为1  不同为0
+[ &quot;$str1&quot; !=&quot;$str2&quot; ] 判断两个字符串是否相同
+bash +x 加sh脚本可以看到脚本运行的过程，可以检查哪里出错
+export +定义的变量可使该变量在子进程中也生效
+find -name +文件名 查找文件或者安装包
+</code></pre><hr>
+<h3 id="bash的数值测试"><a href="#bash的数值测试" class="headerlink" title="bash的数值测试"></a>bash的数值测试</h3><pre><code>-v VAR
+变量VAR是否设置
+数值测试：
+-gt是否大于
+-ge是否大于等于
+-eq是否等于
+-ne是否不等于
+-lt是否小于
+-le是否小于等于
+Bash的文件属性测试
+</code></pre><h3 id="文件大小测试："><a href="#文件大小测试：" class="headerlink" title="文件大小测试："></a>文件大小测试：</h3><pre><code>-s FILE: 是否存在且非空
+文件是否打开：
+-t fd: fd文件描述符是否在某终端已经打开
+-N FILE：文件自从上一次被读取之后是否被修改过
+-O FILE：当前有效用户是否为文件属主
+-G FILE：当前有效用户是否为文件属组
+Bash的文件测试
+</code></pre><h3 id="存在性测试"><a href="#存在性测试" class="headerlink" title="存在性测试"></a>存在性测试</h3><pre><code>-a FILE：同-e
+-e FILE: 文件存在性测试，存在为真，否则为假
+存在性及类别测试
+-b FILE：是否存在且为块设备文件
+-c FILE：是否存在且为字符设备文件
+-d FILE：是否存在且为目录文件
+-f FILE：是否存在且为普通文件
+-h FILE 或-L FILE：存在且为符号链接文件
+-p FILE：是否存在且为命名管道文件
+-S FILE：是否存在且为套接字文件
+</code></pre><hr>
+<pre><code>使用read命令来接受输入
+使用read来把输入值分配给一个或多个shell变量
+-p指定要显示的提示
+-s 静默输入，一般用于密码
+-n N指定输入的字符长度N
+-d‘字符’ 输入结束符
+-t N TIMEOUT为N秒
+read从标准输入中读取值，给每个单词分配一个变量
+所有剩余单词都被分配给最后一个变量
+read -p “Enter a filename:“ FILE
+</code></pre><hr>
+<h2 id="bash如何展开命令行-重点"><a href="#bash如何展开命令行-重点" class="headerlink" title="bash如何展开命令行*重点"></a>bash如何展开命令行<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>重点</h2><pre><code>把命令行分成单个命令词
+展开别名
+展开大括号的声明（{}）
+展开波浪符声明（~）
+命令替换$()和``）
+再次把命令行分成命令词
+展开文件通配（*、?、[abc]等等）
+准备I/0重导向（&lt;、&gt;）
+运行命令
+防止扩展***********************************
+反斜线（\）会使随后的字符按原意解释
+$echoYourcost:\$5.00
+Yourcost:$5.00
+加引号来防止扩展
+•单引号（’）防止所有扩展
+•双引号（”）也防止所有扩展，但是以下情况例外：
+$（美元符号）－变量扩展
+`（反引号）－命令替换
+\（反斜线）－禁止单个字符扩展
+!（叹号）－历史命令替换
+</code></pre><hr>
+<h1 id="Profile类"><a href="#Profile类" class="headerlink" title="Profile类"></a>Profile类</h1><pre><code>按功能划分，存在两类：
+profile类和bashrc类
+profile类：为交互式登录的shell提供配置
+全局：/etc/profile, /etc/profile.d/*.sh
+个人：~/.bash_profile
+功用：
+(1) 用于定义环境变量
+(2) 运行命令或脚本
+Bashrc类
+bashrc类：为非交互式和交互式登录的shell提供配置
+全局：/etc/bashrc
+个人：~/.bashrc
+功用：
+(1) 定义命令别名和函数
+(2) 定义本地变量
+</code></pre><hr>
+<h3 id="locate命令"><a href="#locate命令" class="headerlink" title="locate命令"></a>locate命令</h3><pre><code>locate KEYWORD
+有用的选项
+&gt;-i不区分大小写的搜索
+&gt;-n N只列举前N个匹配项目
+&gt;-r 使用正则表达式
+示例
+搜索名称或路径中带有“conf”的文件
+locate conf
+使用Regex来搜索以“.conf”结尾的文件
+locate -r ‘\.conf$’
+</code></pre><h1 id="find-重点"><a href="#find-重点" class="headerlink" title="find***重点"></a>find<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>重点</h1><pre><code>查找条件  
+指搜索层级  
+-maxdepthlevel 最大搜索目录深度,指定目录为第1级  
+-mindepthlevel 最小搜索目录深度  
+先处理目录内的文件，再处理目录  
+-depth  
+</code></pre><hr>
+<pre><code>根据文件名和inode查找：  
+-name &quot;文件名称&quot;：支持使用glob  
+*, ?, [], [^]  
+-iname&quot;文件名称&quot;：不区分字母大小写  
+-inumn 按inode号查找  
+-samefilename 相同inode号的文件  
+-links n 链接数为n的文件  
+-regex“PATTERN”：以PATTERN匹配整个文件路径，而非文件名称  
+</code></pre><hr>
+<pre><code>根据属主、属组查找：  
+-user USERNAME：查找属主为指定用户(UID)的文件  
+-group GRPNAME: 查找属组为指定组(GID)的文件  
+-uidUserID：查找属主为指定的UID号的文件  
+-gidGroupID：查找属组为指定的GID号的文件  
+-nouser：查找没有属主的文件  
+-nogroup：查找没有属组的文件  
+</code></pre><hr>
+<pre><code>根据文件类型查找：  
+&gt;-type TYPE:  
+•f: 普通文件  
+•d: 目录文件  
+•l: 符号链接文件  
+•s：套接字文件  
+•b: 块设备文件  
+•c: 字符设备文件  
+•p: 管道文件  
+空文件或目录
+-empty
+find /app -type d -empty
+</code></pre><hr>
+<h3 id="find示例"><a href="#find示例" class="headerlink" title="find示例"></a>find示例</h3><pre><code>备份配置文件，添加.orig这个扩展名
+find -name “*.conf” -exec cp {} {}.orig\;
+提示删除存在时间超过３天以上的joe的临时文件
+find/tmp-ctime+3-userjoe-okrm{}\;
+在主目录中寻找可被其它用户写入的文件
+find~-perm-002 -execchmodo-w{}\;
+查找/data下的权限为644，后缀为sh的普通文件，增加执行权限
+find /data –type f -perm 644 -name “*.sh” –exec chmod755 {} \;
+查看/home的目录
+find /home –type d -ls
+</code></pre><hr>
+<h1 id="10-14笔记"><a href="#10-14笔记" class="headerlink" title="10.14笔记**"></a>10.14笔记<strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></h1><pre><code>locate text.sh搜索文件
+因为是从locate的数据库搜索文件的，速度快不影响服务器性能，适合搜索本来就在内存中的文件，而新建的文件不会马上搜索到，可以输入updatedb更新locate数据库
+locata +&quot;*通配符&quot;搜索文件
+locata -r &quot;\.sh$&quot;搜索以.sh结尾的文件(支持正则表达式)  
+find搜索是实时搜索，在硬盘上搜索，速度慢且影响服务器性能，而且没有权限的文件夹搜索不进去         ******************************************（面试常有）
+find （路径）   -name（iname） &quot;*text*&quot;搜索包含text的文件+i后忽略大小写
+find -name &quot;*.txt&quot;  查找以txt结尾的文件
+find -empty 搜索空文件或者空目录
+find / -size 10k 搜索9-10k的文件
+find / -size -10k  搜索0-10k的文件
+find / -size +10k  搜索大于10k的文件
+find / -size +5k -size 10k 搜索5-10K的文件
+find -name &quot;*.txt&quot; -exec（批量） rm {} \; 查找后缀名为txt的文件并 批量 删除
+
+chmod a+x 文件   给所有人加上此文件的执行权限
+ll -d 查询当前目录下的权限  **********************************
+</code></pre><h3 id="compress"><a href="#compress" class="headerlink" title="compress"></a>compress</h3><pre><code>compress +文件【多个文件时压缩每个文件为单独的压缩文件】  压缩该文件，压缩后该文件消失，生成一个.z的压缩文件
+compress -c +文件 &gt; 文件.gz压缩文件并显示过程 不会丢失源文件，利用重定向保留原文件 
+uncompress +文件【同解压】 等于 compress -d+文件  解压该文件，解压后该文件消失，生成不带.z的原文件 ******************************************************
+</code></pre><h3 id="gzip"><a href="#gzip" class="headerlink" title="gzip"></a>gzip</h3><pre><code>gzip +文件【多个文件时压缩每个文件为单独的压缩文件】  压缩该文件，压缩后该文件消失，生成一个.gz的压缩文件
+zcat -c +文件 &gt; 文件.gz压缩文件并显示过程 不会丢失源文件，利用重定向保留原文件 
+gunzip +文件【同解压】 等于 gzip -d+文件  解压该文件，解压后该文件消失，生成不带.gz的原文件  ****************************************
+</code></pre><h3 id="bzip2"><a href="#bzip2" class="headerlink" title="bzip2"></a>bzip2</h3><pre><code>bzip2 +文件【多个文件时压缩每个文件为单独的压缩文件】  压缩该文件，压缩后该文件消失，生成一个.bz2的压缩文件
+bzip2 -k 压缩文件并保留原文件
+不会丢失源文件，利用重定向保留原文件 
+bzip2 -d+文件 等于bunzip2  解压该文件，解压后该文件消失，生成不带.bz2的原文件
+bzcat +文件  查看压缩文件而不执行解压   ***************************
+</code></pre><h3 id="xz"><a href="#xz" class="headerlink" title="xz"></a>xz</h3><pre><code>xz +文件【多个文件时压缩每个文件为单独的压缩文件】  压缩该文件，压缩后该文件消失，生成一个.xz的压缩文件
+zx -k 压缩文件并保留原文件
+不会丢失源文件，利用重定向保留原文件 
+zx -d+文件 等于unzx  解压该文件，解压后该文件消失，生成不带.zx的原文件
+xzcat +文件 查看压缩文件而不执行解压
+处理-开头的文件时前面加--
+以上压缩只能压缩单个文件，而不能压缩文件夹
+压缩比 xz &gt; bzip2 &gt; gzip &gt; compress
+</code></pre><h3 id="zip"><a href="#zip" class="headerlink" title="zip"></a>zip</h3><pre><code>zip +生成文件名 +要压缩的文件名 压缩文件  
+zip -r /backup/sysconfig /etc/sysconfig  加-r是压缩文件夹，将etc下的文件夹  sysconfig打包压缩生成sysconfig.zip文件放到backup文件夹  
+unzip sysconfig.zip 解压文件 +p可以保留权限  
+</code></pre><h3 id="tar"><a href="#tar" class="headerlink" title="tar"></a>tar</h3><pre><code>tar -cvf etc.tar etc  将整个etc文件夹打包保存为etc.tar ，其中后缀名tar要手动添加，只有打包而没有压缩文件  
+tar -rf etc.tar text 追加text文件到tar.  
+tar xvf etc.tar -C /data  解压文件到data文件夹  
+</code></pre><hr>
+<p>例子<br>    将data下的文件夹etc先打包再压缩的三种方法，压缩比 xz &gt;bz2 &gt;gz<br>    tar zcvf etc.tar.gz  /data/etc<br>    tar jcvf etc.tar.bz2  /data/etc<br>    tar Jcvf etc.tar.xz  /data/etc<br>    tar cvf etc.tar.xz  解压到当前目录<br>    tar xf etc.tar.bz2   解压到当前目录<br>    split -b 2M -d /data/bigfile.tar.xz  bigfile 把大文件bigfile.tar.xz切割为每2M一个的小文件，并以bigfile开头后面加数字，如bigfile1,bigfile2,bigfile3<br>    cat bigfile* &gt; bigfile.tar.xz 合并切割的这些文件  </p>
+<h1 id="处理文本的工具sed-重点"><a href="#处理文本的工具sed-重点" class="headerlink" title="处理文本的工具sed  *重点"></a>处理文本的工具sed  <strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong>重点</h1><pre><code>sed工具
+用法：
+sed[option]... &apos;script&apos; inputfile...
+常用选项：
+-n不输出模式空间内容到屏幕，即不自动打印
+-e多点编辑
+-f /PATH/SCRIPT_FILE从指定文件中读取编辑脚本
+-r支持使用扩展正则表达式
+-i.bak备份文件并原处编辑
+script:
+&apos;地址命令&apos;
+地址定界：
+(1) 不给地址：对全文进行处理
+(2) 单地址：
+.#: 指定的行，$：最后一行
+/pattern/：被此处模式所能够匹配到的每一行
+(3) 地址范围：
+.#,#
+.#,+#
+/pat1/,/pat2/
+.#,/pat1/
+(4) ~：步进
+1~2 奇数行
+2~2 偶数行
+</code></pre><h3 id="编辑命令："><a href="#编辑命令：" class="headerlink" title="编辑命令："></a>编辑命令：</h3><pre><code>d删除模式空间匹配的行，并立即启用下一轮循环
+p打印当前模式空间内容，追加到默认输出之后
+a [\]text在指定行后面追加文本，支持使用\n实现多行追加
+i[\]text在行前面插入文本
+c [\]text替换行为单行或多行文本
+w /path/file保存模式匹配的行至指定文件
+r /path/file读取指定文件的文本至模式空间中匹配到的行后
+=为模式空间中的行打印行号
+!模式空间中匹配行取反处理
+</code></pre><h3 id="SED笔记-重点重点重点"><a href="#SED笔记-重点重点重点" class="headerlink" title="SED笔记**重点重点重点"></a>SED笔记<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>重点重点重点</h3><pre><code>SED
+
+用法：  不加-i时仅仅是打印到屏幕显示，加-i可以修改文件，一般加-i.bak备份一个.bak文件
+sed[option]... &apos;script&apos; inputfile...
+常用选项：
+-n不输出模式空间内容到屏幕，即不自动打印
+-e多点编辑
+-f /PATH/SCRIPT_FILE从指定文件中读取编辑脚本
+-r支持使用扩展正则表达式
+-i.bak备份文件并原处编辑
+编辑命令：
+d删除模式空间匹配的行，并立即启用下一轮循环
+p打印当前模式空间内容，追加到默认输出之后
+a [\]text在指定行后面追加文本，支持使用\n实现多行追加
+i[\]text在行前面插入文本
+c [\]text替换行为单行或多行文本
+w /path/file保存模式匹配的行至指定文件
+r /path/file读取指定文件的文本至模式空间中匹配到的行后
+=为模式空间中的行打印行号
+!模式空间中匹配行取反处理
+</code></pre><hr>
+<pre><code>例子  
+sed‘2p’ /etc/passwd
+sed–n ‘2p’ /etc/passwd  显示第2行
+sed–n ‘1,4p’ /etc/passwd  显示1-4行
+sed–n ‘/root/p’ /etc/passwd  显示带有root的行
+sed–n ‘2,/root/p’ /etc/passwd  从2行开始
+sed-n ‘/^$/=’ file 显示空行行号  =代表行号 
+sed–n –e ‘/^$/p’ –e ‘/^$/=’ file
+sed–n –r &apos;/^#|^$/d&apos; + file 删除该文件中带#注释和空白的行
+sed‘/root/a\superman’ /etc/passwd行后
+sed‘/root/i\superman’ /etc/passwd行前
+sed‘/root/c\superman’ /etc/passwd代替行
+s///查找替换,支持使用其它分隔符，s@@@，s###
+替换标记：
+g行内全局替换
+p显示替换成功的行
+w /PATH/FILE将替换成功的行保存至文件中
+nl 可以显示行号
+</code></pre><hr>
+<pre><code>sed -n &apos;/^u/p&apos;  /data/f1  打印出data下的f1文件中以u开头的行
+sed -n &apos;3,9&apos;只显示3-9行
+sed -n &apos;/^ftp/,/^lib/&apos; passwd 显示passwd文件中以ftp开头和以lib开头之间的行
+sed -n &apos;1~2p&apos; 打印奇数行
+sed -n &apos;2~2p&apos; 打印偶数行
+sed -i &apos;/^SELINUX=/cSELINUX=disabled&apos; /etc/selinux/config  把config文件中的SELINUX=enforcing改为SELINUX=disabled  禁用selinux
+sed -n &apos;s/tmpfs/tempfilesystem/g&apos; /etc/fstab 将文件fstab中的tmpfs替换为tempfilesystem，并且只显示替换结果，s为查找替换，p为只显示替换的那一行
+sed -r &apos;s/[[:alpha:]]/\u&amp;/g&apos; +文件 [[:alpha:]]意思为字母，u为大写，&amp;表示搜索到的内容，用u&amp;替换原内容，把所有的字母替换为大写 
+sed -r &apos;s/[[:alpha:]]/\l&amp;/g&apos; +文件 [[:alpha:]]意思为字母，l为小写，&amp;表示搜索到的内容，用u&amp;替换原内容，把所有的字母替换为小写 
+sed -r &apos;s/^[^#]/#&amp;&apos; +文件 将文件中不是#开头的行加上#并显示，其中&amp;代表被搜索出来的内容，等于用#&amp;替换了原来的内容，加-i可以直接修改 .............................（重点）
+sed -nr &apos;/.*CMDLINE_LINUX.*/s#(.*)&quot;#\1 net.ifnames=0&quot;#p&apos; /etc/default/grub   在带有CMDLINE_LINUX的一行后加上net.ifnames=0  仅在7系统需要修改......................修改
+s///查找替换,支持使用其它分隔符，s@@@，s###  
+替换标记：  
+g行内全局替换  
+p显示替换成功的行  
+w /PATH/FILE将替换成功的行保存至文件中  
+</code></pre><hr>
+<p>第三次博客：<br>TXT:10-08–10-14<br>PDF 6开始-PDF9  </p>
 <hr>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->

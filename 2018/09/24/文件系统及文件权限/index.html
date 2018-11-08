@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apologize</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="LH,"> 
+    
+    <meta name="author" content="lululuhao"> 
+    <link rel="alternative" href="atom.xml" title="Apologize" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">文件系统及文件权限</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">文件系统及文件权限</h1>
+        <div class="stuff">
+            <span>九月 24, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/L·H/">L·H</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="文件系统及文件权限"><a href="#文件系统及文件权限" class="headerlink" title="文件系统及文件权限"></a>文件系统及文件权限</h1><h2 id="命令帮助"><a href="#命令帮助" class="headerlink" title="命令帮助"></a>命令帮助</h2><h3 id="–help和-h选项"><a href="#–help和-h选项" class="headerlink" title="–help和-h选项"></a>–help和-h选项</h3><p>显示用法总结和参数列表<br>使用的大多数，但并非所有的<br>示例：  </p>
+<blockquote>
+<p>date–help<br>Usage:date[OPTION]…[+FORMAT]or: date[-u|–utc|–universal][MMDDhhmm[[CC]YY][.ss]]<br>[]表示可选项<br>CAPS或&lt;&gt;表示变化的数据<br>…表示一个列表<br>x |y| z的意思是“x或y或z“<br>-abc的意思是-a -b –c<br>{ } 表示分组  </p>
+</blockquote>
+<h3 id="man命令"><a href="#man命令" class="headerlink" title="man命令"></a>man命令</h3><p>man命令的操作方法：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">使用less命令实现  </span><br><span class="line">space, ^v, ^f, ^F: 向文件尾翻屏  </span><br><span class="line">b, ^b: 向文件首部翻屏  </span><br><span class="line">d, ^d: 向文件尾部翻半屏  </span><br><span class="line">u, ^u: 向文件首部翻半屏  </span><br><span class="line">RETURN, ^N, e, ^E or j or ^J: 向文件尾部翻一行  </span><br><span class="line">y or ^Y or ^P or k or ^K：向文件首部翻一行  </span><br><span class="line">q: 退出  </span><br><span class="line">#：跳转至第#行  </span><br><span class="line">1G: 回到文件首部  </span><br><span class="line">G：翻至文件尾部</span><br></pre></td></tr></table></figure></p>
+<h3 id="man搜索"><a href="#man搜索" class="headerlink" title="man搜索"></a>man搜索</h3><p>/KEYWORD:<br>以KEYWORD指定的字符串为关键字，从当前位置向文件尾部搜索；<br>不区分字符大小写；<br>n: 下一个<br>N：上一个<br>KEYWORD:<br>以KEYWORD指定的字符串为关键字，从当前位置向文件首部搜索；不区分字符大小写；<br>n: 跟搜索命令同方向，下一个<br>N：跟搜索命令反方向，上一个  </p>
+<h3 id="info"><a href="#info" class="headerlink" title="info"></a>info</h3><p>man常用于命令参考，GNU工具info适合通用文档参考<br>没有参数,列出所有的页面<br>info 页面的结构就像一个网站<br>每一页分为“节点”<br>链接节点之前*<br>info [命令]<br>方向键，PgUp，PgDn导航<br>Tab键移动到下一个链接<br>d 显示主题目录<br>Home 显示主题首部<br>Enter进入选定链接<br>n/p/u/l进入下/前/上一层/最后一个链接<br>s文字文本搜索<br>q退出info  </p>
+<hr>
+<h3 id="文件系统"><a href="#文件系统" class="headerlink" title="文件系统"></a>文件系统</h3><p>文件名规则   </p>
+<blockquote>
+<p>boot 文件夹装的是引导文件<br>etc文件夹装的是各种设置，配置文件等，等价于注册表<br>home文件夹存放用户数据<br>bin（binary）二进制，装的是普通用户可执行的二进制程序<br>sbin是系统管理员常用的工具，tem文件夹装的是临时数据<br>var文件夹装的是可变内容，系统日志（/var/log内）等<br>proc（process）进程，正在内存中运行的程序，该文件夹不在硬盘上<br>mount /dev/硬盘号/  挂载硬盘  </p>
+</blockquote>
+<h3 id="文件命名"><a href="#文件命名" class="headerlink" title="文件命名"></a>文件命名</h3><p><strong>Linux系统对大小写不敏感，常用的Linux文件系统（xfs；ext4）对大小写敏感</strong><br>而Linux系统识别fat文件格式时对大小写不敏感<br>文件名最长255个字节<br>包括路径在内文件名称最长4095个字节<br>蓝色–&gt;目录绿色–&gt;可执行文件红色–&gt;压缩文件浅蓝色–&gt;链接文件灰色–&gt;其他文件<br>除了斜杠和NUL,所有字符都有效.但使用特殊字符的目录名和文件不推荐使用，有些字符需要用引号来引用它们<br>标准Linux文件系统（如ext4），文件名称大小写敏感<br>例如：MAIL,Mail,mail, mAiL  </p>
+<h2 id="文件系统结构"><a href="#文件系统结构" class="headerlink" title="文件系统结构"></a>文件系统结构</h2><blockquote>
+<p>/boot：引导文件存放目录，内核文件(vmlinuz)、引导加载器(bootloader, grub)都存放于此目录<br>/bin：供所有用户使用的基本命令；不能关联至独立分区，OS启动即会用到的程序<br>/sbin：管理类的基本命令；不能关联至独立分区，OS启动即会用到的程序<br>/lib：启动时程序依赖的基本共享库文件以及内核模块文件(/lib/modules)<br>/lib64：专用于x86_64系统上的辅助共享库文件存放位置<br>/etc：配置文件目录<br>/home/USERNAME：普通用户家目录<br>/root：管理员的家目录<br>/media：便携式移动设备挂载点<br>/mnt：临时文件系统挂载点<br>/dev：设备文件及特殊文件存储位置<br>b: block device，随机访问<br>c: character device，线性访问<br>/opt：第三方应用程序的安装位置<br>/srv：系统上运行的服务用到的数据<br>/tmp：临时文件存储位置<br>/usr: universal shared, read-only data<br>bin: 保证系统拥有完整功能而提供的应用程序<br>sbin:<br>lib：32位使用<br>lib64：只存在64位系统<br>include: C程序的头文件(header files)<br>share：结构化独立的数据，例如doc, man等<br>local：第三方应用程序的安装位置<br>bin, sbin, lib, lib64, etc, share<br>/var: variable data files<br>cache: 应用程序缓存数据目录<br>lib: 应用程序状态信息数据<br>local：专用于为/usr/local下的应用程序存储可变数据；<br>lock: 锁文件<br>log: 日志目录及文件<br>opt: 专用于为/opt下的应用程序存储可变数据；<br>run: 运行中的进程相关数据,通常用于存储进程pid文件<br>spool: 应用程序数据池<br>tmp: 保存系统两次重启之间产生的临时数据<br>/proc: 用于输出内核与进程信息相关的虚拟文件系统<br>/sys：用于输出当前系统上硬件设备相关信息虚拟文件系统<br>/selinux: security enhanced Linux，selinux相关的安全策略等信息的存储位置  </p>
+</blockquote>
+<h2 id="本节笔记"><a href="#本节笔记" class="headerlink" title="本节笔记"></a>本节笔记</h2><hr>
+<p>ls -R 列出当前文件夹的目录及子目录（所以文件和目录）<br>ls -r 反转顺序<br>文件有三个时间属性，<br>修改时间mtime（modify time）<br>读取时间atime（access time）ll –time=atime  查询文件读取的时间<br>元数据的更改时间 ctime （change time）<br>stat +文件名  查询文件的三个时间  </p>
+<h1 id="绝对和相对路径-（重点）"><a href="#绝对和相对路径-（重点）" class="headerlink" title="绝对和相对路径                 （重点）"></a>绝对和相对路径                 （重点）</h1><hr>
+<p>绝对路径：<br>以正斜杠开始<br>完整的文件的位置路径<br>可用于任何想指定一个文件名的时候<br>相对路径名<br>不以斜线开始<br>指定相对于当前工作目录或某目录的位置<br>可以作为一个简短的形式指定一个文件名<br>基名：basename +文件可以取文件的基名<br>目录名：dirname +文件可以取文件的目录名  </p>
+<hr>
+<h3 id="列出目录内容"><a href="#列出目录内容" class="headerlink" title="列出目录内容"></a>列出目录内容</h3><p>列出当前目录的内容或指定目录<br>用法：ls [options] [files_or_dirs]<br>示例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">ls -a包含隐藏文件  </span><br><span class="line">ls -l显示额外的信息  </span><br><span class="line">ls -R目录递归通过  </span><br><span class="line">ls -ld目录和符号链接信息  </span><br><span class="line">ls -1 文件分行显示  </span><br><span class="line">ls –S 按从大到小排序  </span><br><span class="line">ls –t 按mtime排序  </span><br><span class="line">ls –u 配合-t选项，显示并按atime从新到旧排序  </span><br><span class="line">ls –U 按目录存放顺序显示  </span><br><span class="line">ls –X 按文件后缀排序  </span><br><span class="line">ls /var l&#123;0...9&#125;  </span><br><span class="line">ls /etc rc&#123;0...6&#125;*</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p> .&gt;boot/111  快速清空文件111<br>touch ＋文件名创建空文件，若该文件已存在，就刷新文件的时间<br>.  &gt;&gt; ＋文件名 创建空文件，若存在，不刷新文件时间，追加，重定向<br>rename +conf conf.bak *.conf 可以批量修改多个后缀为conf的文件名字<br>~或者-开头的文件，要创建或者删除是只需在~或者-前加./就可以了<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">date 0921221392018直接改时间                              （重点）  </span><br><span class="line">data +%w -d &apos;-2 day&apos;显示两天前是星期几  </span><br><span class="line">data +%F 显示年月日  </span><br><span class="line">data +&apos;%F %T&apos; 显示年月日和时间  </span><br><span class="line">data +%Y 显示年  </span><br><span class="line">data +%Y%M%D 显示年月日  </span><br><span class="line">whatis +命令  查询该命令作用=man -f  </span><br><span class="line">mandb 生成whatis数据库 centos6  </span><br><span class="line">makewhatis 生成whatis数据库  centos7</span><br></pre></td></tr></table></figure></p>
+<h3 id="安装命令工具-（重点）"><a href="#安装命令工具-（重点）" class="headerlink" title="安装命令工具                                                （重点）"></a><strong>安装命令工具                                                （重点）</strong></h3><p>df查找sr0挂载光盘，若无挂载光盘则创建挂载点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df -h    #查看光盘是否已挂载</span><br><span class="line">mkdir /data/cdrom     #新建挂载目录</span><br><span class="line">mount /dev/sr0/data/cdrom               #挂载光盘到目录，然后执行下一步  </span><br><span class="line">df                                #查找sr0挂载路径</span><br><span class="line">rpm -ivh +挂载光盘目录（右键复制media），再输入工具首字母补全，回车安装</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h2 id="file"><a href="#file" class="headerlink" title="file"></a><strong>file</strong></h2><p>file content 文件内容<br>file metadata 文件元数据  </p>
+<p>inode number 文件节点<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -i 查询文件节点编号</span><br></pre></td></tr></table></figure></p>
+<p>节点编号存放在/boot，节点编号用完后无法存放文件                   （面试）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ls -di +文件夹  查询挂载节点位置  </span><br><span class="line">ls -di /data /boot /  centos6 这三个节点为2 centos7上着三个节点为64</span><br></pre></td></tr></table></figure></p>
+<p>移动复制的区别（重点）原理层面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cp /dir1/f1 /dir2/f2  </span><br><span class="line">mv /dir1/f1 /dir2/f2</span><br></pre></td></tr></table></figure></p>
+<p>相对路径（重点） 硬链接和软链接的区别？<br>通俗来说：<br>硬链接：对一个文件，起多个文件名<br>软连接：原始文件一般路径用相对路劲，</p>
+<hr>
+<h3 id="相对路径一定相对于软连接文件的路径-重点-看录屏"><a href="#相对路径一定相对于软连接文件的路径-重点-看录屏" class="headerlink" title="相对路径一定相对于软连接文件的路径  **  (重点   看录屏)"></a>相对路径一定相对于软连接文件的路径  <strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong>  (重点   看录屏)</h3><blockquote>
+<p>1.是否是同一个文件   硬链接是同一个文件，软链接不上是同一个<br>2.是否跨分区<br>3.链接数增长？<br>4.inode number 是否相同？<br>5.原始文件删除，链接文件可否访问？<br>6.大小？<br>7.支持目录？<br>8.相对路径<br>节点表  </p>
+</blockquote>
+<hr>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s ../../dev/zero  d1/d2/zero-link</span><br></pre></td></tr></table></figure></p>
+<p>0输入<br>1输出<br>2错误<br>命令+ &amp;&gt; /dev/null  将输出结果直接扔进null（垃圾箱），不在屏幕显示  </p>
+<hr>
+<h2 id="文件通配符-（重点）"><a href="#文件通配符-（重点）" class="headerlink" title="文件通配符                                            （重点）"></a>文件通配符                                            （重点）</h2><blockquote>
+<p>*匹配零个或多个字符<br>?匹配任何单个字符<br>~ 当前用户家目录<br>~mage 用户mage家目录<br>~+ 当前工作目录<br>~-前一个工作目录<br>[0-9]匹配数字范围<br>[a-z]：字母<br>[A-Z]：字母<br>[wang]匹配列表中的任何的一个字符<br>[^wang]匹配列表中的所有字符以外的字符<br>预定义的字符类：man 7 glob<br>[:digit:]：任意数字，相当于0-9<br>[:lower:]：任意小写字母<br>[:upper:]: 任意大写字母<br>[:alpha:]: 任意大小写字母<br>[:alnum:]：任意数字或字母<br>[:blank:]：水平空白字符<br>[:space:]：水平或垂直空白字符<br>[:punct:]：标点符号<br>[:print:]：可打印字符<br>[:cntrl:]：控制（非打印）字符<br>[:graph:]：图形字符<br>[:xdigit:]：十六进制字符<br>创建空文件和刷新时间  </p>
+</blockquote>
+<h2 id="touch命令：-（重点）"><a href="#touch命令：-（重点）" class="headerlink" title="touch命令：                                              （重点）"></a>touch命令：                                              （重点）</h2><p>touch [OPTION]… FILE…<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-a                                     #仅改变atime和ctime  </span><br><span class="line">-m                                     #仅改变mtime和ctime  </span><br><span class="line">-t [[CC]YY]MMDDhhmm[.ss]               #指定atime和mtime的时间戳  </span><br><span class="line">-c                                     #如果文件不存在，则不予创建</span><br></pre></td></tr></table></figure></p>
+<p>例子：</p>
+<blockquote>
+<p>复制文件和目录cp                                    （重点）<br>cp[OPTION]… [-T] SOURCE DEST<br>cp[OPTION]… SOURCE… DIRECTORY<br>cp[OPTION]… -t DIRECTORY SOURCE…<br>cpSRC DEST<br>SRC是文件：<br>如果目标不存在：新建DEST，并将SRC中内容填充至DEST中<br>如果目标存在：<br>如果DEST是文件：将SRC中的内容覆盖至DEST中<br>基于安全，建议为cp命令使用-i选项<br>如果DEST是目录：在DEST下新建与原文件同名的文件，并将SRC中内容填充至新文件中<br>cpSRC… DEST<br>SRC…：多个文件<br>DEST必须存在，且为目录，其它情形均会出错<br>cpSRC DEST<br>SRC是目录：此时使用选项：-r<br>如果DEST不存在：则创建指定目录，复制SRC目录中所有文件至DEST中<br>如果DEST存在：<br>如果DEST是文件：报错<br>如果DEST是目录：  </p>
+</blockquote>
+<h2 id="cp常用选项"><a href="#cp常用选项" class="headerlink" title="cp常用选项"></a>cp常用选项</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cp</span><br><span class="line">-i：覆盖前提示–n:不覆盖，注意两者顺序  </span><br><span class="line">-r, -R: 递归复制目录及内部的所有内容  </span><br><span class="line">-a: 归档，相当于-dR--preserv=all  </span><br><span class="line">-d：--no-dereference --preserv=links 不复制原文件，只复制链接名  </span><br><span class="line">--preserv[=ATTR_LIST]</span><br></pre></td></tr></table></figure>
+<p>mode: 权限<br>ownership: 属主属组<br>timestamp:<br>links<br>xattr<br>context<br>all<br>-p: 等同–preserv=mode,ownership,timestamp<br>-v: –verbose<br>-f: –force<br>-u:–update 只复制源比目标更新文件或目标不存在的文件<br>-b:目标存在，覆盖前先备份<br>–backup=numbered 目标存在，覆盖前先备份加数字后缀    </p>
+<h2 id="本节笔记-1"><a href="#本节笔记-1" class="headerlink" title="本节笔记"></a>本节笔记</h2><p>快捷键<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cp +文件路径/a文件名 文件路径/a新文件名  #将a文件复制到另一文件夹并改名  </span><br><span class="line">cp +r +a目录  +b目录  将a目录复制到b目录，成为b目录的子目录  </span><br><span class="line">cp -a 常用来备份，保留复制文件的所有属性  </span><br><span class="line">cp file1 file1.bak  将file1文件备份为file1.bak  </span><br><span class="line">等同于cp file1&#123;，.bak&#125;  </span><br><span class="line">mv +a文件 +b文件  将文件a改名为文件b  </span><br><span class="line">mv +a文件 +文件夹  移动a文件到文件夹  </span><br><span class="line">mv -t +文件夹+多个文件  把多个文件移动到目标文件夹  </span><br><span class="line">移动和重命名文件  </span><br><span class="line">mv [OPTION]... [-T] SOURCE DEST  </span><br><span class="line">mv [OPTION]... SOURCE... DIRECTORY  </span><br><span class="line">mv [OPTION]... -t DIRECTORY SOURCE...</span><br></pre></td></tr></table></figure></p>
+<p>常用选项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mv</span><br><span class="line">-i: 交互式  </span><br><span class="line">-f: 强制  </span><br><span class="line">-b: 目标存在，覆盖前先备份</span><br></pre></td></tr></table></figure></p>
+<p><strong>删除</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">rm[OPTION]... FILE...  </span><br><span class="line">常用选项：  </span><br><span class="line">-i交互式  </span><br><span class="line">-f强制删除  </span><br><span class="line">-r递归  </span><br><span class="line">--no-preserve-root 删除/  </span><br><span class="line">示例：  </span><br><span class="line">rm-rf/ 慎用   </span><br><span class="line">目录操作  </span><br><span class="line">tree 显示目录树  </span><br><span class="line">-d: 只显示目录  </span><br><span class="line">-L level：指定显示的层级数目  </span><br><span class="line">-P pattern: 只显示由指定pattern匹配到的路径</span><br></pre></td></tr></table></figure></p>
+<h3 id="mkdir创建目录-练习"><a href="#mkdir创建目录-练习" class="headerlink" title="mkdir创建目录                                                 练习"></a>mkdir创建目录                                                 练习</h3><blockquote>
+<p>mkdir<br>-p: 存在于不报错，且可自动创建所需的各目录<br>-v: 显示详细信息<br>-m MODE: 创建目录时直接指定权限<br>rmdir删除空目录<br>-p: 递归删除父空目录<br>-v: 显示详细信息<br>rm-r递归删除目录树<br>标准输入和输出<br>程序：指令+数据<br>读入数据：Input<br>输出数据：Output<br>打开的文件都有一个fd: file descriptor (文件描述符)<br>Linux给程序提供三种I/O设备<br>标准输入（STDIN）－0默认接受来自键盘的输入<br>标准输出（STDOUT）－1默认输出到终端窗口<br>标准错误（STDERR）－2默认输出到终端窗口  </p>
+</blockquote>
+<h2 id="I-O重定向：改变默认位置"><a href="#I-O重定向：改变默认位置" class="headerlink" title="I/O重定向：改变默认位置"></a>I/O重定向：改变默认位置</h2><h3 id="把输出和错误重新定向到文件-（重点）"><a href="#把输出和错误重新定向到文件-（重点）" class="headerlink" title="把输出和错误重新定向到文件                                   （重点）"></a>把输出和错误重新定向到文件                                   （重点）</h3><p>STDOUT和STDERR可以被重定向到文件<br>命令操作符号文件名<br>支持的操作符号包括：<br>_&gt; 把STDOUT重定向到文件<br>2&gt;把STDERR重定向到文件<br>&amp;&gt;把所有输出重定向到文件<br>_&gt; 文件内容会被覆盖<br>set –C 禁止将内容覆盖已有文件,但可追加<br>_&gt;| file 强制覆盖<br>set +C 允许覆盖<br>_&gt;&gt; 原有内容基础上，追加内容<br>2&gt;覆盖重定向错误输出数据流<br>2&gt;&gt; 追加重定向错误输出数据流<br>标准输出和错误输出各自定向至不同位置<br>COMMAND &gt; /path/to/file.out2&gt; /path/to/error.out<br>合并标准输出和错误输出为同一个数据流进行重定向<br>&amp;&gt;覆盖重定向<br>&amp;&gt;&gt; 追加重定向<br>COMMAND &gt; /path/to/file.out2&gt;&amp;1 （顺序很重要）<br>COMMAND &gt;&gt; /path/to/file.out2&gt;&amp;1<br>()：合并多个程序的STDOUT<br>(cal2007;cal2008)&gt; all.txt  </p>
+<h2 id="本节笔记-2"><a href="#本节笔记-2" class="headerlink" title="本节笔记"></a>本节笔记</h2><h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p>.&gt; 覆盖<br>.&gt;&gt;追加不覆盖原文件内容<br>2&gt;将错误信息重定向到文件中<br>1+到100  echo {1..100} | tr ‘ ‘ + |bc<br>命令（mail）  &lt;&lt; EOF  写一封信，直到输入EOF结束   </p>
+<h2 id="文件权限"><a href="#文件权限" class="headerlink" title="文件权限"></a>文件权限</h2><p>rwx<br>r–4   读取权限<br>w–2   写入权限<br>x–1   执行权限<br>-rwxrwxrwx -为文件类型 777<br>-rw-rw-rw- 只有读写权限，没有执行权限666<br>$ chgrp +组+用户 将此用户改为此组<br>cat与tac相反<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">abcd  dcba  </span><br><span class="line">head  +命令 默认显示该文件的前十行  </span><br><span class="line">head -n +数字  显示文件的前几行  </span><br><span class="line">tail +f跟踪文件号，文件被删除就失效  </span><br><span class="line">tail +F跟踪文件名，文件被删除后再新建的同名文件继续跟踪</span><br></pre></td></tr></table></figure></p>
+<h1 id="tr命令-（重点）"><a href="#tr命令-（重点）" class="headerlink" title="tr命令                                 （重点）"></a>tr命令                                 （重点）</h1><p>tr转换和删除字符<br>tr[OPTION]… SET1 [SET2]<br>选项：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">tr</span><br><span class="line">-c–C --complement：取字符集的补集  </span><br><span class="line">-d--delete：删除所有属于第一字符集的字符  </span><br><span class="line">-s--squeeze-repeats：把连续重复的字符以单独一个字符表示  </span><br><span class="line">-t--truncate-set1：将第一个字符集对应字符转化为第二字符集对应的字符  </span><br><span class="line">[:alnum:]：字母和数字  </span><br><span class="line">[:alpha:]：字母  </span><br><span class="line">[:cntrl:]：控制（非打印）字符  </span><br><span class="line">[:digit:]：数字  </span><br><span class="line">[:graph:]：图形字符  </span><br><span class="line">[:lower:]：小写字母  </span><br><span class="line">[:print:]：可打印字符  </span><br><span class="line">[:punct:]：标点符号  </span><br><span class="line">[:space:]：空白字符  </span><br><span class="line">[:upper:]：大写字母  </span><br><span class="line">[:xdigit:]：十六进制字符</span><br></pre></td></tr></table></figure></p>
+<h3 id="从文件中导入STDIN-……………………………………………-（重点）（重点）"><a href="#从文件中导入STDIN-……………………………………………-（重点）（重点）" class="headerlink" title="从文件中导入STDIN    …………………………………………….（重点）（重点）"></a>从文件中导入STDIN    …………………………………………….（重点）（重点）</h3><p>使用&lt;来重定向标准输入<br>某些命令能够接受从文件中导入的STDIN<br>tr‘a-z’‘A-Z’&lt;/etc/issue<br>该命令会把/etc/issue中的小写字符都转换成写写字符<br>tr–d abc&lt; /etc/fstab删除fstab文件中的所有abc中任意字符<br>cat &gt; file<br>mage<br>wangxiaochun<br>按ctrl+d离开，可以使用文件来代替键盘的输入<br>Cat &gt; filea&lt; fileb  </p>
+<hr>
+<p>把多行发送给STDIN  …………………………….. （重点）（重点）练习<br>使用“&lt;&lt;终止词”命令从键盘把多行重导向给STDIN<br>直到终止词位置的所有文本都发送给STDIN<br>有时被称为就地文本（heretext）<br>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&apos;mail-s&apos;PleaseCall&apos;admin@magedu.com&lt;&lt;END  </span><br><span class="line">&gt;HiWang,  </span><br><span class="line">&gt;  </span><br><span class="line">&gt;Pleasegivemeacallwhenyougetin.Wemayneed  </span><br><span class="line">&gt;todosomemaintenanceonserver1.  </span><br><span class="line">&gt;  </span><br><span class="line">&gt;Detailswhenyou&apos;reon-site  </span><br><span class="line">&gt;Zhang  </span><br><span class="line">&gt;END</span><br></pre></td></tr></table></figure></p>
+<p>例子：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">cat &gt;f1 回车  </span><br><span class="line">aa  </span><br><span class="line">bb  </span><br><span class="line">cc  </span><br><span class="line">                              #回车一次输出aa，再回车，输出bb，再回车，输出cc,此为单行重定向  </span><br><span class="line">cat &gt;f1 &lt;&lt;b                           #回车，以b结尾，（常用EOF结尾）  </span><br><span class="line">&gt;aa  </span><br><span class="line">&gt;bb  </span><br><span class="line">&gt;cc  </span><br><span class="line">&gt;b  </span><br><span class="line">以b结尾，输出：  </span><br><span class="line">aa  </span><br><span class="line">bb  </span><br><span class="line">cc             #此为多行重定向</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="管道-………………-（重点）练习"><a href="#管道-………………-（重点）练习" class="headerlink" title="管道     ………………. （重点）练习"></a>管道     ………………. （重点）练习</h1><p>管道（使用符号“|”表示）用来连接命令<br>命令1 | 命令2 | 命令3 | …<br>将命令1的STDOUT发送给命令2的STDIN，命令2的STDOUT发送到命令3的STDIN<br>STDERR默认不能通过管道转发，可利用2&gt;&amp;1 或|&amp; 实现<br>最后一个命令会在当前shell进程的子shell进程中执行用来<br>组合多种工具的功能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls| tr‘a-z&apos; ‘A-Z&apos;</span><br></pre></td></tr></table></figure></p>
+<p>less ：一页一页地查看输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls-l/etc|less</span><br></pre></td></tr></table></figure></p>
+<p>mail：通过电子邮件发送输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo&apos;testemail&apos;|mail-s &apos;test&apos;user@example.com</span><br></pre></td></tr></table></figure></p>
+<p>lpr：把输入发送给打印机<br>echo’testprint’|lpr-Pprinter_name<br>示例:<br>将/home 里面的文件打包，但打包的数据不是记录到文件，而是传送到stdout，<br>经过管道后，将tar -cvf-/home 传送给后面的tar -xvf-,<br>后面的这个-则是取前一个命令的stdout，因此，就不需要使用临时file了<br>tar -cvf-/home | tar -xvf-  </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="http://www.ytmp3.cn/down/35843.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

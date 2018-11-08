@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apologize</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="LH,"> 
+    
+    <meta name="author" content="lululuhao"> 
+    <link rel="alternative" href="atom.xml" title="Apologize" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">SHELL脚本和Sed等工具的使用</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">SHELL脚本和Sed等工具的使用</h1>
+        <div class="stuff">
+            <span>九月 24, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/L·H/">L·H</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="SHELL脚本-重点"><a href="#SHELL脚本-重点" class="headerlink" title="SHELL脚本(重点 )"></a>SHELL脚本(重点 )</h2><p><strong>创建shell脚本</strong><br>第一步：使用文本编辑器来创建文本文件<br>第一行必须包括shell声明序列：#!  </p>
+<blockquote>
+<p>.#!/bin/bash<br>添加注释<br>注释以#开头<br>第二步：运行脚本<br>给予执行权限，在命令行上指定脚本的绝对或相对路径<br>直接运行解释器，将脚本作为解释器程序的参数运行<br>脚本规范<br>脚本代码开头约定<br>1、第一行一般为调用使用的语言<br>2、程序名，避免更改文件名为无法找到正确的文件<br>3、版本号<br>4、更改后的时间<br>5、作者相关信息<br>6、该程序的作用，及注意事项<br>7、最后是各版本的更新简要说明<br>shell脚本示例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash  </span></span><br><span class="line"><span class="comment">#------------------------------------------    </span></span><br><span class="line"><span class="comment">#Filename: hello.sh   </span></span><br><span class="line"><span class="comment">#Revision: 1.1    </span></span><br><span class="line"><span class="comment">#Date: 2011/06/01  </span></span><br><span class="line"><span class="comment">#Author: luhao </span></span><br><span class="line"><span class="comment">#Email: luhao2149@vip.qq.com  </span></span><br><span class="line"><span class="comment">#Website: https://blog.csdn.net/weixin_43551152</span></span><br><span class="line"><span class="comment">#Description: This is the first script  </span></span><br><span class="line"><span class="comment">#------------------------------------------  </span></span><br><span class="line"><span class="comment">#Copyright: 2011</span></span><br><span class="line"><span class="comment">#License: GPL  </span></span><br><span class="line"><span class="built_in">echo</span> “hello world”</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<p><strong>.vimrc文件在根目录下，修改：vim  .vimrc 文件</strong><br>可以修改vim的脚本注释作者等信息</p>
+<hr>
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>变量赋值：name=‘value’<br>可以使用引用value:<br>(1) 可以是直接字串; name=”root”<br>(2) 变量引用：name=”$USER” </p>
+<p>(3) 命令引用：name=<code>COMMAND</code> name=$(COMMAND)<br>变量引用：${name} $name<br>“”：弱引用，其中的变量引用会被替换为变量值  </p>
+<p>‘ ‘：强引用，其中的变量引用不会被替换为变量值，而保持原字符串<br>显示已定义的所有变量：set<br>删除变量：unset name<br>环境变量<br>变量声明、赋值：<br>export name=VALUE<br>declare -x name=VALUE<br>变量引用：$name, ${name}<br>显示所有环境变量：<br>env</p>
+<p>printenv<br>export<br>declare -x<br>删除变量：<br>unset name<br>退出状态<br>进程使用退出状态来报告成功或失败<br>0 代表成功，1－255代表失败<br><code>$</code>? 变量保存最近的命令退出状态<br>例如：<br>ping-c1-W1hostdown&amp;&gt;/dev/null<br>echo$?  </p>
+<hr>
+<h3 id="算术运算"><a href="#算术运算" class="headerlink" title="算术运算"></a>算术运算</h3><p>bash中的算术运算:help let<br>+, -, <em>, /, %取模（取余）, **（乘方）<br>实现算术运算：<br>(1) let var=算术表达式<br>(2) var=$[算术表达式]<br>(3) var=$((算术表达式))<br>(4) var=$(expr arg1 arg2 arg3 …)<br>(5) declare –ivar= 数值<br>(6) echo ‘算术表达式’ | bc<br>乘法符号有些场景中需要转义，如</em><br>bash有内建的随机数生成器：$RANDOM（0-32767）<br>echo $[$RANDOM%50] ：0-49之间随机数<br>增强型赋值：<br>+=, -=, *=, /=, %=<br>let varOPERvalue<br>例如:let count+=3<br>自加3后自赋值<br>自增，自减：<br>例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">let</span> var+=1  </span><br><span class="line"><span class="built_in">let</span> var++  </span><br><span class="line"><span class="built_in">let</span> var-=1  </span><br><span class="line"><span class="built_in">let</span> var--  </span><br><span class="line"><span class="built_in">let</span> n=1+2  </span><br><span class="line"><span class="built_in">echo</span> <span class="variable">$n</span>  </span><br><span class="line">3  </span><br><span class="line">n=$（2+3）  </span><br><span class="line">2  </span><br><span class="line">expr 3+4  错误  </span><br><span class="line">expr 3 + 4  </span><br><span class="line">7  </span><br><span class="line">expr为命令  3+4为参数之间要有空格************************************  </span><br><span class="line"><span class="built_in">echo</span> $[RANDOM%100+1] 取1-100之间的随机数 **  </span><br><span class="line">RANDOM为随机数，除以100得到的余数为0-99，+1后为1-100 *****  </span><br><span class="line"><span class="built_in">echo</span> $? 查询命令执行结果</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>&amp; 与  交集<br>| 或  并集<br>! 非<br>^ 异或 相同为0 不同为1<br>&amp;&amp; 短路与 两条命令，第一条为真，则执行第二天2条看真假，第一条为假的情况下直接不执行命令<br>|| 短路或 两条命令，第一条为假，则执行第二天2条看真假，第一条为真的情况下直接不执行命令<br>同或 相同为1  不同为0  </p>
+</blockquote>
+<p><strong>[ “$str1” !=”$str2” ] 判断两个字符串是否相同<br>bash +x 加sh脚本可以看到脚本运行的过程，可以检查哪里出错<br>export +定义的变量可使该变量在子进程中也生效<br>find -name +文件名 查找文件或者安装包</strong>  </p>
+<hr>
+<h3 id="bash的数值测试"><a href="#bash的数值测试" class="headerlink" title="bash的数值测试"></a>bash的数值测试</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-v VAR  </span><br><span class="line">变量VAR是否设置  </span><br><span class="line">数值测试：  </span><br><span class="line">-gt是否大于  </span><br><span class="line">-ge是否大于等于  </span><br><span class="line">-eq是否等于  </span><br><span class="line">-ne是否不等于  </span><br><span class="line">-lt是否小于  </span><br><span class="line">-le是否小于等于  </span><br><span class="line">Bash的文件属性测试</span><br></pre></td></tr></table></figure>
+<h3 id="文件大小测试："><a href="#文件大小测试：" class="headerlink" title="文件大小测试："></a>文件大小测试：</h3><blockquote>
+<p>-s FILE: 是否存在且非空<br>文件是否打开：<br>-t fd: fd文件描述符是否在某终端已经打开<br>-N FILE：文件自从上一次被读取之后是否被修改过<br>-O FILE：当前有效用户是否为文件属主<br>-G FILE：当前有效用户是否为文件属组<br>Bash的文件测试  </p>
+</blockquote>
+<h3 id="存在性测试"><a href="#存在性测试" class="headerlink" title="存在性测试"></a>存在性测试</h3><blockquote>
+<p>-a FILE：同-e<br>-e FILE: 文件存在性测试，存在为真，否则为假<br>存在性及类别测试<br>-b FILE：是否存在且为块设备文件<br>-c FILE：是否存在且为字符设备文件<br>-d FILE：是否存在且为目录文件<br>-f FILE：是否存在且为普通文件<br>-h FILE 或-L FILE：存在且为符号链接文件<br>-p FILE：是否存在且为命名管道文件<br>-S FILE：是否存在且为套接字文件  </p>
+</blockquote>
+<hr>
+<p><strong>使用read命令来接受输入</strong><br>使用read来把输入值分配给一个或多个shell变量<br>-p指定要显示的提示<br>-s 静默输入，一般用于密码<br>-n N指定输入的字符长度N<br>-d‘字符’ 输入结束符<br>-t N TIMEOUT为N秒<br>read从标准输入中读取值，给每个单词分配一个变量<br>所有剩余单词都被分配给最后一个变量<br>read -p “Enter a filename:“ FILE  </p>
+<hr>
+<h2 id="bash如何展开命令行"><a href="#bash如何展开命令行" class="headerlink" title="bash如何展开命令行"></a>bash如何展开命令行</h2><p>把命令行分成单个命令词<br>展开别名<br>展开大括号的声明（{}）<br>展开波浪符声明（~）<br>命令替换$()和<code></code>）<br>再次把命令行分成命令词<br>展开文件通配（*、?、[abc]等等）<br>准备I/0重导向（&lt;、&gt;）<br>运行命令<br>防止扩展<br>反斜线（\）会使随后的字符按原意解释 </p>
+<p>$echoYourcost:\$5.00</p>
+<p>Yourcost:<code>$</code>5.00<br>加引号来防止扩展<br>单引号（’）防止所有扩展<br><code>$</code>（美元符号）－变量扩展<br>`（反引号）－命令替换<br>\（反斜线）－禁止单个字符扩展<br>!（叹号）－历史命令替换  </p>
+<hr>
+<h1 id="Profile类"><a href="#Profile类" class="headerlink" title="Profile类"></a>Profile类</h1><p>按功能划分，存在两类：<br>profile类和bashrc类<br>profile类：为交互式登录的shell提供配置<br><strong>全局：/etc/profile, /etc/profile.d/*.sh</strong><br><strong>个人：~/.bash_profile</strong><br>功用：<br>(1) 用于定义环境变量<br>(2) 运行命令或脚本<br>Bashrc类<br>bashrc类：为非交互式和交互式登录的shell提供配置<br>全局：/etc/bashrc<br>个人：~/.bashrc<br>功用：<br>(1) 定义命令别名和函数<br>(2) 定义本地变量  </p>
+<hr>
+<h3 id="locate命令"><a href="#locate命令" class="headerlink" title="locate命令"></a>locate命令</h3><p>locate KEYWORD<br>有用的选项  </p>
+<blockquote>
+<p>-i不区分大小写的搜索<br>-n N只列举前N个匹配项目<br>-r 使用正则表达式<br>示例<br>搜索名称或路径中带有“conf”的文件<br>locate conf<br>使用Regex来搜索以“.conf”结尾的文件<br>locate -r ‘.conf$’  </p>
+</blockquote>
+<h1 id="find-练习"><a href="#find-练习" class="headerlink" title="find**练习"></a>find<strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong>练习</h1><p>查找条件<br>指搜索层级<br>-maxdepthlevel 最大搜索目录深度,指定目录为第1级<br>-mindepthlevel 最小搜索目录深度<br>先处理目录内的文件，再处理目录<br>-depth  </p>
+<hr>
+<p>根据文件名和inode查找：  </p>
+<blockquote>
+<p>-name “文件名称”：支持使用glob<br>*, ?, [], [^]<br>-iname”文件名称”：不区分字母大小写<br>-inumn 按inode号查找<br>-samefilename 相同inode号的文件<br>-links n 链接数为n的文件<br>-regex“PATTERN”：以PATTERN匹配整个文件路径，而非文件名称  </p>
+</blockquote>
+<hr>
+<p>根据属主、属组查找：  </p>
+<blockquote>
+<p>-user USERNAME：查找属主为指定用户(UID)的文件<br>-group GRPNAME: 查找属组为指定组(GID)的文件<br>-uidUserID：查找属主为指定的UID号的文件<br>-gidGroupID：查找属组为指定的GID号的文件<br>-nouser：查找没有属主的文件<br>-nogroup：查找没有属组的文件  </p>
+</blockquote>
+<hr>
+<p>根据文件类型查找：  </p>
+<blockquote>
+<p>-type TYPE:<br>•f: 普通文件<br>•d: 目录文件<br>•l: 符号链接文件<br>•s：套接字文件<br>•b: 块设备文件<br>•c: 字符设备文件<br>•p: 管道文件<br>空文件或目录<br>-empty<br>find /app -type d -empty</p>
+</blockquote>
+<h3 id="find示例"><a href="#find示例" class="headerlink" title="find示例"></a>find示例</h3><p>备份配置文件，添加.orig这个扩展名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find -name “*.conf” -<span class="built_in">exec</span> cp &#123;&#125; &#123;&#125;.orig\;</span><br></pre></td></tr></table></figure></p>
+<p>提示删除存在时间超过３天以上的joe的临时文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">find/tmp-ctime+3-userjoe-okrm&#123;&#125;\;</span><br></pre></td></tr></table></figure></p>
+<p>在主目录中寻找可被其它用户写入的文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find ~-perm-002 -execchmodo-w&#123;&#125;\;   </span><br><span class="line">find /home –<span class="built_in">type</span> d -ls</span><br></pre></td></tr></table></figure></p>
+<p>locate text.sh搜索文件<br>因为是从locate的数据库搜索文件的，速度快不影响服务器性能，适合搜索本来就在内存中的文件，而新建的文件不会马上搜索到，可以输入updatedb更新locate数据库<br>locata +”<em>通配符”搜索文件<br>locata -r “.sh$”搜索以.sh结尾的文件(支持正则表达式)<br><strong>find搜索是实时搜索，在硬盘上搜索，速度慢且影响服务器性能，而且没有权限的文件夹搜索不进去 <strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong></em>（面试常有）<strong><br>find （路径）   -name（iname） “<em>text</em>“搜索包含text的文件+i后忽略大小写</strong><br>例子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">find -name <span class="string">"*.txt"</span>  查找以txt结尾的文件  </span><br><span class="line">find -empty 搜索空文件或者空目录  </span><br><span class="line">find / -size 10k 搜索9-10k的文件  </span><br><span class="line">find / -size -10k  搜索0-10k的文件  </span><br><span class="line">find / -size +10k  搜索大于10k的文件  </span><br><span class="line">find / -size +5k -size 10k 搜索5-10K的文件  </span><br><span class="line">find -name <span class="string">"*.txt"</span> -<span class="built_in">exec</span>（批量） rm &#123;&#125; \; 查找后缀名为txt的文件并 批量 删除</span><br></pre></td></tr></table></figure></p>
+<p>chmod a+x 文件   给所有人加上此文件的执行权限<br>ll -d 查询当前目录下的权限  </p>
+<h1 id="处理文本的工具sed-重点"><a href="#处理文本的工具sed-重点" class="headerlink" title="处理文本的工具sed  **重点"></a>处理文本的工具sed  <strong><em>**</em></strong>重点</h1><p>sed工具<br>用法：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">sed [option]... <span class="string">'script'</span> inputfile...  </span><br><span class="line">常用选项：  </span><br><span class="line">-n不输出模式空间内容到屏幕，即不自动打印  </span><br><span class="line">-e多点编辑  </span><br><span class="line">-f /PATH/SCRIPT_FILE从指定文件中读取编辑脚本  </span><br><span class="line">-r支持使用扩展正则表达式  </span><br><span class="line">-i.bak备份文件并原处编辑</span><br></pre></td></tr></table></figure></p>
+<p>script:<br>‘地址命令’<br>地址定界：<br>(1) 不给地址：对全文进行处理<br>(2) 单地址：<br>.#: 指定的行，$：最后一行<br>/pattern/：被此处模式所能够匹配到的每一行<br>(3) 地址范围：<br>.#,#<br>.#,+#<br>/pat1/,/pat2/<br>.#,/pat1/<br>(4) ~：步进  </p>
+<h3 id="编辑命令："><a href="#编辑命令：" class="headerlink" title="编辑命令："></a>编辑命令：</h3><p>d删除模式空间匹配的行，并立即启用下一轮循环<br>p打印当前模式空间内容，追加到默认输出之后<br>a<code>[\]</code>text在指定行后面追加文本，支持使用\n实现多行追加<br>i<code>[\]</code>text在行前面插入文本<br>c<code>[\]</code>text替换行为单行或多行文本<br>w /path/file保存模式匹配的行至指定文件<br>r /path/file读取指定文件的文本至模式空间中匹配到的行后<br>=为模式空间中的行打印行号<br>!模式空间中匹配行取反处理  </p>
+<h2 id="SED笔记-练习"><a href="#SED笔记-练习" class="headerlink" title="SED笔记***练习"></a>SED笔记<strong><strong><strong><strong>***</strong></strong></strong></strong>练习</h2><p>SED</p>
+<p>用法：  不加-i时仅仅是打印到屏幕显示，加-i可以修改文件，一般加-i.bak备份一个.bak文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">sed[option]... <span class="string">'script'</span> inputfile...  </span><br><span class="line">常用选项：  </span><br><span class="line">-n不输出模式空间内容到屏幕，即不自动打印  </span><br><span class="line">-e多点编辑  </span><br><span class="line">-f /PATH/SCRIPT_FILE从指定文件中读取编辑脚本  </span><br><span class="line">-r支持使用扩展正则表达式  </span><br><span class="line">-i.bak备份文件并原处编辑  </span><br><span class="line">编辑命令：  </span><br><span class="line">d删除模式空间匹配的行，并立即启用下一轮循环  </span><br><span class="line">p打印当前模式空间内容，追加到默认输出之后  </span><br><span class="line">a` [\]`text在指定行后面追加文本，支持使用\n实现多行追加  </span><br><span class="line">`i[\]`text在行前面插入文本  </span><br><span class="line">`c [\]`text替换行为单行或多行文本  </span><br><span class="line">w /path/file保存模式匹配的行至指定文件  </span><br><span class="line">r /path/file读取指定文件的文本至模式空间中匹配到的行后  </span><br><span class="line">=为模式空间中的行打印行号  </span><br><span class="line">!模式空间中匹配行取反处理</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>例子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sed ‘2p’ /etc/passwd  </span><br><span class="line">sed –n ‘2p’ /etc/passwd  显示第2行  </span><br><span class="line">sed –n ‘1,4p’ /etc/passwd  显示1-4行  </span><br><span class="line">sed –n ‘/root/p’ /etc/passwd  显示带有root的行  </span><br><span class="line">sed –n ‘2,/root/p’ /etc/passwd  从2行开始  </span><br><span class="line">sed -n ‘/^`$`/=’ file 显示空行行号  =代表行号   </span><br><span class="line">sed –n –e ‘/^$/p’ –e ‘/^$/=’ file  </span><br><span class="line">sed –n –r <span class="string">'/^#|^$/d'</span> + file 删除该文件中带<span class="comment">#注释和空白的行  </span></span><br><span class="line">sed ‘/root/a\superman’ /etc/passwd行后  </span><br><span class="line">sed ‘/root/i\superman’ /etc/passwd行前  </span><br><span class="line">sed ‘/root/c\superman’ /etc/passwd代替行  </span><br><span class="line">s///查找替换,支持使用其它分隔符，s@@@，s<span class="comment">###</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>替换标记：<br>g行内全局替换<br>p显示替换成功的行<br>w /PATH/FILE将替换成功的行保存至文件中<br>nl 可以显示行号</strong>  </p>
+<hr>
+<p>实例<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">sed -n <span class="string">'/^u/p'</span>  /data/f1  打印出data下的f1文件中以u开头的行  </span><br><span class="line">sed -n <span class="string">'3,9'</span>只显示3-9行  </span><br><span class="line">sed -n <span class="string">'/^ftp/,/^lib/'</span> passwd 显示passwd文件中以ftp开头和以lib开头之间的行  </span><br><span class="line">sed -n <span class="string">'1~2p'</span> 打印奇数行  </span><br><span class="line">sed -n <span class="string">'2~2p'</span> 打印偶数行  </span><br><span class="line">sed -i <span class="string">'/^SELINUX=/cSELINUX=disabled'</span> /etc/selinux/config  把config文件中的SELINUX=enforcing改为SELINUX=disabled  禁用selinux   </span><br><span class="line">sed -n <span class="string">'s/tmpfs/tempfilesystem/g'</span> /etc/fstab 将文件fstab中的tmpfs替换为  tempfilesystem，并且只显示替换结果，s为查找替换，p为只显示替换的那一行  </span><br><span class="line">sed -r <span class="string">'s/[[:alpha:]]/\u&amp;/g'</span> +文件 [[:alpha:]]意思为字母，u为大写，&amp;表示搜索到的内容，用u&amp;替换原内容，把所有的字母替换为大写  </span><br><span class="line">sed -r <span class="string">'s/[[:alpha:]]/\l&amp;/g'</span> +文件 [[:alpha:]]意思为字母，l为小写，&amp;表示搜索到的内容，用u&amp;替换原内容，把所有的字母替换为小写  </span><br><span class="line">sed -r <span class="string">'s/^[^#]/#&amp;'</span> +文件 将文件中不是<span class="comment">#开头的行加上#并显示，其中&amp;代表被搜索出来的内容，等于用#&amp;替换了原来的内容，加-i可以直接修改 .............................（重点）  </span></span><br><span class="line">sed -nr <span class="string">'/.*CMDLINE_LINUX.*/s#(.*)"#\1 net.ifnames=0"#p'</span> /etc/default/grub   在带有CMDLINE_LINUX的一行后加上net.ifnames=0  仅在7系统需要修改    ......................修改  </span><br><span class="line">s///查找替换,支持使用其它分隔符，s@@@，s<span class="comment">###</span></span><br></pre></td></tr></table></figure></p>
+<p>替换标记：<br>g行内全局替换<br>p显示替换成功的行<br>w /PATH/FILE将替换成功的行保存至文件中  </p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="http://www.ytmp3.cn/down/35843.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

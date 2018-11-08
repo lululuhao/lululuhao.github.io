@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apologize</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="LH,"> 
+    
+    <meta name="author" content="lululuhao"> 
+    <link rel="alternative" href="atom.xml" title="Apologize" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">逻辑卷LVM的管理</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">逻辑卷LVM的管理</h1>
+        <div class="stuff">
+            <span>九月 24, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/L·H/">L·H</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="1实验：扩展VG"><a href="#1实验：扩展VG" class="headerlink" title="1实验：扩展VG"></a>1实验：扩展VG</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pvcreate /dev/sdc  将新加的硬盘创建为物理卷</span><br><span class="line">pvs 查询物理卷</span><br><span class="line">vgextend vg0 /dev/sdc  扩展vg0，将sdc加进去</span><br><span class="line">lvextend 通用扩展命令，6，7都可以用</span><br></pre></td></tr></table></figure>
+<h1 id="2实验：缩减-LVM"><a href="#2实验：缩减-LVM" class="headerlink" title="2实验：缩减 *LVM"></a>2实验：缩减 <strong><strong>*</strong></strong>LVM</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1 umount /mnt/mysql        卸载逻辑卷</span><br><span class="line"></span><br><span class="line">2 fsck -f /dev/vg0/lv_mysql  检查系统的完整性</span><br><span class="line"></span><br><span class="line">3 resize2fs /dev/vg0/lv_mysql 20G  缩减到20G</span><br><span class="line"></span><br><span class="line">4 lvreduce -L 20 /dev/vg0/lv_mysql  缩减逻辑卷到20G</span><br><span class="line"></span><br><span class="line">5 mount /dev/vg0/lv_mysql /mnt/mysql  挂载逻辑卷</span><br></pre></td></tr></table></figure>
+<h1 id="实验：扩展-LVM"><a href="#实验：扩展-LVM" class="headerlink" title="实验：扩展*LVM"></a>实验：扩展<strong><strong>*</strong></strong>LVM</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">1 vgdisplay 查看VG有空闲空间</span><br><span class="line"></span><br><span class="line">2 lvextend -l +100%FREE /dev/vg0/lv_mysql</span><br><span class="line"></span><br><span class="line">3 resize2fs /dev/vg0/lv_mysql</span><br><span class="line"></span><br><span class="line">2，3合并成lvextend</span><br><span class="line">lvextend -r -L  5G /dev/vg0/lv_data  </span><br><span class="line"></span><br><span class="line">4 df</span><br></pre></td></tr></table></figure>
+<h1 id="实验：创建LVM"><a href="#实验：创建LVM" class="headerlink" title="实验：创建LVM"></a>实验：创建LVM</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">fdisk t 8e /dev/sda6  /dev/sdc  创建分区并t修改格式为8e</span><br><span class="line"> </span><br><span class="line">pvcreate /dev/sda6  /dev/sdc   创建物理卷</span><br><span class="line"></span><br><span class="line">vgcreate vg0 /dev/sda6  /dev/sdc   添加两个物理卷到卷组vg0</span><br><span class="line"></span><br><span class="line">lvcreate -n lv_mysql -L 15G vg0     从卷组中分出15G创建逻辑卷</span><br><span class="line"></span><br><span class="line">mkfs.ext4 /dev/vg0/lv_mysql   创建文件系统</span><br><span class="line"></span><br><span class="line">mkdir /mnt/mysql    创建挂载点</span><br><span class="line"></span><br><span class="line">mount /dev/vg0/lv_mysql /mnt/mysql   挂载逻辑卷</span><br></pre></td></tr></table></figure>
+<h1 id="实验：迁移逻辑卷LVM中的PE"><a href="#实验：迁移逻辑卷LVM中的PE" class="headerlink" title="实验：迁移逻辑卷LVM中的PE"></a>实验：迁移逻辑卷LVM中的PE</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">pvmove /dev/sda6  将逻辑卷中的被占用PE迁移到其他逻辑卷</span><br><span class="line">vgreduce vg0/dev/sda6  将逻辑卷从卷组vg0中删除</span><br><span class="line">fdisk /dev/sda6 删除分区sda6</span><br><span class="line">vgrename vg0 vg1 将卷组改名为vg1</span><br></pre></td></tr></table></figure>
+<h1 id="实验：ext-LV的快照-并恢复"><a href="#实验：ext-LV的快照-并恢复" class="headerlink" title="实验：ext LV的快照,并恢复"></a>实验：ext LV的快照,并恢复</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">lvcreate -n lv_data_snap -p r  -s -L 1G /dev/vg0/lv_data</span><br><span class="line">mount -o  /dev/vg0/lv_data_snap /mnt/snap/</span><br><span class="line">umount /mnt/data</span><br><span class="line">umount /mnt/snap/</span><br><span class="line">lvconvert  --merge /dev/vg0/lv_data_snap</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="http://www.ytmp3.cn/down/35843.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

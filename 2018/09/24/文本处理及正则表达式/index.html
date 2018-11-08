@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apologize</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="LH,"> 
+    
+    <meta name="author" content="lululuhao"> 
+    <link rel="alternative" href="atom.xml" title="Apologize" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">文本处理及正则表达式</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">文本处理及正则表达式</h1>
+        <div class="stuff">
+            <span>九月 24, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/L·H/">L·H</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="文本处理及正则表达式"><a href="#文本处理及正则表达式" class="headerlink" title="文本处理及正则表达式"></a>文本处理及正则表达式</h1><h3 id="文件查看"><a href="#文件查看" class="headerlink" title="文件查看"></a>文件查看</h3><p>文件查看命令：<br>cat，tac，rev<br>cat [OPTION]… [FILE]…<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cat</span><br><span class="line">-E：显示行结束符$  </span><br><span class="line">-n：对显示出的每一行进行编号  </span><br><span class="line">-A：显示所有控制符  </span><br><span class="line">-b：非空行编号  </span><br><span class="line">-s：压缩连续的空行成一行</span><br></pre></td></tr></table></figure></p>
+<p>tac  与cat相反<br>rev<br>文件查看<br>more: 分页查看文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">more [OPTIONS...] FILE...  </span><br><span class="line">-d: 显示翻页及退出提示  </span><br><span class="line">less：一页一页地查看文件或STDIN输出</span><br></pre></td></tr></table></figure></p>
+<p>查看时有用的命令包括：<br>/文本搜索文本<br>n/N跳到下一个或上一个匹配<br>less命令是man命令使用的分页器  </p>
+<h3 id="显示文本前或后行内容-重点"><a href="#显示文本前或后行内容-重点" class="headerlink" title="显示文本前或后行内容***(重点)"></a>显示文本前或后行内容<strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong>(重点)</h3><p>head [OPTION]… [FILE]…<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">head</span><br><span class="line">-c <span class="comment">#: 指定获取前#字节  </span></span><br><span class="line">-n <span class="comment">#: 指定获取前#行  </span></span><br><span class="line">-<span class="comment">#：指定行数  </span></span><br><span class="line">tail [OPTION]... [FILE]...  </span><br><span class="line">-c <span class="comment">#: 指定获取后#字节  </span></span><br><span class="line">-n <span class="comment">#: 指定获取后#行  </span></span><br><span class="line">-<span class="comment">#：同上  </span></span><br><span class="line">-f: 跟踪显示文件fd新追加的内容,常用日志监控  </span><br><span class="line">相当于--follow=descriptor  </span><br><span class="line">-F: 跟踪文件名，相当于--follow=name --retry  </span><br><span class="line">tailf类似tail –f，当文件不增长时并不访问文件</span><br></pre></td></tr></table></figure></p>
+<h3 id="按列抽取文本cut和合并文件paste-CUT"><a href="#按列抽取文本cut和合并文件paste-CUT" class="headerlink" title="按列抽取文本cut和合并文件paste*CUT"></a>按列抽取文本cut和合并文件paste<strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong>CUT</h3><p>cut [OPTION]… [FILE]…<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cut</span><br><span class="line">-d DELIMITER: 指明分隔符，默认tab  </span><br><span class="line">-f FILEDS:  </span><br><span class="line"><span class="comment">#: 第#个字段  </span></span><br><span class="line"><span class="comment">#,#[,#]：离散的多个字段，例如1,3,6  </span></span><br><span class="line"><span class="comment">#-#：连续的多个字段, 例如1-6</span></span><br></pre></td></tr></table></figure></p>
+<p>混合使用：1-3,7<br>-c按字符切割<br>–output-delimiter=STRING指定输出分隔符<br>cut和paste<br>显示文件或STDIN数据的指定列<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cut -d:-f1 /etc/passwd  </span><br><span class="line">cat /etc/passwd|cut -d: -f7  </span><br><span class="line">cut -c2-5/usr/share/dict/words</span><br></pre></td></tr></table></figure></p>
+<p>paste 合并两个文件同行号的列到一行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">paste [OPTION]... [FILE]...  </span><br><span class="line">-d 分隔符：指定分隔符，默认用TAB  </span><br><span class="line">-s : 所有行合成一行显示  </span><br><span class="line">示例：  </span><br><span class="line">paste f1 f2  </span><br><span class="line">paste -s f1 f2</span><br></pre></td></tr></table></figure></p>
+<h3 id="收集文本统计数据wc-WC"><a href="#收集文本统计数据wc-WC" class="headerlink" title="收集文本统计数据wc*WC"></a>收集文本统计数据wc<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>WC</h3><p>计数单词总数、行总数、字节总数和字符总数<br>可以对文件或STDIN中的数据运行<br>wcstory.txt<br>392371901story.txt<br>行数字数字节数<br>常用选项<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">wc</span><br><span class="line">-l    只计数行数  </span><br><span class="line">-w    只计数单词总数  </span><br><span class="line">-c    只计数字节总数  </span><br><span class="line">-m    只计数字符总数  </span><br><span class="line">-L    显示文件中最长行的长度</span><br></pre></td></tr></table></figure></p>
+<h2 id="文本排序sort"><a href="#文本排序sort" class="headerlink" title="文本排序sort"></a>文本排序sort</h2><p>把整理过的文本显示在STDOUT，不改变原始文件<br>sort[options]file(s)<br>常用选项<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sort</span><br><span class="line">-r执行反方向（由上至下）整理</span><br><span class="line">-R随机排序  </span><br><span class="line">-n执行按数字大小整理  </span><br><span class="line">-f选项忽略（fold）字符串中的字符大小写  </span><br><span class="line">-u选项（独特，unique）删除输出中的重复行  </span><br><span class="line">-t c选项使用c做为字段界定符  </span><br><span class="line">-k X选项按照使用c字符分隔的X列来整理能够使用多次</span><br></pre></td></tr></table></figure></p>
+<h2 id="uniq"><a href="#uniq" class="headerlink" title="uniq"></a>uniq</h2><p>uniq命令：从输入中删除前后相接的重复的行<br>uniq[OPTION]… [FILE]…<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">uniq</span><br><span class="line">-c: 显示每行重复出现的次数  </span><br><span class="line">-d: 仅显示重复过的行  </span><br><span class="line">-u: 仅显示不曾重复的行  </span><br><span class="line">注：连续且完全相同方为重复  </span><br><span class="line">常和sort 命令一起配合使用：  </span><br><span class="line">sort userlist.txt | uniq -c</span><br></pre></td></tr></table></figure></p>
+<h2 id="比较文件"><a href="#比较文件" class="headerlink" title="比较文件"></a>比较文件</h2><p>比较两个文件之间的区别<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">difffoo.conffoo2.conf  </span><br><span class="line">5c5 </span><br><span class="line">&lt; use_widgets=no</span><br><span class="line">&gt;use_widgets=yes          <span class="comment">#注明第5行有区别（改变）</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="取出IP地址的几种方法-（重点）"><a href="#取出IP地址的几种方法-（重点）" class="headerlink" title="取出IP地址的几种方法**（重点）"></a>取出IP地址的几种方法<strong><strong>**</strong></strong>（重点）</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">ifconfig | sed -r <span class="string">'2!d;s/.*inet (addr:)?//;s/ .*//'</span>   <span class="comment">#6和7通用的取出IP地址    </span></span><br><span class="line">ifconfig eth0 | head -2|tail -1| tr -dc <span class="string">'[0-9]. '</span> |tr -s <span class="string">' '</span> |cut -d<span class="string">" "</span> -f2   <span class="comment">#centos6系统上  </span></span><br><span class="line">ifconfig eth0|sed -n <span class="string">'2p'</span>|sed <span class="string">'s@.*inet @@'</span>|sed <span class="string">'s@ netmask.$@@'</span> <span class="comment">#提取出7上的IP地址，其中@@为分隔符  </span></span><br><span class="line">ifconfig ens33|sed -nr <span class="string">'2s/.*t (.*) net.*/\1/gp'</span> <span class="comment">#扩展的正则表达式取出IP，（）为分组，只有一个括号，所以后面写1  </span></span><br><span class="line">ifconfig ens33|sed -nr <span class="string">'2s/（.*t) (.*)( net.*)/\2/gp'</span> <span class="comment">#扩展的正则表达式取出IP，（）为分组，有三个括号，所以后面写2留第二个  </span></span><br><span class="line">ifconfig | sed -nr <span class="string">"s/.inet (.*) netmask.*/\1/p"</span> | head -n 1   <span class="comment">#取出7的IP  </span></span><br><span class="line">ifconfig | sed -nr <span class="string">"s/.inet (.*) netmask.*/\1/p"</span> <span class="comment">#取出7的三个网卡IP</span></span><br></pre></td></tr></table></figure>
+<h1 id="查询系统信息-重点"><a href="#查询系统信息-重点" class="headerlink" title="查询系统信息  *重点"></a>查询系统信息  <strong><strong><strong><strong>*</strong></strong></strong></strong>重点</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#RED is content color  </span></span><br><span class="line">RED=<span class="string">"\033[1;31m"</span>  </span><br><span class="line">COLOREND=<span class="string">"\033[0m"</span>  </span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"OS version is <span class="variable">$RED</span>`cat /etc/centos-release`<span class="variable">$COLOREND</span>"</span>  <span class="comment">#显示系统版本 </span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"kernel version <span class="variable">$RED</span>`uname -r`<span class="variable">$COLOREND</span>"</span>    <span class="comment">#显示内核版本 </span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"The cpu type is <span class="variable">$RED</span>`lscpu |egrep -i 'model name'|tr -s ' '|cut -d: -f2`<span class="variable">$COLOREND</span>"</span>        <span class="comment">#显示CPU型号 </span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"The memory is <span class="variable">$RED</span>`free -h|egrep Mem|tr -s ' ' ':' |cut -d: -f2`<span class="variable">$COLOREND</span>"</span>           <span class="comment">#取出内存大小  </span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"The max disk used is <span class="variable">$RED</span>`df |grep  /dev/sd|tr -s "</span> <span class="string">" "</span>:<span class="string">"|cut -d: -f5|sort -nr|head -1`<span class="variable">$COLOREND</span>"</span>      <span class="comment">#取出最大磁盘利用率</span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"The hostname is <span class="variable">$RED</span><span class="variable">$(hostname)</span><span class="variable">$COLOREND</span>"</span>    <span class="comment">#取出hostname </span></span><br><span class="line"><span class="built_in">echo</span> -e <span class="string">"The ipaddr is <span class="variable">$RED</span>`ifconfig|head -2|tail -1|tr -s "</span> <span class="string">" "</span>:<span class="string">"|cut -d: -f3`<span class="variable">$COLOREND</span>"</span>      <span class="comment">#取出IP地址</span></span><br><span class="line"><span class="built_in">unset</span> RED COLOREND        <span class="comment">#不使用颜色</span></span><br></pre></td></tr></table></figure>
+<h1 id="Linux文本处理三剑客"><a href="#Linux文本处理三剑客" class="headerlink" title="Linux文本处理三剑客"></a>Linux文本处理三剑客</h1><blockquote>
+<p>grep：文本过滤(模式：pattern)工具<br>grep, egrep, fgrep（不支持正则表达式搜索）<br>sed：stream editor，文本编辑工具<br>awk：Linux上的实现gawk，文本报告生成器  </p>
+</blockquote>
+<h2 id="grep-重点"><a href="#grep-重点" class="headerlink" title="grep**(重点)"></a>grep<strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong>(重点)</h2><p>grep: Global search REgularexpression and Print out the line<br>作用：文本搜索工具，根据用户指定的“模式”对目标文本逐行进行匹配检查；打印匹配到的行<br>模式：由正则表达式字符及文本字符所编写的过滤条件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">grep [OPTIONS] PATTERN [FILE...]  </span><br><span class="line">grep root /etc/passwd  </span><br><span class="line">grep <span class="string">"<span class="variable">$USER</span>"</span> /etc/passwd  </span><br><span class="line">grep <span class="string">'$USER'</span> /etc/passwd  </span><br><span class="line">grep `whoami` /etc/passwd</span><br></pre></td></tr></table></figure></p>
+<p><strong>grep命令选项</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">grep</span><br><span class="line">--color=auto: 对匹配到的文本着色显示  </span><br><span class="line">-v: 显示不被pattern匹配到的行  </span><br><span class="line">-i: 忽略字符大小写  </span><br><span class="line">-n：显示匹配的行号  </span><br><span class="line">-c: 统计匹配的行数  </span><br><span class="line">-o: 仅显示匹配到的字符串  </span><br><span class="line">-q: 静默模式，不输出任何信息  </span><br><span class="line">-A <span class="comment">#: after, 后#行  </span></span><br><span class="line">-B <span class="comment">#: before, 前#行  </span></span><br><span class="line">-C <span class="comment">#：context, 前后各#行  </span></span><br><span class="line">-e：实现多个选项间的逻辑or关系  </span><br><span class="line">grep –e ‘cat ’ -e ‘dog’ file  </span><br><span class="line">-w：匹配整个单词  </span><br><span class="line">-E：使用ERE  </span><br><span class="line">-F：相当于fgrep，不支持正则表达式  </span><br><span class="line">-ffile: 根据模式文件处理</span><br></pre></td></tr></table></figure></p>
+<h1 id="正则表达式-重点"><a href="#正则表达式-重点" class="headerlink" title="正则表达式*重点"></a>正则表达式<strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong>重点</h1><p>REGEXP：Regular Expressions，由一类特殊字符及文本字符所编写的模式，其中有些字符（元字符）不表示字符字面意义，而表示控制或通配的功能<br>程序支持：grep,sed,awk,vim, less,nginx,varnish等<br>分两类：<br>基本正则表达式：BRE<br>扩展正则表达式：ERE<br>grep -E, egrep<br>正则表达式引擎：<br>采用不同算法，检查处理正则表达式的软件模块<br>PCRE（Perl Compatible Regular Expressions）<br>元字符分类：字符匹配、匹配次数、位置锚定、分组<br>man 7 regex    </p>
+<h3 id="基本正则表达式元字符"><a href="#基本正则表达式元字符" class="headerlink" title="基本正则表达式元字符"></a>基本正则表达式元字符</h3><p>字符匹配:  </p>
+<blockquote>
+<p>. 匹配任意单个字符<br>[] 匹配指定范围内的任意单个字符，示例：[wang] [0-9] [a-z] [a-zA-Z]<br>[^] 匹配指定范围外的任意单个字符<br>[:alnum:] 字母和数字<br>[:alpha:] 代表任何英文大小写字符，亦即A-Z, a-z<br>[:lower:] 小写字母[:upper:] 大写字母<br>[:blank:] 空白字符（空格和制表符）<br>[:space:]水平和垂直的空白字符（比[:blank:]包含的范围广）<br>[:cntrl:] 不可打印的控制字符（退格、删除、警铃…）<br>[:digit:] 十进制数字[:xdigit:]十六进制数字<br>[:graph:] 可打印的非空白字符<br>[:print:] 可打印字符<br>[:punct:] 标点符号  </p>
+</blockquote>
+<h3 id="通配符是通配的文件名"><a href="#通配符是通配的文件名" class="headerlink" title="通配符是通配的文件名"></a>通配符是通配的文件名</h3><p>正则表达式是配的字符串，文件的内容<br>【wang】 匹配这四个字符其中的一个<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grep <span class="string">"[123]"</span> /etc/passwd     <span class="comment">#查询passwd文件夹里包含123中一个数字的文件  </span></span><br><span class="line">grep -v <span class="string">"[123]"</span> /etc/passwd  <span class="comment">#查询passwd文件夹里不包含123中一个数字的文件  </span></span><br><span class="line">grep <span class="string">"[^123]"</span> /etc/passwd   <span class="comment">#查询passwd文件夹里除了123中一个数字的文件</span></span><br></pre></td></tr></table></figure></p>
+<p>匹配次数：用在要指定次数的字符后面，用于指定前面的字符要出现的次数<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">* 匹配前面的字符任意次，包括0次  </span><br><span class="line">贪婪模式：尽可能长的匹配  </span><br><span class="line">.*任意长度的任意字符  </span><br><span class="line">\?匹配其前面的字符0或1次  </span><br><span class="line">\+匹配其前面的字符至少1次  </span><br><span class="line">\&#123;n\&#125;匹配前面的字符n次  </span><br><span class="line">\&#123;m,n\&#125;匹配前面的字符至少m次，至多n次  </span><br><span class="line">\&#123;,n\&#125;匹配前面的字符至多n次  </span><br><span class="line">\&#123;n,\&#125;匹配前面的字符至少n次</span><br></pre></td></tr></table></figure></p>
+<h3 id="位置锚定：定位出现的位置"><a href="#位置锚定：定位出现的位置" class="headerlink" title="位置锚定：定位出现的位置"></a>位置锚定：定位出现的位置</h3><p>^ 行首锚定，用于模式的最左侧 grep “^bash” /etc/passwd<br>$ 行尾锚定，用于模式的最右侧 grep “bash$” /etc/passwd<br>^PATTERN$ 用于模式匹配整行<br>^$ 空行<br>^[[:space:]]<em>$ 空白行<br>\&lt; 或\b词首锚定，用于单词模式的左侧(单词不能包含数字、_、其他字母开头)<br>> 或\b词尾锚定，用于单词模式的右侧<br>\&lt;PATTERN>匹配整个单词<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></em>  </p>
+<h3 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h3><p>分组：() 将一个或多个字符捆绑在一起，当作一个整体处理，如：(root)+<br>分组括号中的模式匹配到的内容会被正则表达式引擎记录于内部的变量中，这些变量的命名方式为: \1, \2, \3, …<br>\1表示从左侧起第一个左括号以及与之匹配右括号之间的模式所匹配到的字符<br>示例：(string1+(string2)<em>)<br>\1 ：string1+(string2)</em><br>\2 ：string2<br>后向引用：引用前面的分组括号中的模式所匹配字符，而非模式本身<br>或者：|<br>示例：a|b: a或b C|cat: C或cat (C|c)at:Cat或cat<br>元字符  </p>
+<blockquote>
+<p>^ 行首<br><code>$</code>行尾<br>.任意单一字符<br>[][]内任意单一字符<br>[^]除[]内任意单一字符<br>*<em>前面字符重复不确定次数<br>++前面字符重复一次以上不确定次数<br>\?？前面字符重复0或1次<br>\转义符<br>.</em>任意长度字符<br>{n}前面字符重复n次<br>{n,}前面字符重复n次以上<br>{m,n}前面字符重复m次和n次之间<br>[:alnum:]字母和数字<br>[:alpha:]代表任何英文大小写字符，亦即A-Z, a-z<br>[:lower:]小写字母<br>[:upper:]大写字母<br>[:blank:]水平空白字符（空格和制表符）<br>[:space:]所有水平和垂直的空白字符（比[:blank:]包含的范围广）<br>[:cntrl:]不可打印的控制字符（退格、删除、警铃…）<br>[:digit:]十进制数字<br>[:graph:]可打印的非空白字符<br>[:print:]可打印字符<br>[:punct:]标点符号<br>[:xdigit:]十六进制数字    </p>
+</blockquote>
+<h2 id="egrep及扩展的正则表达式"><a href="#egrep及扩展的正则表达式" class="headerlink" title="egrep及扩展的正则表达式"></a>egrep及扩展的正则表达式</h2><p>egrep= grep -E<br>egrep[OPTIONS] PATTERN [FILE…]<br>扩展正则表达式的元字符：<br>字符匹配：</p>
+<blockquote>
+<p>. 任意单个字符<br>[] 指定范围的字符<br>[^] 不在指定范围的字符<br>次数匹配：<br>*匹配前面字符任意次<br>?0或1次<br>+1次或多次<br>{m}匹配m次<br>{m,n}至少m，至多n次<br>位置锚定：<br>^行首<br>$行尾<br>\&lt;, \b语首<br>>, \b语尾<br>分组：()<br>后向引用：\1, \2, …<br>或者：<br>a|ba或b<br>C|catC或cat<br>(C|c)atCat或cat  </p>
+</blockquote>
+<h1 id="vim简介-重点"><a href="#vim简介-重点" class="headerlink" title="vim简介*重点"></a>vim简介<strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong>重点</h1><p>见PDF6中第32，68，69页图片<br>vi: Visual Interface，文本编辑器<br>文本：ASCII, Unicode<br>文本编辑种类：<br><strong>行编辑器: sed<br>全屏编辑器：nano, vi<br>vim-Vi Improved</strong><br>其他编辑器：<br><strong>gedit一个简单的图形编辑器<br>gvim一个Vim编辑器的图形版本</strong>  </p>
+<h3 id="打开文件"><a href="#打开文件" class="headerlink" title="打开文件"></a>打开文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">vim [OPTION]... FILE...  </span><br><span class="line">+<span class="comment">#打开文件后，让光标处于第#行的行首，+默认行尾  </span></span><br><span class="line">+/PATTERN打开文件后，直接让光标处于第一个被PATTERN匹配到的行的行首  </span><br><span class="line">–b file 二进制方式打开文件  </span><br><span class="line">–d file1 file2… 比较多个文件  </span><br><span class="line">-m file 只读打开文件  </span><br><span class="line">ex file 或vim –e 直接进入ex模式  </span><br><span class="line">如果该文件存在，文件被打开并显示内容  </span><br><span class="line">如果该文件不存在，当编辑后第一次存盘时创建它  </span><br><span class="line">模式转换  </span><br><span class="line">命令模式--&gt; 插入模式  </span><br><span class="line">iinsert, 在光标所在处输入  </span><br><span class="line">I在当前光标所在行的行首输入  </span><br><span class="line">aappend, 在光标所在处后面输入  </span><br><span class="line">A在当前光标所在行的行尾输入  </span><br><span class="line">o在当前光标所在行的下方打开一个新行  </span><br><span class="line">O在当前光标所在行的上方打开一个新行</span><br></pre></td></tr></table></figure>
+<h2 id="VIM模式的切换"><a href="#VIM模式的切换" class="headerlink" title="VIM模式的切换"></a><strong>VIM模式的切换</strong></h2><p>插入模式——–&gt; 命令模式<br>ESC<br>命令模式——–&gt; 扩展命令模式<br>:<br>扩展命令模式——–&gt; 命令模式<br>ESC,enter  </p>
+<hr>
+<p>扩展命令模式：  </p>
+<blockquote>
+<p>:q退出<br>:q!强制退出，丢弃做出的修改<br>:wq保存退出<br>:x保存退出<br>命令模式<br><strong>ZZ保存退出<br>ZQ不保存退出</strong><br>命令模式光标跳转<br>字符间跳转：<br>h: 左l: 右j: 下k: 上<br>.#COMMAND：跳转由#指定的个数的字符<strong><strong><strong><strong>**</strong></strong></strong></strong>  </p>
+</blockquote>
+<h3 id="单词间跳转："><a href="#单词间跳转：" class="headerlink" title="单词间跳转："></a>单词间跳转：</h3><blockquote>
+<p>w：下一个单词的词首<br>e：当前或下一单词的词尾<br>b：当前或前一个单词的词首<br>。#COMMAND：由#指定一次跳转的单词数<br>当前页跳转：<br>H：页首M：页中间行L:页底<br>zt：将光标所在当前行移到屏幕顶端<br>zz：将光标所在当前行移到屏幕中间<br>zb：将光标所在当前行移到屏幕底端<br>行首行尾跳转：<br>^: 跳转至行首的第一个非空白字符<br>0: 跳转至行首<br><code>$</code>: 跳转至行尾<br>行间移动：<br>.#G、扩展命令模式下：# 跳转至由#指定行<br>G：最后一行<br>1G, gg: 第一行<br>句间移动：<br>)：下一句(：上一句<br>段落间移动：<br>}:下一段{：上一段<br>命令模式翻屏操作<br><strong>Ctrl+f: 向文件尾部翻一屏<br>Ctrl+b: 向文件首部翻一屏<br>Ctrl+d: 向文件尾部翻半屏<br>Ctrl+u：向文件首部翻半屏</strong>  </p>
+</blockquote>
+<h3 id="命令模式操作-重点"><a href="#命令模式操作-重点" class="headerlink" title="命令模式操作**重点"></a>命令模式操作<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>重点</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">删除命令：  </span><br><span class="line">d: 删除命令，可结合光标跳转字符，实现范围删除  </span><br><span class="line">d`$`: 删除到行尾  </span><br><span class="line">d^:删除到非空行首  </span><br><span class="line">d0:删除到行首  </span><br><span class="line">dw:  </span><br><span class="line">de:  </span><br><span class="line">db:  </span><br><span class="line">.<span class="comment">#COMMAND  </span></span><br><span class="line">dd: 删除光标所在的行  </span><br><span class="line">.<span class="comment">#dd：多行删除  </span></span><br><span class="line">D：从当前光标位置一直删除到行尾，等同于d$  </span><br><span class="line">复制命令(y, yank)：  </span><br><span class="line">y: 复制，行为相似于d命令</span><br><span class="line">y$  </span><br><span class="line">y0  </span><br><span class="line">y^  </span><br><span class="line">ye  </span><br><span class="line">yw  </span><br><span class="line">yb  </span><br><span class="line">.<span class="comment">#COMMAND  </span></span><br><span class="line">yy：复制行  </span><br><span class="line">.<span class="comment">#yy: 复制多行  </span></span><br><span class="line">Y: 复制整行</span><br></pre></td></tr></table></figure>
+<h3 id="命令模式"><a href="#命令模式" class="headerlink" title="命令模式"></a>命令模式</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">di<span class="string">" 光标在”“之间，则删除”“之间的内容  </span></span><br><span class="line"><span class="string">yi( 光标在()之间，则复制()之间的内容  </span></span><br><span class="line"><span class="string">vi[ 光标在[]之间，则选中[]之间的内容  </span></span><br><span class="line"><span class="string">dtx删除字符直到遇见光标之后的第一个x 字符  </span></span><br><span class="line"><span class="string">ytx复制字符直到遇见光标之后的第一个x 字符  </span></span><br><span class="line"><span class="string">扩展命令模式：地址定界********************按ESC进入命令模式，再按：进入扩展命令模式</span></span><br></pre></td></tr></table></figure>
+<p>###地址定界</p>
+<blockquote>
+<p>:start_pos,end_pos<br><code># 具体第#行，例如2表示第2行</code>#,# 从左侧#表示起始行，到右侧#表示结尾行<br><code>#,+# 从左侧#表示的起始行，加上右侧#表示的行数  
+：2,+3 表示2到5行  
+. 当前行</code>$<code>最后一行  
+.,</code>$`-1 当前行到倒数第二行<br>% 全文, 相当于1,$<br>/pat1/,/pat2/<br>从第一次被pat1模式匹配到的行开始，一直到第一次被pat2匹配到的行结束  </p>
+</blockquote>
+<p>#,/pat/<br>/pat/,$<br>使用方式：后跟一个编辑命令<br>d<br>y<br>w file: 将范围内的行另存至指定文件中<br>r file：在指定位置插入指定文件中的所有内容<br>/PATTERN：从当前光标所在处向文件尾部查找<br>?PATTERN：从当前光标所在处向文件首部查找<br>n：与命令同方向<br>N：与命令反方向  </p>
+<hr>
+<h2 id="s-在扩展模式下完成查找替换操作-重点"><a href="#s-在扩展模式下完成查找替换操作-重点" class="headerlink" title="s: 在扩展模式下完成查找替换操作**重点"></a>s: 在扩展模式下完成查找替换操作<strong><strong><strong><strong>**</strong></strong></strong></strong>重点</h2><p>格式：s/要查找的内容/替换为的内容/修饰符<br>要查找的内容：可使用模式<br>替换为的内容：不能使用模式，但可以使用\1, \2, …等后向引用符号；还可以使用“&amp;”引用前面查找时查找到的整个内容<br>修饰符：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">s/要查找的内容/替换为的内容/修饰符 </span><br><span class="line">i: 忽略大小写  </span><br><span class="line">g: 全局替换；默认情况下，每一行只替换第一次出现  </span><br><span class="line">gc:全局替换，每次替换前询问  </span><br><span class="line">查找替换中的分隔符/可替换为其它字符，例如  </span><br><span class="line">s@/etc@/var@g  </span><br><span class="line">s<span class="comment">#/boot#/#i</span></span><br></pre></td></tr></table></figure></p>
+<p>命令模式：撤消更改<br>u撤销最近的更改  </p>
+<p>#u撤销之前多次更改<br>U撤消光标落在这行后所有此行的更改<br>按Ctrl-r重做最后的“撤消”更改<br>. 重复前一个操作<br>n.重复前一个操作n次<br>多文件模式<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim FILE1 FILE2 FILE3 ...  </span><br><span class="line">:next 下一个  </span><br><span class="line">:prev前一个  </span><br><span class="line">:first 第一个  </span><br><span class="line">:last 最后一个  </span><br><span class="line">:wall 保存所有  </span><br><span class="line">:qall退出所有  </span><br><span class="line">:wqall</span><br></pre></td></tr></table></figure></p>
+<h3 id="定制vim的工作特性"><a href="#定制vim的工作特性" class="headerlink" title="定制vim的工作特性"></a>定制vim的工作特性</h3><p>配置文件：永久有效<br><strong>全局：/etc/vimrc<strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong><br>个人：~/.vimrc<strong><br>扩展模式：当前vim进程有效  
+</strong>(1) 行号<br>显示：set number, 简写为set nu<br>取消显示：set nonumber, 简写为set nonu**<br>(2) 忽略字符的大小写<br>启用：set ic<br>不忽略：set noic<br>(3) 自动缩进<br>启用：set ai<br>禁用：set noai<br>(4) 智能缩进<br>启用：smartindent简写set si<br>禁用：set nosi<br>(5) 高亮搜索<br>启用：set hlsearch<br>禁用：set nohlsearch<br>(6) 语法高亮<br>启用：syntax on<br>禁用：syntax off<br>(7) 显示Tab和换行符^I 和$显示<br>启用：set list<br>禁用：set nolist<br>(8) 文件格式<br>启用windows格式：set fileformat=dos<br>启用unix格式：set fileformat=unix<br>简写：set ff=dos|unix<br>(9) 设置文本宽度<br>set textwidth=65 (vimonly)<br>set wrapmargin=15<br>(10) 设置光标所在行的标识线<br>启用：set cursorline，简写cul<br>禁用：set no cursorline<br>(11) 复制保留格式<br>启用：set paste<br>禁用：set nopaste  </p>
+<hr>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="http://www.ytmp3.cn/down/35843.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

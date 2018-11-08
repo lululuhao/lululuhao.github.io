@@ -1,0 +1,159 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apologize</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="LH,"> 
+    
+    <meta name="author" content="lululuhao"> 
+    <link rel="alternative" href="atom.xml" title="Apologize" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">shell脚本进阶和条件语句</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">shell脚本进阶和条件语句</h1>
+        <div class="stuff">
+            <span>九月 24, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/L·H/">L·H</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="if语句"><a href="#if语句" class="headerlink" title="if语句"></a>if语句</h1><p>单分支<br>if 判断条件;then<br>条件为真的分支代码<br>fi<br>双分支<br>if 判断条件; then<br>条件为真的分支代码<br>else<br>条件为假的分支代码<br>fi<br>多分支<br>if 判断条件1; then<br>条件1为真的分支代码<br>elif 判断条件2; then<br>条件2为真的分支代码<br>elif 判断条件3; then<br>条件3为真的分支代码<br>else<br>以上条件都为假的分支代码<br>fi</p>
+<h2 id="if示例"><a href="#if示例" class="headerlink" title="if示例"></a>if示例</h2><p>根据命令的退出状态来执行命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> ping -c1 -W2 station1 &amp;&gt; /dev/null; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Station1 is UP'</span></span><br><span class="line"><span class="keyword">elif</span> grep <span class="string">"station1"</span> ~/maintenance.txt &amp;&gt; /dev/null; <span class="keyword">then</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">'Station1 is undergoing maintenance‘</span></span><br><span class="line"><span class="string">else</span></span><br><span class="line"><span class="string">echo '</span>Station1 is unexpectedly DOWN!<span class="string">'</span></span><br><span class="line"><span class="string">exit 1</span></span><br><span class="line"><span class="string">fi</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="case语句"><a href="#case语句" class="headerlink" title="case语句"></a>case语句</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> 变量引用 <span class="keyword">in</span></span><br><span class="line">PAT1)</span><br><span class="line">分支1</span><br><span class="line">;;</span><br><span class="line">PAT2)</span><br><span class="line">分支2</span><br><span class="line">;;</span><br><span class="line">...</span><br><span class="line">*)</span><br><span class="line">默认分支</span><br><span class="line">;;</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="keyword">case</span>支持glob风格的通配符：</span><br><span class="line">*: 任意长度任意字符</span><br><span class="line">?: 任意单个字符</span><br><span class="line">[]：指定范围内的任意单个字符</span><br><span class="line">a|b: a或b</span><br></pre></td></tr></table></figure>
+<h3 id="选菜菜单"><a href="#选菜菜单" class="headerlink" title="选菜菜单"></a>选菜菜单</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">case</span> <span class="variable">$number</span> <span class="keyword">in</span></span><br><span class="line">1|2|3)</span><br><span class="line">cmd1</span><br><span class="line">;;</span><br><span class="line">4|5|6)</span><br><span class="line">cmd1</span><br><span class="line">;;</span><br><span class="line">...</span><br><span class="line">*)</span><br><span class="line">cmd6</span><br><span class="line"><span class="keyword">esac</span></span><br><span class="line"><span class="keyword">case</span>脚本</span><br><span class="line">cat  &lt;&lt;EOF</span><br><span class="line">1:lamian</span><br><span class="line">2:gaifan</span><br><span class="line">3:jiaozi</span><br><span class="line">4:baozi</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 选菜菜单  vim xuancai.sh</span></span><br><span class="line">PS3=<span class="string">"Please input a number:"</span></span><br><span class="line">select MENU <span class="keyword">in</span> lamian huimian gaifan jiaozi baozi quit;<span class="keyword">do</span></span><br><span class="line">        <span class="keyword">case</span> <span class="variable">$REPLY</span> <span class="keyword">in</span></span><br><span class="line">        1|2)</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"The price is 15元"</span></span><br><span class="line">                ;;</span><br><span class="line">        3|5)</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"The price is 20元"</span></span><br><span class="line">                ;;</span><br><span class="line">        4)</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"The price is 25元"</span></span><br><span class="line">        ;;</span><br><span class="line">        6)</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"bye"</span></span><br><span class="line">                <span class="built_in">break</span></span><br><span class="line">                ;;</span><br><span class="line">        *)</span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"Input false"</span></span><br><span class="line">        <span class="keyword">esac</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<p><strong>执行命令</strong><br>bash xuancai.sh</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">read</span> -p <span class="string">"Please choose menu num: "</span> menu</span><br><span class="line"><span class="keyword">case</span> <span class="variable">$menu</span> <span class="keyword">in</span></span><br><span class="line">1|2）</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"lamian gaifan 15元 "</span></span><br><span class="line">;;</span><br><span class="line">3|4)</span><br><span class="line">    <span class="built_in">echo</span> <span class="string">"jiaozi baozi 10元"</span></span><br><span class="line">;;</span><br><span class="line">*)</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"wrong"</span></span><br></pre></td></tr></table></figure>
+<p>例如：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">read</span> -p <span class="string">"Do you agree(yes or no)? "</span> ans</span><br><span class="line">ans= <span class="string">'echo "$ans|tr '</span>a-z<span class="string">' '</span>A-Z<span class="string">'" '</span></span><br><span class="line"><span class="keyword">case</span> <span class="variable">$ans</span> <span class="keyword">in</span></span><br><span class="line">y|yes)</span><br><span class="line"><span class="built_in">echo</span> yes</span><br><span class="line">;;</span><br><span class="line">n|no)</span><br><span class="line"><span class="built_in">echo</span> no</span><br><span class="line">*)</span><br><span class="line"><span class="built_in">echo</span> wrong</span><br><span class="line">;;</span><br><span class="line"><span class="keyword">esac</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="循环"><a href="#循环" class="headerlink" title="循环"></a>循环</h1><p>for适用于有列表的循环<br>while适合没有列表的循环，比较通用<br>until与while条件相反</p>
+<h2 id="for循环"><a href="#for循环" class="headerlink" title="for循环"></a>for循环</h2><p>for 变量名 in 列表;do<br>循环体<br>done<br>执行机制：<br>依次将列表中的元素赋值给“变量名”; 每次赋值后即执行一次循环体; 直<br>到列表中的元素耗尽，循环结束<br>for特殊格式<br>双小括号方法，即((…))格式，也可以用于算术运算<br>双小括号方法也可以使bash Shell实现C语言风格的变量操作<br>I=10<br>((I++))<br>for循环的特殊格式：<br>for ((控制变量初始化;条件判断表达式;控制变量的修正表达式))<br>do<br>循环体<br>done<br>控制变量初始化：仅在运行到循环代码段时执行一次<br>控制变量的修正表达式：每轮循环结束会先进行控制变量修正运算，而后再做<br>条件判断<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>     ;<span class="keyword">do</span></span><br><span class="line">      <span class="keyword">for</span>    ;<span class="keyword">do</span></span><br><span class="line">         <span class="keyword">if</span>        ;<span class="keyword">then</span></span><br><span class="line">             <span class="built_in">continue</span>,<span class="built_in">break</span>(默认1,2为退出，执行外层循环)</span><br><span class="line">         <span class="keyword">fi</span></span><br><span class="line">      <span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">done</span></span><br><span class="line">lastb  查询其他人登陆失败的信息</span><br><span class="line">&amp;&gt; /dev/null  <span class="comment">#将输出结果扔到垃圾箱，不在屏幕显示</span></span><br><span class="line">防止dos攻击，将攻击的ip地址放到/data/cracker_ip.log中</span><br><span class="line">netstat -nat|sed -nr <span class="string">'/^tcp /s/.*  ([1-9].*):.*/\1/p'</span>|sort  |uniq -c |<span class="keyword">while</span> <span class="built_in">read</span> iplist ;<span class="keyword">do</span></span><br><span class="line">        linknum=`<span class="built_in">echo</span> <span class="variable">$iplist</span>|cut -d<span class="string">" "</span> -f1`</span><br><span class="line">        ip=`<span class="built_in">echo</span> <span class="variable">$iplist</span>|cut -d<span class="string">" "</span> -f2`</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$linknum</span> -ge 2 ];<span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="variable">$ip</span> &gt;&gt; /data/cracker_ip.log</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment"># 象棋方块</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..8&#125;;<span class="keyword">do</span></span><br><span class="line">        temp1=$[ <span class="variable">$i</span> % 2 ]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> &#123;1..8&#125;;<span class="keyword">do</span></span><br><span class="line">        temp2=$[ <span class="variable">$j</span> % 2 ]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$temp1</span> -eq  <span class="variable">$temp2</span>  ];<span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> -e -n <span class="string">"\033[47m  \033[0m"</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">                <span class="built_in">echo</span> -e -n <span class="string">"\033[41m  \033[0m"</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">done</span></span><br><span class="line"></span><br><span class="line">        <span class="built_in">echo</span> </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="实验：输入一个行号，打印一个等腰三角形"><a href="#实验：输入一个行号，打印一个等腰三角形" class="headerlink" title="实验：输入一个行号，打印一个等腰三角形"></a>实验：输入一个行号，打印一个等腰三角形</h3><p>如图：<br><img src="https://img-blog.csdnimg.cn/20181106160700716.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"Please input line: "</span> line</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `seq <span class="variable">$line</span>`;<span class="keyword">do</span></span><br><span class="line">        <span class="built_in">let</span> star=<span class="variable">$i</span>*2-1</span><br><span class="line">        <span class="built_in">let</span> space=<span class="variable">$line</span>-<span class="variable">$i</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> `seq <span class="variable">$space</span>`;<span class="keyword">do</span></span><br><span class="line">                <span class="built_in">echo</span> -n <span class="string">" "</span></span><br><span class="line">        <span class="keyword">done</span></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> `seq <span class="variable">$star</span>`;<span class="keyword">do</span></span><br><span class="line">                <span class="built_in">echo</span> -n <span class="string">"*"</span></span><br><span class="line">        <span class="keyword">done</span></span><br><span class="line">        <span class="built_in">echo</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h3 id="批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：-tmp-iplist-log"><a href="#批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：-tmp-iplist-log" class="headerlink" title="批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：/tmp/iplist.log"></a>批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：/tmp/iplist.log</h3><p>例如ping百度的IP：123.125.115.110<br>bash scanip00.sh  输入正确格式的IP地址<br><img src="https://img-blog.csdnimg.cn/20181106152508960.png" alt="ping"><br>cat /tmp/iplist.log<br>结果<br><img src="https://img-blog.csdnimg.cn/20181106152703455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="能够Ping通的IP"><br><strong>代码</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="comment">#scanip00.sh    # 脚本名</span></span><br><span class="line">&gt; /tmp/iplist.log   <span class="comment">#每次运行前清空该文件内容</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"Please input a netid:(eg:192.168.34.0) "</span> netid  <span class="comment">#输入IP</span></span><br><span class="line">netid=`<span class="built_in">echo</span> <span class="variable">$netid</span> | sed -nr <span class="string">'s#(.*)\..*#\1#p'</span>`</span><br><span class="line"><span class="built_in">echo</span> netid=<span class="variable">$netid</span></span><br><span class="line"><span class="keyword">for</span> id <span class="keyword">in</span> &#123;1..254&#125;;<span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">if</span> ping -c1 -w1  <span class="variable">$netid</span>.<span class="variable">$id</span> &amp;&gt;/dev/null ;<span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"<span class="variable">$netid</span>.<span class="variable">$id</span>"</span> &gt;&gt; /tmp/iplist.log  <span class="comment">#ping通的放入文件</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="variable">$netid</span>.<span class="variable">$id</span> is up</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">                <span class="built_in">echo</span> <span class="variable">$netid</span>.<span class="variable">$id</span> is down</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        &#125;&amp;                  <span class="comment">#并行执行</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">wait</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>计算从1加到100</strong><br>echo {1..100}|tr ‘ ‘ +|bc   管道计算得出5050<br>或者写一个脚本<br>sum.sh<br>sum=0<br>for i in {1..100};do<br>let sum=sum+i<br>done<br>echo sum=$sum<br>bash sum.sh  得出5050</p>
+<h2 id="while循环"><a href="#while循环" class="headerlink" title="while循环"></a>while循环</h2><p>while CONDITION; do<br>循环体<br>done<br>CONDITION：循环控制条件；进入循环之前，先做一次判断；每一次循环之后<br>会再次做判断；条件为“true”，则执行一次循环；直到条件测试状态为“false”<br>终止循环<br>因此：CONDTION一般应该有循环控制变量；而此变量的值会在循环体不断地被<br>修正<br>进入条件：CONDITION为true<br>退出条件：CONDITION为false</p>
+<h1 id="函数调用-function待整理"><a href="#函数调用-function待整理" class="headerlink" title="函数调用(function待整理)"></a>函数调用(function待整理)</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">version</span></span>()&#123;</span><br><span class="line">        sed -nr <span class="string">'s/.* ([0-9]+)\..*/\1/p'</span> /etc/centos-release</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">sysinfo</span></span>()&#123;</span><br><span class="line">        <span class="built_in">local</span> name=wang</span><br><span class="line">        <span class="built_in">echo</span> sysinfo:<span class="variable">$name</span></span><br><span class="line">        <span class="built_in">echo</span> Hostname is `hostname`</span><br><span class="line">        <span class="built_in">echo</span> OS version is `version`</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">ipaddr</span></span>()&#123;</span><br><span class="line">        ifconfig <span class="variable">$1</span>|sed -nr <span class="string">'2s/.*inet (addr:)?([^ ]+).*/\2/p'</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="title">is_digit</span></span>()&#123;</span><br><span class="line">        [[ <span class="string">"<span class="variable">$1</span>"</span> =~ ^[0-9]+$ ]] &amp;&amp; <span class="literal">true</span> || <span class="literal">false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="http://www.ytmp3.cn/down/35843.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

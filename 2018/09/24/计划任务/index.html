@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apologize</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="LH,"> 
+    
+    <meta name="author" content="lululuhao"> 
+    <link rel="alternative" href="atom.xml" title="Apologize" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">计划任务</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">计划任务</h1>
+        <div class="stuff">
+            <span>九月 24, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/L·H/">L·H</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>计划任务<br>Linux任务计划、周期性任务执行<br>• 未来的某时间点执行一次任务<br>at 指定时间点，执行一次性任务<br>batch 系统自行选择空闲时间去执行此处指定的任务<br>• 周期性运行某任务<br>cron</p>
+<p>at任务 (按ctrl+D保存)<br>包：at<br>at命令：at [option] TIME<br>常用选项：</p>
+<p>-V 显示版本信息<br>-t time 时间格式 [[CC]YY]MMDDhhmm[.ss]<br>-l 列出指定队列中等待运行的作业；相当于atq<br>-d 删除指定的作业；相当于atrm<br>-c 查看具体作业任务<br>-f /path/file 指定的文件中读取任务<br>-m 当任务被完成之后，将给用户发送邮件，即使没有标准输出<br>注意：作业执行命令的结果中的标准输出和错误以邮件通知给相关用户<br>at时间格式<br>HH:MM 02:00<br>在今日的 HH:MM 进行，若该时刻已过，则明天此时执行任务<br>HH:MM YYYY-MM-DD 02:00 2016-09-20<br>规定在某年某月的某一天的特殊时刻进行该项任务<br>HH:MM[am|pm] [Month] [Date]<br>04pm March 17<br>17:20 tomorrow<br>HH:MM[am|pm] + number [minutes|hours|days|weeks]<br>在某个时间点再加几个时间后才进行该项任务<br>now + 5 min<br>02pm + 3 days</p>
+<p>计划任务cron<br>放在/var/spool/cron/下<br>crontab -e 创建计划任务</p>
+<p>@reboot Run once after reboot<br>@yearly 0 0 1 1 <em><br>@annually 0 0 1 1 </em><br>@monthly 0 0 1 <em> </em><br>@weekly 0 0 <em> </em> 0<br>@daily 0 0 <em> </em> <em><br>@hourly 0 </em> <em> </em> *<br>示例：每3小时echo和wall命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 */3 * * * centos /bin/<span class="built_in">echo</span> “howdy”; wall “welcome to Magedu!”</span><br><span class="line">etc/cron.hourly 下0anacron放着关机后未执行的计划任务，会在开机后一个合适的时间自动运行</span><br><span class="line">etc/anacrontab记录了每天每周每月因关机未执行的计划任务自动执行的时间设置,配置文件：/etc/anacrontab，负责执行/etc/ cron.daily /etc/cron.weekly</span><br><span class="line">/etc/cron.monthly中系统任务</span><br></pre></td></tr></table></figure></p>
+<p>字段1：如果在这些日子里没有运行这些任务……<br>• 字段2：在重新引导后等待这么多分钟后运行它<br>• 字段3：任务识别器，在日志文件中标识<br>• 字段4：要执行的任务<br>crontab命令：</p>
+<p>crontab [-u user] [-l | -r | -e] [-i]<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-l 列出所有任务</span><br><span class="line">-e 编辑任务</span><br><span class="line">-r 移除所有任务</span><br><span class="line">-I 同-r一同使用，以交互式模式移除指定任务</span><br><span class="line">-u user 仅root可运行，指定用户管理cron任务</span><br></pre></td></tr></table></figure></p>
+<p>控制用户执行计划任务：<br>/etc/cron.{allow,deny}</p>
+<p>at和crontab<br>一次性作业使用 at<br>重复性作业使用crontab<br>Create at time crontab -e<br>List at -l crontab -l<br>Details at -c jobnum crontab -l<br>Remove at -d jobnum crontab -r<br>Edit N/A crontab -e<br>没有被重定向的输出会被邮寄给用户<br>root能够修改其它用户的作业</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="http://www.ytmp3.cn/down/35843.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

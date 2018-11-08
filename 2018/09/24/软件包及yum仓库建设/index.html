@@ -1,0 +1,154 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apologize</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="LH,"> 
+    
+    <meta name="author" content="lululuhao"> 
+    <link rel="alternative" href="atom.xml" title="Apologize" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">软件包管理</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">软件包管理</h1>
+        <div class="stuff">
+            <span>九月 24, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/L·H/">L·H</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h1><p>程序包的来源<br>获取程序包的途径：<br>(1) 系统发版的光盘或官方的服务器<br>CentOS镜像：<br><a href="https://www.centos.org/download/" target="_blank" rel="noopener">https://www.centos.org/download/</a><br><a href="http://mirrors.aliyun.com" target="_blank" rel="noopener">http://mirrors.aliyun.com</a><br><a href="http://mirrors.sohu.com" target="_blank" rel="noopener">http://mirrors.sohu.com</a><br><a href="http://mirrors.163.com" target="_blank" rel="noopener">http://mirrors.163.com</a><br>(2) 项目官方站点<br>(3) 第三方组织：<br>Fedora-EPEL：<br>Extra Packages for Enterprise Linux<br>Rpmforge:RHEL推荐，包很全<br>搜索引擎：<br><a href="http://pkgs.org" target="_blank" rel="noopener">http://pkgs.org</a><br><a href="http://rpmfind.net" target="_blank" rel="noopener">http://rpmfind.net</a><br><a href="http://rpm.pbone.net" target="_blank" rel="noopener">http://rpm.pbone.net</a><br><a href="https://sourceforge.net/" target="_blank" rel="noopener">https://sourceforge.net/</a><br>(4) 自己制作<br>注意：第三方包建议要检查其合法性<br>来源合法性,程序包的完整性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[install-options]</span><br><span class="line">--<span class="built_in">test</span>: 测试安装，但不真正执行安装，即dry run模式</span><br><span class="line">--nodeps：忽略依赖关系</span><br><span class="line">--replacepkgs| replacefiles</span><br><span class="line">--nosignature: 不检查来源合法性</span><br><span class="line">--nodigest：不检查包完整性</span><br><span class="line">--noscripts：不执行程序包脚本</span><br><span class="line">%pre: 安装前脚本--nopre</span><br><span class="line">%post: 安装后脚本--nopost</span><br><span class="line">%preun: 卸载前脚本--nopreun</span><br><span class="line">%postun: 卸载后脚本--nopostun</span><br></pre></td></tr></table></figure></p>
+<h1 id="救援模式进入"><a href="#救援模式进入" class="headerlink" title="救援模式进入"></a>救援模式进入</h1><p>getent +命令或者文件或者用户  看是否存在<br>例子  getent f1.txt 看f1是否存在<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">rpm -qpi 查询还未安装的包内的文件</span><br><span class="line">rpm -qi  查询包的说信息</span><br><span class="line">rpm -q +命令名字 查询命令版本号    </span><br><span class="line">rpm -ql +tree  查询tree包里有什么文件</span><br><span class="line">rpm -q tree &amp;&gt; /dev/null ||rpm -ivh /cdrom/Package/tree-1.6.0-10.el7.x86_64.rpm  查询tree软件是否安装，如果没有安装则安装文件 </span><br><span class="line">rpm -e +软件名  卸载该软件</span><br><span class="line">rpm -upgrade 升级，一般情况下不用升级，直接卸载老版本安装新版本</span><br><span class="line">rpm --oldpackage 降级</span><br><span class="line">rpm -ivh +软件 + --force  强制安装 </span><br><span class="line">rpm -qa | wc -l  查询有多少个包</span><br></pre></td></tr></table></figure></p>
+<p>包校验</p>
+<p>包来源合法性验正及完整性验证<br>完整性验证：SHA256<br>来源合法性验证：RSA<br>公钥加密<br>对称加密：加密、解密使用同一密钥<br>非对称加密：密钥是成对儿的<br>public key: 公钥，公开所有人<br>secret key: 私钥, 不能公开<br>导入所需要公钥<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -K|checksigrpmfile检查包的完整性和签名</span><br><span class="line">rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">CentOS 7发行版光盘提供：RPM-GPG-KEY-CentOS-7</span><br><span class="line">rpm -qa“gpg-pubkey*”</span><br></pre></td></tr></table></figure></p>
+<p>查询CentOS-7的完整性和签名<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cat /misc/<span class="built_in">cd</span>/RPM-GPG-KEY-CentOS-7  获取centos7公钥</span><br><span class="line">rpm --import /misc/<span class="built_in">cd</span>/RPM-GPG-KEY-CentOS-7  导入公钥到系统</span><br><span class="line">rpm -K +软件包 显示出pgp md5 ok 查询完整性和签名</span><br></pre></td></tr></table></figure></p>
+<h1 id="YUM"><a href="#YUM" class="headerlink" title="YUM"></a>YUM</h1><p>常用命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum install remove list info search groupinstall grouplist groupremove  <span class="built_in">history</span> </span><br><span class="line">yum clean all</span><br></pre></td></tr></table></figure></p>
+<p>yum server<br>yum repo 仓库<br>包含*.rpm 包和 matadata 源数据（.rpm包需要的数据）<br>安装文件 yum install +包的名字，不用补全</p>
+<h2 id="yum仓库建设-基于httpd服务的客户端仓库"><a href="#yum仓库建设-基于httpd服务的客户端仓库" class="headerlink" title="yum仓库建设**基于httpd服务的客户端仓库"></a>yum仓库建设<strong><strong><em>**</em></strong></strong>基于httpd服务的客户端仓库</h2><p>新建一台虚拟机作为仓库<br>进入虚拟机输入<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /etc/yum.repo.d/</span><br><span class="line">df      <span class="comment">#查询光盘挂载位置</span></span><br><span class="line">ls /misc/</span><br><span class="line">ls /misc/<span class="built_in">cd</span>  <span class="comment">#触发光盘挂载到/misc/cd(神奇目录)</span></span><br><span class="line">df </span><br><span class="line">mkdir bak   </span><br><span class="line">mv *.repo bak/      备份原来的repo</span><br><span class="line">ls      然后看文件夹repodata在哪个目录，就将其所在的目录作为repo的路径</span><br><span class="line">ls /misc/<span class="built_in">cd</span> 看到repodata在这个路径，就将/misc/<span class="built_in">cd</span>作为repo的路径</span><br><span class="line">vim base.repo</span><br><span class="line">写入</span><br><span class="line">[base]</span><br><span class="line">name=aliyun  或者bendiyuan  名字随便</span><br><span class="line">baseurl=file:///misc/<span class="built_in">cd</span>/  (http://  https://  ftp://  file://)网络源用http，（如阿里 https://mirrors.aliyun.com/centos/7/os/x86_64/）（6.7通用版本阿里源https://mirrors.aliyun.com/centos/<span class="variable">$releasever</span>/<span class="variable">$basearch</span> ）本地源用file  (******<span class="variable">$releasever</span>/<span class="variable">$basearch</span>***********$代表系统版本和架构）</span><br><span class="line">gpgcheck=0                     忽略完整性检查</span><br><span class="line">wq保存</span><br><span class="line">repo本地包</span><br></pre></td></tr></table></figure></p>
+<h2 id="yum仓库建设-基于httpd服务的服务器仓库"><a href="#yum仓库建设-基于httpd服务的服务器仓库" class="headerlink" title="yum仓库建设***基于httpd服务的服务器仓库"></a>yum仓库建设<strong><strong>***</strong></strong>基于httpd服务的服务器仓库</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">yum install httpd</span><br><span class="line"><span class="built_in">cd</span> /var/www/html</span><br><span class="line">yum -ql httpd|grep service</span><br><span class="line">systemctl start httpd    <span class="comment">#浏览器输入虚拟机IP地址测试服务器是否运行 http://192.168.221.129/</span></span><br><span class="line"><span class="built_in">pwd</span> 查询是否在/var/www/html</span><br><span class="line"><span class="built_in">echo</span> 浩哥在此！ &gt; index.html <span class="comment"># http://192.168.221.129/ https://mirrors.tuna.tsinghua.edu.cn/centos/7/os/x86_64/ #使用清华源镜像</span></span><br><span class="line">/var/www/html</span><br><span class="line">/var/www/html/centos/7/os/x86_64/</span><br><span class="line">/var/www/html/centos/6/os/x86_64/</span><br><span class="line">mkdir -pv centos/&#123;6,7&#125;/os/x86_64/  <span class="comment">#创建目录</span></span><br><span class="line"> <span class="comment">#在浏览器输入http://192.168.221.129/centos/  即可看到和清华源镜像一样的目录结构</span></span><br><span class="line">mount /dev/sr0 /var/www/html/centos/7/os/x86_64/</span><br><span class="line">进入http://192.168.221.129/centos/7/os/x86_64/  <span class="comment">#可看到光盘镜像已上传</span></span><br><span class="line">vim /etc/yum.repos.d/base.repo</span><br><span class="line">写入</span><br><span class="line">[base]</span><br><span class="line">name=centos</span><br><span class="line">baseurl=file:///misc/<span class="built_in">cd</span>/</span><br><span class="line"><span class="comment">#baseurl=http://192.168.221.129/centos/7/os/x86_6    IP地址非固定</span></span><br><span class="line">gpgcheck=0</span><br><span class="line">[epel]</span><br><span class="line">name=EPEL</span><br><span class="line">baseurl=https://mirrors.aliyun.com/centos/<span class="variable">$releasever</span>/<span class="variable">$basearchl</span></span><br><span class="line">gpgcheck=0</span><br><span class="line">enabled=0</span><br><span class="line">输入wq保存</span><br><span class="line">yum repolist</span><br><span class="line">yum clean all</span><br><span class="line">systemctl start httpd 启动服务</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>yum remove + 安装包的名称   卸载包<br>yum repolist 列出仓库列表<br>yum grouplist  查询包组<br>常用包组Development tools<br>yum groupinstall “Development tools”安装包组<br>卸载多余网卡</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="http://www.ytmp3.cn/down/35843.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

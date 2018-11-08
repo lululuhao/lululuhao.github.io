@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apologize</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="LH,"> 
+    
+    <meta name="author" content="lululuhao"> 
+    <link rel="alternative" href="atom.xml" title="Apologize" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Linux进程管理</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">Linux进程管理</h1>
+        <div class="stuff">
+            <span>九月 24, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/L·H/">L·H</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>ps常见选项<br>ps<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">C cmdlist 指定命令，多个命令用，分隔</span><br><span class="line">L 显示线程</span><br><span class="line">e: 显示所有进程，相当于-A</span><br><span class="line">f: 显示完整格式程序信息</span><br><span class="line">F: 显示更完整格式的进程信息</span><br><span class="line">H: 以进程层级格式显示进程相关信息</span><br><span class="line">u userlist 指定有效的用户ID或名称</span><br><span class="line">U userlist 指定真正的用户ID或名称</span><br><span class="line">g gid或groupname 指定有效的gid或组名称</span><br><span class="line">G gid或groupname 指定真正的gid或组名称</span><br><span class="line">p pid 显示指pid的进程</span><br><span class="line">-ppid pid 显示属于pid的子进程</span><br><span class="line">M 显示SELinux信息，相当于Z</span><br></pre></td></tr></table></figure></p>
+<p>ps输出属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">VSZ: Virtual memory SiZe，虚拟内存集，线性内存</span><br><span class="line">RSS: ReSident Size, 常驻内存集</span><br><span class="line">STAT：进程状态</span><br><span class="line">R：running</span><br><span class="line">S: interruptable sleeping</span><br><span class="line">D: uninterruptable sleeping</span><br><span class="line">T: stopped</span><br><span class="line">Z: zombie</span><br><span class="line">+: 前台进程</span><br><span class="line">l: 多线程进程</span><br><span class="line">L：内存分页并带锁</span><br><span class="line">N：低优先级进程</span><br><span class="line">&lt;: 高优先级进程</span><br><span class="line">s: session leader，会话（子进程）发起者</span><br></pre></td></tr></table></figure></p>
+<p>ps示例</p>
+<blockquote>
+<p>询你拥有的所有进程<br>ps -x<br>示指定用户名(RUID)或用户ID的进程<br>ps -fU apache<br>ps -fU 48<br>示指定用户名(EUID)或用户ID的进程<br>ps -fu wang<br>ps -fu 1000<br>看以root用户权限（实际和有效ID）运行的每个进程<br>ps -U root -u root<br>出某个组拥有的所有进程（实际组ID：RGID或名称）<br>ps -fG nginx<br>列出有效组名称（或会话）所拥有的所有进程<br>ps -fg mysql<br>ps -fg 27<br>示指定的进程ID对应的进程<br>ps -fp 1234<br>父进程ID来显示其下所有的进程，如显示父进程为1234的所有进程<br>ps -f –ppid 1234<br>示指定PID的多个进程<br>ps -fp 1204,1239,1263<br>按tty显示所属进程<br>ps -ft pts/0<br>自定义格式显示文件系统组,ni值开始时间和进程的时间<br>ps -p 1234 -o pid,ppid,fgroup,ni,lstart,etime<br>用其PID查找进程名称：<br>ps -p 1244 -o comm=<br>以其名称选择特定进程，显示其所有子进程<br>ps -C sshd,bash<br>找指定进程名所有的所属PID，在编写需要从std输出或文件读取PID的脚本时<br>这个参数很有用<br>ps -C httpd,sshd -o pid=<br>查一个进程的执行时间<br>ps -eo comm,etime,user | grep nginx</p>
+</blockquote>
+<h1 id="搜索进程"><a href="#搜索进程" class="headerlink" title="搜索进程"></a>搜索进程</h1><p>灵活：ps 选项 | 其它命令<br>预定义的模式：pgrep<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pgrep [options] pattern</span><br><span class="line">-u uid: effective user，生效者</span><br><span class="line">-U uid: real user，真正发起运行命令者</span><br><span class="line">-t terminal: 与指定终端相关的进程</span><br><span class="line">-l: 显示进程名</span><br><span class="line">-a: 显示完整格式的进程名</span><br><span class="line">-P pid: 显示指定进程的子进程</span><br><span class="line">确切的程序名称：/sbin/pidof</span><br><span class="line">pidof bash</span><br></pre></td></tr></table></figure></p>
+<h2 id="进程管理工具top"><a href="#进程管理工具top" class="headerlink" title="进程管理工具top"></a>进程管理工具top</h2><p>top：有许多内置命令<br>排序：<br>P：以占据的CPU百分比,%CPU<br>M：占据内存百分比,%MEM<br>T：累积占据CPU时长,TIME+<br>首部信息显示：<br>uptime信息：l命令<br>tasks及cpu信息：t命令<br>cpu分别显示：1 (数字)<br>memory信息：m命令<br>退出命令：q<br>修改刷新时间间隔：s<br>终止指定进程：k<br>保存文件：W<br>top选项：<br>-d # 指定刷新时间间隔，默认为3秒<br>-b 全部显示所有进程<br>-n # 刷新多少次后退出<br>-H 线程模式，示例：top -H -p pidof mysqld</p>
+<h2 id="htop命令：EPEL源"><a href="#htop命令：EPEL源" class="headerlink" title="htop命令：EPEL源"></a>htop命令：EPEL源</h2><p>选项：<br>-d #: 指定延迟时间；<br>-u UserName: 仅显示指定用户的进程<br>-s COLUME: 以指定字段进行排序<br>子命令：<br>s：跟踪选定进程的系统调用<br>l：显示选定进程打开的文件列表<br>a：将选定的进程绑定至某指定CPU核心<br>t：显示进程树</p>
+<p>内存空间<br>存空间使用状态：</p>
+<p>free [OPTION]<br>-b 以字节为单位<br>-m 以MB为单位<br>-g 以GB为单位<br>-h 易读格式<br>-o 不显示-/+buffers/cache行<br>-t 显示RAM + swap的总和<br>-s n 刷新间隔为n秒<br>-c n 刷新n次后即退出</p>
+<h2 id="内存工具"><a href="#内存工具" class="headerlink" title="内存工具"></a>内存工具</h2><p>vmstat命令：虚拟内存信息<br>vmstat [options] [delay [count]]<br>vmstat 2 5<br>procs:<br>r：可运行（正运行或等待运行）进程的个数，和核心数有关<br>b：处于不可中断睡眠态的进程个数(被阻塞的队列的长度)<br>memory：</p>
+<p>swpd: 交换内存的使用总量<br>free：空闲物理内存总量<br>buffer：用于buffer的内存总量<br>cache：用于cache的内存总量<br>swap:<br>si：从磁盘交换进内存的数据速率(kb/s)<br>so：从内存交换至磁盘的数据速率(kb/s)</p>
+<h2 id="系统监控工具"><a href="#系统监控工具" class="headerlink" title="系统监控工具"></a>系统监控工具</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">glances命令：EPEL源</span><br><span class="line">glances [-bdehmnrsvyz1] [-B <span class="built_in">bind</span>] [-c server] [-C conffile] [-p port] [-P password] [–</span><br><span class="line">password] [-t refresh] [-f file] [-o output]</span><br><span class="line">内建命令：</span><br><span class="line">a Sort processes automatically l Show/hide logs</span><br><span class="line">c Sort processes by CPU% b Bytes or bits <span class="keyword">for</span> network I/O</span><br><span class="line">m Sort processes by MEM% w Delete warning logs</span><br><span class="line">p Sort processes by name x Delete warning and critical logs</span><br><span class="line">i Sort processes by I/O rate 1 Global CPU or per-CPU stats</span><br><span class="line">d Show/hide disk I/O stats h Show/hide this <span class="built_in">help</span> screen</span><br><span class="line">f Show/hide file system stats t View network I/O as combination</span><br><span class="line">n Show/hide network stats u View cumulative network I/O</span><br><span class="line">s Show/hide sensors stats q Quit (Esc and Ctrl-C also work)</span><br><span class="line">y Show/hide hddtemp stats</span><br><span class="line">常用选项：</span><br><span class="line">-b: 以Byte为单位显示网卡数据速率</span><br><span class="line">-d: 关闭磁盘I/O模块</span><br><span class="line">-f /path/to/somefile: 设定输入文件位置</span><br><span class="line">-o &#123;HTML|CSV&#125;：输出格式</span><br><span class="line">-m: 禁用mount模块</span><br><span class="line">-n: 禁用网络模块</span><br><span class="line">-t <span class="comment">#: 延迟时间间隔</span></span><br><span class="line">-1：每个CPU的相关数据单独显示</span><br></pre></td></tr></table></figure>
+<p>例子：<br>glances 远程监控<br>远程监控另一台虚拟机<br>需要两台虚拟机同为centos6或者centos7版本，否则不兼容<br>虚拟机A作为服务器<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">yum install glances  <span class="comment">#安装glances 工具</span></span><br><span class="line">glances -s  <span class="comment">#开启服务</span></span><br><span class="line">虚拟机B作为客户端</span><br><span class="line"></span><br><span class="line">yum install glances  <span class="comment">#安装glances 工具</span></span><br><span class="line">glances -c 192.168.34.129  <span class="comment">#输入服务器IP地址</span></span><br><span class="line"></span><br><span class="line">在虚拟机B上可以看到以下信息</span><br><span class="line"></span><br><span class="line">Connected to centos7.localdomain (CentOS Linux 7.5.1804 64bit / Linux 3.10.0-862.el7.x86_64)      Uptime: 0:07:49</span><br><span class="line"></span><br><span class="line">CPU  [  4.4%]   CPU       4.4%  nice:     0.0%        MEM     41.7%        SWAP      0.0%        LOAD    1-core</span><br><span class="line">MEM  [ 41.7%]   user:     1.3%  irq:      0.0%        total:  1.78G        total:   4.00G        1 min:    0.01</span><br><span class="line">SWAP [  0.0%]   system:   2.5%  iowait:   0.0%        used:    760M        used:        0        5 min:    0.15</span><br><span class="line">                idle:    96.2%  steal:    0.0%        free:   1.04G        free:    4.00G        15 min:   0.12</span><br><span class="line"></span><br><span class="line">NETWORK     Rx/s   Tx/s   TASKS 200 (467 thr), 2 run, 198 slp, 0 oth sorted automatically</span><br><span class="line">ens33        3Kb   62Kb</span><br><span class="line">ens37        1Kb   648b     CPU%  MEM%  VIRT   RES   PID USER        NI S     TIME+ IOR/s IOW/s Command </span><br><span class="line">lo            0b     0b      9.8   0.8  221M 15.1M  2858 root         0 R   0:00.33     0     0 /usr/bin/python /</span><br><span class="line">virbr0        0b     0b      0.0   0.5  548M 9.50M  2430 luhao       19 S   0:00.40     0     0 /usr/libexec/trac</span><br><span class="line">_rbr0-nic     0b     0b      0.0   0.3  105M 5.34M   686 root         0 S   0:00.20     0     0 /sbin/dhclient -d</span><br><span class="line">                             0.0   3.2 1.15G 57.9M  2488 luhao        0 S   0:00.24     0     0 /usr/libexec/evol</span><br><span class="line">DISK I/O     R/s    W/s      0.0   0.0     0     0   438 root       -20 S   0:00.00     0     0 xfs-buf/sda1</span><br><span class="line">sda1           0      0      0.0   0.0 60.7M  400K   598 avahi        0 S   0:00.00     0     0 avahi-daemon: chr</span><br><span class="line">sda2           0      0      0.0   0.0     0     0   448 root       -20 S   0:00.00     0     0 xfs-conv/sda3</span><br><span class="line">sda3           0      0      0.0   0.3  367M 5.46M  2117 luhao        0 S   0:00.00     0     0 /usr/libexec/ibus</span><br><span class="line">sda4           0      0      0.0   0.3  410M 6.06M  1752 colord       0 S   0:00.30     0     0 /usr/libexec/colo</span><br><span class="line">sda5           0      0      0.0   0.4  603M 7.12M  2309 luhao        0 S   0:00.20     0     0 /usr/libexec/gsd-</span><br><span class="line">sr0            0      0      0.0   0.2  363M 3.05M  2168 luhao        0 S   0:00.00     0     0 /usr/libexec/gvfs</span><br><span class="line">                             0.0   0.3  550M 5.48M  2156 luhao        0 S   0:00.20     0     0 /usr/libexec/gvfs</span><br><span class="line">FILE SYS    Used  Total      0.0   0.0     0     0     5 root       -20 S   0:00.00     0     0 kworker/0:0H</span><br><span class="line">/ (sda2)   3.86G  50.0G      0.0   0.0     0     0    10 root       -20 S   0:00.00     0     0 lru-add-drain</span><br><span class="line">/boot       165M  1014M      0.0   0.7  677M 13.6M   953 root         0 S   0:00.37     0     0 /usr/sbin/libvirt</span><br><span class="line">/data      32.2M  30.0G      0.0   0.2  193M 4.09M   944 root         0 S   0:00.10     0     0 /usr/sbin/cupsd -</span><br><span class="line">_7 x86_64  8.75G  8.75G      0.0   0.0 52.6M  372K  1401 root         0 S   0:00.00     0     0 /usr/sbin/dnsmasq</span><br><span class="line">                             0.0   0.0     0     0    29 root        19 S   0:00.36     0     0 khugepaged</span><br><span class="line">                             0.0   0.8  708M 13.9M  2254 luhao        0 S   0:00.11     0     0 /usr/libexec/gsd-</span><br><span class="line">                             0.0   0.0     0     0    41 root       -20 S   0:00.00     0     0 kaluad</span><br><span class="line">                             0.0   0.0     0     0   531 root       -20 S   0:00.00     0     0 rpciod</span><br><span class="line">                             0.0   0.0     0     0   532 root       -20 S   0:00.00     0     0 xprtiod</span><br><span class="line">                             0.0   0.4 1.23G 6.91M  2097 luhao      -11 S   0:00.12     0     0 /usr/bin/pulseaud</span><br><span class="line">                             0.0   0.0     0     0   225 root       -20 S   0:00.00     0     0 ata_sff</span><br><span class="line">                             0.0   0.1 23.9M 2.21M   555 root         0 S   0:00.20     0     0 /usr/sbin/smartd</span><br><span class="line">                             0.0   0.2  454M 4.44M  2381 luhao        0 S   0:00.30     0     0 /usr/libexec/gvfs</span><br><span class="line">                             0.0   0.5  625M 10.0M  2416 luhao       19 S   0:00.50     0     0 /usr/libexec/trac</span><br><span class="line">                             0.0   0.4  597M 6.50M  2284 luhao        0 S   0:00.20     0     0 /usr/libexec/gsd-</span><br><span class="line">                             0.0   0.0     0     0   444 root       -20 S   0:00.00     0     0 xfs-conv/sda1</span><br><span class="line">                             0.0   0.3  367M 5.25M  2124 luhao        0 S   0:00.10     0     0 /usr/libexec/ibus</span><br></pre></td></tr></table></figure></p>
+<p>系统监控工具<br>dstat命令：系统资源统计,代替vmstat,iostat<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">dstat [-afv] [options..] [delay [count]]</span><br><span class="line">-c 显示cpu相关信息</span><br><span class="line">-C <span class="comment">#,#,...,total</span></span><br><span class="line">-d 显示disk相关信息</span><br><span class="line">-D total,sda,sdb,...</span><br><span class="line">-g 显示page相关统计数据</span><br><span class="line">-m 显示memory相关统计数据</span><br><span class="line">-n 显示network相关统计数据</span><br><span class="line">-p 显示process相关统计数据</span><br><span class="line">-r 显示io请求相关的统计数据</span><br><span class="line">-s 显示swapped相关的统计数据</span><br></pre></td></tr></table></figure></p>
+<h2 id="iotop常用参数"><a href="#iotop常用参数" class="headerlink" title="iotop常用参数"></a>iotop常用参数</h2><p>o, –only只显示正在产生I/O的进程或线程，除了传参，可以在运行过程中按o<br>生效<br>b, –batch非交互模式，一般用来记录日志<br>n NUM, –iter=NUM设置监测的次数，默认无限。在非交互模式下很有用<br>d SEC, –delay=SEC设置每次监测的间隔，默认1秒，接受非整形数据例如1.1<br>p PID, –pid=PID指定监测的进程/线程<br>u USER, –user=USER指定监测某个用户产生的I/O<br>P, –processes仅显示进程，默认iotop显示所有线程<br>a, –accumulated显示累积的I/O，而不是带宽<br>k, –kilobytes使用kB单位，而不是对人友好的单位。在非交互模式下，脚本<br>编程有用<br>-t, –time 加上时间戳，非交互非模式<br>q, –quiet 禁止头几行，非交互模式，有三种指定方式<br>-q 只在第一次监测时显示列名<br>-qq 永远不显示列名<br>-qqq 永远不显示I/O汇总<br>交互按键<br>left和right方向键：改变排序<br>r：反向排序<br>o：切换至选项–only<br>p：切换至–processes选项<br>a：切换至–accumulated选项<br>q：退出<br>i：改变线程的优先级</p>
+<p>lsof<br>lsof：list open files查看当前系统文件的工具。在linux环境下，一切皆文件，<br>用户通过文件不仅可以访问常规数据，还可以访问网络连接和硬件如传输控制<br>协议 (TCP) 和用户数据报协议 (UDP)套接字等，系统在后台都为该应用程序分<br>配了一个文件描述符<br>命令参数<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">lsof</span><br><span class="line">-a：列出打开文件存在的进程</span><br><span class="line">-c&lt;进程名&gt;：列出指定进程所打开的文件</span><br><span class="line">-g：列出GID号进程详情</span><br><span class="line">-d&lt;文件号&gt;：列出占用该文件号的进程</span><br><span class="line">+d&lt;目录&gt;：列出目录下被打开的文件</span><br><span class="line">+D&lt;目录&gt;：递归列出目录下被打开的文件</span><br><span class="line">-n&lt;目录&gt;：列出使用NFS的文件</span><br><span class="line">-i&lt;条件&gt;：列出符合条件的进程(4、6、协议、:端口、 @ip )</span><br><span class="line">-p&lt;进程号&gt;：列出指定进程号所打开的文件</span><br><span class="line">-u：列出UID号进程详情</span><br><span class="line">-h：显示帮助信息</span><br><span class="line">-v：显示版本信息。</span><br><span class="line">-n: 不反向解析网络名字</span><br><span class="line">lsof /dev/pts/0   <span class="comment">#查看由系统启动的进程  0改为1是看用户的进程</span></span><br><span class="line">指定进程号，可以查看该进程打开的文件</span><br><span class="line">lsof -p 9527</span><br><span class="line">文件管理</span><br><span class="line">查看指定程序打开的文件</span><br><span class="line">lsof -c httpd</span><br><span class="line">查看指定用户打开的文件</span><br><span class="line">lsof -u root | more</span><br><span class="line">查看指定目录下被打开的文件</span><br><span class="line">lsof +D /var/<span class="built_in">log</span>/</span><br><span class="line">lsof +d /var/<span class="built_in">log</span>/</span><br><span class="line">参数+D为递归列出目录下被打开的文件，参数+d为列出目录下被打开的文件</span><br></pre></td></tr></table></figure></p>
+<p>例子：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">[root@centos6 ~]<span class="comment">#lsof /dev/pts/0</span></span><br><span class="line">COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME</span><br><span class="line">bash    27075 root    0u   CHR  136,0      0t0    3 /dev/pts/0</span><br><span class="line">bash    27075 root    1u   CHR  136,0      0t0    3 /dev/pts/0</span><br><span class="line">bash    27075 root    2u   CHR  136,0      0t0    3 /dev/pts/0</span><br><span class="line">bash    27075 root  255u   CHR  136,0      0t0    3 /dev/pts/0</span><br><span class="line">lsof    37913 root    0u   CHR  136,0      0t0    3 /dev/pts/0</span><br><span class="line">lsof    37913 root    1u   CHR  136,0      0t0    3 /dev/pts/0</span><br><span class="line">lsof    37913 root    2u   CHR  136,0      0t0    3 /dev/pts/0</span><br><span class="line"></span><br><span class="line">lsof -i :22 <span class="comment">#查询22端口被哪个进程占用</span></span><br><span class="line">例子：</span><br><span class="line"></span><br><span class="line">lsof -i :22</span><br><span class="line">COMMAND   PID USER   FD   TYPE DEVICE SIZE/OFF NODE NAME</span><br><span class="line">sshd     1932 root    3u  IPv4  12343      0t0  TCP *:ssh (LISTEN)</span><br><span class="line">sshd     1932 root    4u  IPv6  12345      0t0  TCP *:ssh (LISTEN)</span><br><span class="line">sshd    27073 root    3r  IPv4  39440      0t0  TCP 192.168.34.128:ssh-&gt;192.168.34.1:54867 (ESTABLISHED)</span><br></pre></td></tr></table></figure></p>
+<p>进程管理工具kill<br>kill命令：向进程发送控制信号，以实现对进程管理,每个信号对应一个数字，信号名称以SIG开头（可省略），不区分大小写<br>显示当前系统可用信号： kill –l 或者 trap -l<br>常用信号：man 7 signal</p>
+<blockquote>
+<p>SIGHUP 无须关闭进程而让其重读配置文件<br>SIGINT 中止正在运行的进程；相当于Ctrl+c<br>SIGQUIT 相当于ctrl+\<br>SIGKILL 强制杀死正在运行的进程<br>SIGTERM 终止正在运行的进程<br>SIGCONT 继续运行<br>SIGSTOP 后台休眠<br>指定信号的方法 : (1) 信号的数字标识：1, 2, 9<br>(2) 信号完整名称：SIGHUP<br>(3) 信号的简写名称：HUP<br>pidof bc 查看计算器的进程号<br>kill ‘pidof bc’ 停止进程<br>按PID：</p>
+</blockquote>
+<p>kill [-SIGNAL] pid …<br>kill –n SIGNAL pid<br>kill –s SIGNAL pid<br>按名称：killall [-SIGNAL] comm…<br>按模式：pkill [options] pattern</p>
+<blockquote>
+<p>-SIGNAL<br>-u uid: effective user，生效者<br>-U uid: real user，真正发起运行命令者<br>-t terminal: 与指定终端相关的进程<br>-l: 显示进程名（pgrep可用）<br>-a: 显示完整格式的进程名（pgrep可用）<br>-P pid: 显示指定进程的子进程</p>
+</blockquote>
+<p>并行执行<br>同时运行多个进程，提高效率<br>方法1<br>vi all.sh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">f1.sh&amp;</span><br><span class="line">f2.sh&amp;</span><br><span class="line">f3.sh&amp;</span><br><span class="line">方法2</span><br><span class="line">(f1.sh&amp;);(f2.sh&amp;);(f3.sh&amp;)</span><br><span class="line">方法3</span><br><span class="line">&#123; f1.sh&amp; f2.sh&amp; f3.sh&amp; &#125;</span><br></pre></td></tr></table></figure></p>
+<p>例子： 同时ping四个地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">ping -c2 127.0.0.1</span><br><span class="line">ping 127.0.0.2</span><br><span class="line">&#125;&amp;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">ping -c2 127.0.0.3</span><br><span class="line">ping 127.0.0.4</span><br><span class="line">&#125;&amp;</span><br></pre></td></tr></table></figure></p>
+<p>例子：<br>并行ping172.18.133网段的254个IP，并输出结果<br><img src="https://img-blog.csdnimg.cn/20181108195422192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="http://www.ytmp3.cn/down/35843.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

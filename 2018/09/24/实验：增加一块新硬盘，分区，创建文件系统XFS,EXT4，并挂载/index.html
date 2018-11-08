@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apologize</title>
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="LH,"> 
+    
+    <meta name="author" content="lululuhao"> 
+    <link rel="alternative" href="atom.xml" title="Apologize" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+</head>
+
+<body class="loading">
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">实验：增加一块新硬盘，分区，创建文件系统XFS|EXT4，并挂载</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">实验：增加一块新硬盘，分区，创建文件系统XFS|EXT4，并挂载</h1>
+        <div class="stuff">
+            <span>九月 24, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/L·H/">L·H</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="实验：增加一块新硬盘，分区，创建文件系统XFS-EXT4，并挂载"><a href="#实验：增加一块新硬盘，分区，创建文件系统XFS-EXT4，并挂载" class="headerlink" title="实验：增加一块新硬盘，分区，创建文件系统XFS|EXT4，并挂载"></a>实验：增加一块新硬盘，分区，创建文件系统XFS|EXT4，并挂载</h1><hr>
+<p>VMware中添加一块200G硬盘，重启虚拟机<br>输入lsblk查看多了一个sdb 硬盘<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdb</span><br><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): m</span><br><span class="line">Command action</span><br><span class="line">   a   toggle a bootable flag</span><br><span class="line">   b   edit bsd disklabel</span><br><span class="line">   c   toggle the dos compatibility flag</span><br><span class="line">   d   delete a partition                                  删除一个分区</span><br><span class="line">   g   create a new empty GPT partition table</span><br><span class="line">   G   create an IRIX (SGI) partition table</span><br><span class="line">   l   list known partition types</span><br><span class="line">   m   <span class="built_in">print</span> this menu</span><br><span class="line">   n   add a new partition                                 创建一个分区</span><br><span class="line">   o   create a new empty DOS partition table</span><br><span class="line">   p   <span class="built_in">print</span> the partition table                          查看分区信息</span><br><span class="line">   q   quit without saving changes</span><br><span class="line">   s   create a new empty Sun disklabel</span><br><span class="line">   t   change a partition<span class="string">'s system id</span></span><br><span class="line"><span class="string">   u   change display/entry units</span></span><br><span class="line"><span class="string">   v   verify the partition table</span></span><br><span class="line"><span class="string">   w   write table to disk and exit                        保存写入分区操作信息，不按w分区不保存</span></span><br><span class="line"><span class="string">   x   extra functionality (experts only)</span></span><br><span class="line"><span class="string">按m进入交互式操作</span></span><br><span class="line"><span class="string">按n新建一个分区，如下</span></span><br><span class="line"><span class="string">Command (m for help): n</span></span><br><span class="line"><span class="string">Partition type:</span></span><br><span class="line"><span class="string">   p   primary (0 primary, 0 extended, 4 free)       主分区</span></span><br><span class="line"><span class="string">   e   extended                                      扩展分区</span></span><br><span class="line"><span class="string">Select (default p): p</span></span><br><span class="line"><span class="string">Partition number (1-4, default 1): 1                  分区编号</span></span><br><span class="line"><span class="string">First sector (2048-41943039, default 2048): </span></span><br><span class="line"><span class="string">Using default value 2048</span></span><br><span class="line"><span class="string">Last sector, +sectors or +size&#123;K,M,G&#125; (2048-41943039, default 41943039): +50G      分区大小            </span></span><br><span class="line"><span class="string">Partition 1 of type Linux and of size 1 GiB is set</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Command (m for help): p                                             显示分区信息</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Disk /dev/sdb: 21.5 GB, 21474836480 bytes, 41943040 sectors</span></span><br><span class="line"><span class="string">Units = sectors of 1 * 512 = 512 bytes</span></span><br><span class="line"><span class="string">Sector size (logical/physical): 512 bytes / 512 bytes</span></span><br><span class="line"><span class="string">I/O size (minimum/optimal): 512 bytes / 512 bytes</span></span><br><span class="line"><span class="string">Disk label type: dos</span></span><br><span class="line"><span class="string">Disk identifier: 0x1cc76008</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   Device Boot      Start         End      Blocks   Id  System</span></span><br><span class="line"><span class="string">/dev/sdb1            2048     2099199     1048576   83  Linux</span></span><br><span class="line"><span class="string">然后按w保存分区信息**************************</span></span><br></pre></td></tr></table></figure></p>
+<p>分区完成<br>若lsblk后没有新建的分区，可以输入partx -a /dev/sdb  来通知内核重新读取分区表  或者输入partprobe 进行分区同步</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src="http://www.ytmp3.cn/down/35843.mp3">
+            </audio>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>

@@ -203,7 +203,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 opening-statement">
                 <div class="col-md-4">
-                    <h3><a href="/2018/10/16/计划任务/">计划任务</a></h3>
+                    <h3><a href="/2018/10/16/三次握手及子网划分/">三次握手及子网划分</a></h3>
                     <span>
                         <span class="post-meta">
       <time datetime="2018-10-16T10:18:18.000Z" itemprop="datePublished">
@@ -221,14 +221,16 @@
                 <div class="col-md-8">
                     <p>
                       
-                        计划任务Linux任务计划、周期性任务执行• 未来的某时间点执行一次任务at 指定时间点，执行一次性任务batch 系统自行选择空闲时间去执行此处指定的任务• 周期性运行某任务cron
-at任务 (按ctrl+D保存)包：atat命令：at [option] TIME常用选项：
--V 显示版本信息-t time 时间格式 [[CC]YY]MMDDhhmm[.ss]-l 列出指定队列中等待运行的作业；相当于atq-d 删除指定的作业；相当
+                        三次握手及四次挥手三次握手 （最好能画出图） （一般抓包软件wireshark默认客户端和服务器第一次建立连接，x,y取绝对，为0）
+
+客户端发送SYN=1,seq=x 到服务器（LISTEN状态）
+服务器收到后 回发SYN=1,ACK=1,seq,=y,ack=x+1 给客户端，说明收到（同步收到状态）
+客户端（同步已发送状态）收到反馈后， 发送ACK=1,seq=x+1,ack=y+1 给服务器，双方建立连接（都为ESTAB-LIS
                       
                     </p>
                     
                     <p class="pull-right readMore">
-                        <a href="/2018/10/16/计划任务/">Read More...</a>
+                        <a href="/2018/10/16/三次握手及子网划分/">Read More...</a>
                     </p>
                     
                 </div>

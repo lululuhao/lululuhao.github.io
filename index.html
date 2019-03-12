@@ -1,266 +1,2909 @@
-
 <!DOCTYPE html>
-<html lang="" class="loading">
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Apologize</title>
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="google" content="notranslate" />
-    <meta name="keywords" content="LH,"> 
-    <meta name="description" content="定义习惯用的别名12345vim .bashrcalias rm=&#39;rm -i&#39;alias cp=&#39;cp -i&#39;alias mv=&#39;mv -i&#39;alias yy=&#39;yum install -y&#39;
-修,"> 
-    <meta name="author" content="lululuhao"> 
-    <link rel="alternative" href="atom.xml" title="Apologize" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
-    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
-    <link rel="stylesheet" href="/css/diaspora.css">
+
+
+
+
+
+
+
+
+
+
+
+
+<html class="theme-next pisces" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.6.0" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.6.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.6.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.6.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.6.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Apologize&#39;s blogs">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="Apologize&#39;s blogs">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Apologize&#39;s blogs">
+
+
+
+  <link rel="alternate" href="https://www.lh1.ink/whoami/" title="Apologize's blogs" type="application/atom+xml">
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Apologize's blogs</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
 </head>
 
-<body class="loading">
-    <div id="loader"></div>
-    <div class="nav">
-    <ul id="menu-menu" class="menu">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left 
+  page-home">
+    <div class="headband"></div>
+    <a href="https://github.com/liukkui"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Apologize's blogs</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
         
-        <li class="pview menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="/whoami/" title="Whoami" target="_blank" rel="noopener">Whoami</a>
+        
+        
+          
+          <li class="menu-item menu-item-home menu-item-active">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">8</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">1</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">35</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-相册">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/photos/" rel="section"><i class="menu-item-icon fa fa-fw fa-image"></i> <br>相册</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-schedule">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/schedule/" rel="section"><i class="menu-item-icon fa fa-fw fa-calendar"></i> <br>日程表</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
         </li>
-        
-        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="https://github.com/lululuhao" title="Github" target="_blank" rel="noopener">Github</a>
-        </li>
-        
-        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="http://weibo.com/haogegeA" title="Weibo" target="_blank" rel="noopener">Weibo</a>
-        </li>
-        
-        <li class="  menu-item menu-item-type-post_type menu-item-object-page">
-            <a href="http://wx2.sinaimg.cn/mw690/006iUrBzly1fwa42r9grdj30yi1augqj.jpg" title="Support" target="_blank" rel="noopener">Support</a>
-        </li>
-        
+      
     </ul>
-    <p id="copyright">
-        &copy; 2019 lululuhao.
-        Powered by <a href="http://hexo.io/" title="Hexo" target="_blank" rel="noopener">Hexo</a>
-        Theme <a href="https://github.com/Fechin/hexo-theme-diaspora" title="Diaspora" target="_blank" rel="noopener">Diaspora</a>
-        by Fechin
-    </p>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
 </div>
 
-<div id="container">
-    
-<div id="screen">
-    <div id="mark">
-        <div class="layer" data-depth="0.4">
-            <img src="/img/welcome-cover.jpg" id="cover" crossorigin="anonymous" width="1920" height="1080">
-        </div>
-    </div>
-    <div id="vibrant">
-        <svg viewBox="0 0 2880 1620" height="100%" preserveAspectRatio="xMaxYMax slice">
-            <polygon opacity="0.7" points="2000,1620 0,1620 0,0 600,0 "/>
-        </svg>
-        <div></div>
-    </div>
-    <div id="header">
-        <div>
-            <a class="image-logo" href="/"></a>
-            <div class="icon-menu switchmenu"></div>
-        </div>
-    </div>
-    
-    <div id="post0">
-        <p>九月 24, 2019</p>
-        <h2><a href="/2019/09/24/L·H/" title="L·H" class="posttitle">L·H</a></h2>
-        <p class="summary">如果痴痴的等某日，终可等到一生中最爱。
-</p>
-    </div>
-    
-</div>
 
-    <div id="primary">
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    <a href="https://github.com/liukkui" class="github-corner" target="_blank" title="Follow me on GitHub" aria-label="Follow me on GitHub">
+      <svg width="80" height="80" viewbox="0 0 250 250" style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/>
+    <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/>
+      </svg>
+      </a>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+  <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/18/文本三剑客之awk/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="摩托猿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
         
-<div class="post">
-    <a href="/2018/12/03/新装系统后必须做的几件事/" title="装centos系统后必须要做的几件事！！！">
-        <img src="https://wx1.sinaimg.cn/mw1024/006iUrBzly1fwa0n3a5agj30fk0fkwfh.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十二月 03, 2018</p>
-        <h3><a href="/2018/12/03/新装系统后必须做的几件事/" title="装centos系统后必须要做的几件事！！！" class="posttitle">装centos系统后必须要做的几件事！！！</a></h3>
-        <p>定义习惯用的别名12345vim .bashrcalias rm='rm -i'alias cp='cp -i'alias mv='mv -i'alias...</p>
-    </div>
-</div>
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2017/10/18/文本三剑客之awk/" class="post-title-link" itemprop="http://yoursite.com/index.html">文本三剑客之awk</a>
+              
+            
+          </h1>
+        
 
+        <div class="post-meta">
+          <span class="post-time">
 
-<div class="post">
-    <a href="/2018/11/11/各种小工具和小玩意，小火车，黑客代码，国际象棋盘，三角形/" title="各种小工具和小玩意，小火车，黑客代码，国际象棋盘，三角形">
-        <img src="http://wx4.sinaimg.cn/mw690/006iUrBzly1fx0vxl30k1j30uk0kggqw.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十一月 11, 2018</p>
-        <h3><a href="/2018/11/11/各种小工具和小玩意，小火车，黑客代码，国际象棋盘，三角形/" title="各种小工具和小玩意，小火车，黑客代码，国际象棋盘，三角形" class="posttitle">各种小工具和小玩意，小火车，黑客代码，国际象棋盘，三角形</a></h3>
-        <p>笔记本电脑查询已连接WIFI密码###本方法适用于忘了WiFi密码或者通过其他手段连上WiFi却不知道密码的12345#按Windows+R，输入cmd启...</p>
-    </div>
-</div>
+            
+            
+            
 
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
 
-<div class="post">
-    <a href="/2018/11/08/谷歌chrome浏览器自动启用flash/" title="谷歌chrome浏览器自动启用flash">
-        <img src="http://wx4.sinaimg.cn/mw690/006iUrBzly1fx0vxl30k1j30uk0kggqw.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十一月 08, 2018</p>
-        <h3><a href="/2018/11/08/谷歌chrome浏览器自动启用flash/" title="谷歌chrome浏览器自动启用flash" class="posttitle">谷歌chrome浏览器自动启用flash</a></h3>
-        <p>新版的chrome浏览器不支持启用flash插件了，这也导致有时候打开视频或者微博上传图片时，浏览器提示你flash未启用或者版本过低，这时就算你再下载安...</p>
-    </div>
-</div>
+              
+                
+              
 
+              <time title="创建时间：2017-10-18 00:00:00" itemprop="dateCreated datePublished" datetime="2017-10-18T00:00:00+08:00">2017-10-18</time>
+            
 
-<div class="post">
-    <a href="/2018/10/21/shell防止黑客攻击/" title="shell防止黑客攻击">
-        <img src="http://wx4.sinaimg.cn/mw690/006iUrBzly1fx0vxl30k1j30uk0kggqw.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十月 21, 2018</p>
-        <h3><a href="/2018/10/21/shell防止黑客攻击/" title="shell防止黑客攻击" class="posttitle">shell防止黑客攻击</a></h3>
-        <p>shell防止黑客攻击1234567891011#!bin/bash#******************************************...</p>
-    </div>
-</div>
+            
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
 
-<div class="post">
-    <a href="/2018/10/20/批量ping IP脚本/" title="批量ping IP脚本">
-        <img src="http://wx4.sinaimg.cn/mw690/006iUrBzly1fx0vxl30k1j30uk0kggqw.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十月 20, 2018</p>
-        <h3><a href="/2018/10/20/批量ping IP脚本/" title="批量ping IP脚本" class="posttitle">批量ping IP脚本</a></h3>
-        <p>批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：/tmp/iplist.log例如ping百度的IP：123.125.115....</p>
-    </div>
-</div>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-09 21:34:35" itemprop="dateModified" datetime="2018-12-09T21:34:35+08:00">2018-12-09</time>
+              
+            
+          </span>
 
+          
 
-<div class="post">
-    <a href="/2018/10/20/iptables/" title="iptables防火墙">
-        <img src="http://wx4.sinaimg.cn/mw690/006iUrBzly1fx0vxl30k1j30uk0kggqw.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十月 20, 2018</p>
-        <h3><a href="/2018/10/20/iptables/" title="iptables防火墙" class="posttitle">iptables防火墙</a></h3>
-        <p>1. Linux防火墙
-防火墙的概念
-iptables的基本认识
-iptables的组成
-iptables的基本语法
-iptables之forward的概...</p>
-    </div>
-</div>
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/18/文本三剑客之awk/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2017/10/18/文本三剑客之awk/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
 
+          
+          
 
-<div class="post">
-    <a href="/2018/10/19/shell脚本进阶和条件语句/" title="shell脚本进阶和条件语句">
-        <img src="http://wx4.sinaimg.cn/mw690/006iUrBzly1fx0vxl30k1j30uk0kggqw.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十月 19, 2018</p>
-        <h3><a href="/2018/10/19/shell脚本进阶和条件语句/" title="shell脚本进阶和条件语句" class="posttitle">shell脚本进阶和条件语句</a></h3>
-        <p>if语句单分支if 判断条件;then条件为真的分支代码fi双分支if 判断条件; then条件为真的分支代码else条件为假的分支代码fi多分支if 判...</p>
-    </div>
-</div>
+          
 
+          
 
-<div class="post">
-    <a href="/2018/10/18/网络配置及route路由/" title="网络配置及route路由">
-        <img src="http://wx4.sinaimg.cn/mw690/006iUrBzly1fx0vxl30k1j30uk0kggqw.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十月 18, 2018</p>
-        <h3><a href="/2018/10/18/网络配置及route路由/" title="网络配置及route路由" class="posttitle">网络配置及route路由</a></h3>
-        <p>修改主机名hostnamecentos6vim /etc/sysconfig/network 写入HOSTNAME=centos666.localdoma...</p>
-    </div>
-</div>
+          
 
-
-<div class="post">
-    <a href="/2018/10/16/计划任务/" title="计划任务">
-        <img src="http://wx4.sinaimg.cn/mw690/006iUrBzly1fx0vxl30k1j30uk0kggqw.jpg" class="cover" width="680" height="440">
-    </a>
-    <div class="else">
-        <p>十月 16, 2018</p>
-        <h3><a href="/2018/10/16/计划任务/" title="计划任务" class="posttitle">计划任务</a></h3>
-        <p>计划任务Linux任务计划、周期性任务执行• 未来的某时间点执行一次任务at 指定时间点，执行一次性任务batch 系统自行选择空闲时间去执行此处指定的任...</p>
-    </div>
-</div>
-
-
-    </div>
-    
-    <div id="pager"><a href="/page/2/" class="more">加载更多</a></div>
-    
-</div>
-<div id="preview"></div>
-
-</body>
-<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
-<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
-<script src="/js/plugin.js"></script>
-<script src="/js/diaspora.js"></script>
-<link rel="stylesheet" href="/photoswipe/photoswipe.css">
-<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
-<script src="/photoswipe/photoswipe.min.js"></script>
-<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
-
-<!-- Root element of PhotoSwipe. Must have class pswp. -->
-<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
-    <!-- Background of PhotoSwipe. 
-         It's a separate element as animating opacity is faster than rgba(). -->
-    <div class="pswp__bg"></div>
-    <!-- Slides wrapper with overflow:hidden. -->
-    <div class="pswp__scroll-wrap">
-        <!-- Container that holds slides. 
-            PhotoSwipe keeps only 3 of them in the DOM to save memory.
-            Don't modify these 3 pswp__item elements, data is added later on. -->
-        <div class="pswp__container">
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
-            <div class="pswp__item"></div>
         </div>
-        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
-        <div class="pswp__ui pswp__ui--hidden">
-            <div class="pswp__top-bar">
-                <!--  Controls are self-explanatory. Order can be changed. -->
-                <div class="pswp__counter"></div>
-                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
-                <button class="pswp__button pswp__button--share" title="Share"></button>
-                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
-                <!-- element will get class pswp__preloader--active when preloader is running -->
-                <div class="pswp__preloader">
-                    <div class="pswp__preloader__icn">
-                      <div class="pswp__preloader__cut">
-                        <div class="pswp__preloader__donut"></div>
-                      </div>
-                    </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="文本处理三剑客之Awk"><a href="#文本处理三剑客之Awk" class="headerlink" title="文本处理三剑客之Awk"></a>文本处理三剑客之Awk</h1><p><img src="/2017/10/18/文本三剑客之awk/awk.png" alt=""></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2017/10/18/文本三剑客之awk/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/18/ansible/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="摩托猿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/09/18/ansible/" class="post-title-link" itemprop="http://yoursite.com/index.html">ansible</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-09-18 00:00:00" itemprop="dateCreated datePublished" datetime="2018-09-18T00:00:00+08:00">2018-09-18</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-10 13:52:03" itemprop="dateModified" datetime="2018-12-10T13:52:03+08:00">2018-12-10</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/自动化运维/" itemprop="url" rel="index"><span itemprop="name">自动化运维</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/09/18/ansible/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/09/18/ansible/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="运维自动化管理工具之Ansible"><a href="#运维自动化管理工具之Ansible" class="headerlink" title="运维自动化管理工具之Ansible"></a>运维自动化管理工具之Ansible</h1><p><img src="/2018/09/18/ansible/ansible.png" alt=""><br></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/09/18/ansible/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/24/L·H/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="摩托猿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/09/24/L·H/" class="post-title-link" itemprop="http://yoursite.com/index.html">L·H</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-09-24 18:18:18" itemprop="dateCreated datePublished" datetime="2019-09-24T18:18:18+08:00">2019-09-24</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-08 20:46:59" itemprop="dateModified" datetime="2018-11-08T20:46:59+08:00">2018-11-08</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/09/24/L·H/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/09/24/L·H/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>如果痴痴的等某日，终可等到一生中最爱。</strong></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/12/test/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="摩托猿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/03/12/test/" class="post-title-link" itemprop="http://yoursite.com/index.html">test</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-03-12 20:19:47 / 修改时间：20:21:48" itemprop="dateCreated datePublished" datetime="2019-03-12T20:19:47+08:00">2019-03-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/03/12/test/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2019/03/12/test/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><img src="/2019/03/12/test/2.jpg" alt="111"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/09/mysql/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="摩托猿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/12/09/mysql/" class="post-title-link" itemprop="http://yoursite.com/index.html">mysql</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-09 13:43:48" itemprop="dateCreated datePublished" datetime="2018-12-09T13:43:48+08:00">2018-12-09</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-12-10 10:37:14" itemprop="dateModified" datetime="2018-12-10T10:37:14+08:00">2018-12-10</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/09/mysql/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/12/09/mysql/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/03/新装系统后必须做的几件事/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="摩托猿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/12/03/新装系统后必须做的几件事/" class="post-title-link" itemprop="http://yoursite.com/index.html">装centos系统后必须要做的几件事！！！</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-03 18:18:18" itemprop="dateCreated datePublished" datetime="2018-12-03T18:18:18+08:00">2018-12-03</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-12 20:17:38" itemprop="dateModified" datetime="2019-03-12T20:17:38+08:00">2019-03-12</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/12/03/新装系统后必须做的几件事/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/12/03/新装系统后必须做的几件事/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>定义习惯用的别名<br></p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/12/03/新装系统后必须做的几件事/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/11/各种小工具和小玩意，小火车，黑客代码，国际象棋盘，三角形/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="摩托猿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/11/11/各种小工具和小玩意，小火车，黑客代码，国际象棋盘，三角形/" class="post-title-link" itemprop="http://yoursite.com/index.html">各种小工具和小玩意，小火车，黑客代码，国际象棋盘，三角形</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-11 18:18:18" itemprop="dateCreated datePublished" datetime="2018-11-11T18:18:18+08:00">2018-11-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-08 21:49:11" itemprop="dateModified" datetime="2018-11-08T21:49:11+08:00">2018-11-08</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/11/各种小工具和小玩意，小火车，黑客代码，国际象棋盘，三角形/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/11/各种小工具和小玩意，小火车，黑客代码，国际象棋盘，三角形/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="笔记本电脑查询已连接WIFI密码"><a href="#笔记本电脑查询已连接WIFI密码" class="headerlink" title="笔记本电脑查询已连接WIFI密码"></a>笔记本电脑查询已连接WIFI密码</h1><p>###本方法适用于忘了WiFi密码或者通过其他手段连上WiFi却不知道密码的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#按Windows+R，输入cmd启动命令行</span></span><br><span class="line"><span class="comment">#命令行中输入</span></span><br><span class="line">netsh wlan show profiles   <span class="comment">#列出已保存WiFi</span></span><br><span class="line">netsh wlan show profiles name=12345 key=clear </span><br><span class="line"><span class="comment">#即可查询WiFi名称为12345的密码，在安全设置中，密码即为下方关键内容</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="Linux下取出指定位的随机密码"><a href="#Linux下取出指定位的随机密码" class="headerlink" title="Linux下取出指定位的随机密码"></a>Linux下取出指定位的随机密码</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /dev/urandom |tr -dc <span class="string">'a-zA-Z0-9_'</span> |head -c12 <span class="comment">#取出12位的随机密码，尾数改变改为8即取8位</span></span><br></pre></td></tr></table></figure>
+<h1 id="Linux命令颜色和欢迎界面！"><a href="#Linux命令颜色和欢迎界面！" class="headerlink" title="Linux命令颜色和欢迎界面！"></a>Linux命令颜色和欢迎界面！</h1><p>在全局设置中写入配置</p>
+<h3 id="字体颜色和背景设置"><a href="#字体颜色和背景设置" class="headerlink" title="字体颜色和背景设置"></a>字体颜色和背景设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile.d/env.sh   <span class="comment">#打开配置文件</span></span><br><span class="line">PS1=<span class="string">"\[\e[1;32m\][\u@\h \W]\\$\[\e[0m\]"</span></span><br><span class="line"><span class="comment">#按esc，然后输入wq保存，重新登陆客户端即可</span></span><br></pre></td></tr></table></figure>
+<p>如图<br><img src="https://img-blog.csdnimg.cn/20181101113754610.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="111"><br><img src="https://img-blog.csdnimg.cn/20181101113811394.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="1112"><br>可以看到上面两图命令颜色变成了绿色<br>那么欢迎界面怎么设置呢？</p>
+<h2 id="欢迎界面"><a href="#欢迎界面" class="headerlink" title="欢迎界面"></a>欢迎界面</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/motd   <span class="comment">#打开配置文件,复制下面的字符</span></span><br><span class="line"></span><br><span class="line">                                                     /*[*/<span class="comment">#include&lt;stdio.h&gt;//</span></span><br><span class="line">                         <span class="comment">#include&lt;stdlib.h&gt;//]++++[-&gt;++[-&gt;+&gt;++++&lt;&lt;]&lt;][(c)2013]</span></span><br><span class="line">                        <span class="comment">#ifndef                                           e//[o</span></span><br><span class="line">                       <span class="comment">#include&lt;string.h&gt;//]![misaka.c,size=3808,crc=d0ec3b36][</span></span><br><span class="line">                      <span class="comment">#define e                                           0x1//</span></span><br><span class="line">                     typedef struct&#123;int d,b,o,P;char*q,*p;&#125;f;int p,q,d,b,_=0//|</span><br><span class="line">                  <span class="comment">#include __FILE__//]&gt;&gt;&gt;[-&gt;+&gt;++&lt;&lt;]&lt;[-&lt;&lt;+&gt;&gt;&gt;++&lt;]&gt;&gt;+MISAKA*IMOUTO</span></span><br><span class="line">                <span class="comment">#undef e//[-&gt;[-&lt;&lt;+&lt;+&lt;+&gt;&gt;&gt;&gt;]&lt;&lt;&lt;&lt;&lt;++[-&gt;&gt;+&gt;&gt;&gt;+&lt;&lt;&lt;&lt;&lt;]&gt;+&gt;+++&gt;+++[&gt;]]b</span></span><br><span class="line">             <span class="comment">#define e(c)/**/if((_!=__LINE__?(_=__LINE__):0))&#123;c;&#125;//[20002,+[-.+]</span></span><br><span class="line">            ,O,i=0,Q=sizeof(f);static f*P;static FILE*t;static const char*o[]=&#123;//</span><br><span class="line">          <span class="string">"\n\40\"8oCan\40not\40open %s\n\0aaFbfeccdeaEbgecbbcda6bcedd#e(bbed<span class="variable">$bbd</span>"</span>,</span><br><span class="line">        <span class="string">"a6bgcdbbccd#ead<span class="variable">$c</span>%bcdea7bccde*b<span class="variable">$eebbdda9bsdbeccdbbecdcbbcceed</span>#eaa&amp;bae<span class="variable">$cbe</span>"</span>,</span><br><span class="line">       <span class="string">"e&amp;cbdd<span class="variable">$eldbdeedbbdede</span>)bdcdea&amp;bbde1bedbbcc&amp;b#ccdee&amp;bdcdea'bbcd)e'bad(bae&amp;bccd"</span>,</span><br><span class="line">      <span class="string">"e&amp;bbda1bdcdee<span class="variable">$bbce</span>#b<span class="variable">$c</span>&amp;bdedcd%ecdca4bhcdeebbcd#e<span class="variable">$b</span>#ecdcc<span class="variable">$bccda7bbcc</span>#e#d%c*bbda"</span>,</span><br><span class="line">     <span class="string">"&gt;bad/bbda"</span>&#125;;static int <span class="function"><span class="title">S</span></span>()&#123;<span class="built_in">return</span>(o[p][q]);&#125;static/**/int/**/Z=0  ;void/**/z(int//</span><br><span class="line">    l)&#123;<span class="keyword">if</span>(/**/Z<span class="_">-l</span>)&#123;Z=l;q++;<span class="keyword">if</span>(p&lt;b*5&amp;&amp;!S())&#123;p+=b;q=0;&#125;&#125;&#125;int main(int I,    /**/char**l)&#123;//</span><br><span class="line">   d=sizeof(f*);<span class="keyword">if</span>(1&lt;(O=_))&#123;b=((sizeof(o)/sizeof(char*))-1)/4;q=22; p=     0;<span class="keyword">while</span>(p&lt;b*5)&#123;</span><br><span class="line">  /*&lt;*/<span class="keyword">if</span>(Z-1)&#123;d=S()&gt;96;i=S()-(d?96:32) ;q++;<span class="keyword">if</span>(p&lt;b*5&amp;&amp;!S())&#123;p+=b;  q=      0;&#125;Z=1;&#125;/*[[*/</span><br><span class="line">  <span class="keyword">while</span>(i)&#123;_=o[0][S()-97];I=_-10?b:1;   <span class="keyword">for</span>( ;I--;)putchar(_ );<span class="keyword">if</span>   (!      --i||d)z(~i );&#125;</span><br><span class="line"> <span class="keyword">if</span>(p==b*5&amp;&amp;O)&#123;p-=b;O--;&#125;&#125;<span class="built_in">return</span> 0U;   &#125;<span class="keyword">if</span>(! (P=( f*)calloc /*]*/  (Q        ,I)))<span class="built_in">return</span> 1;</span><br><span class="line"> &#123;;&#125;<span class="keyword">for</span>(_=p=1;p&lt;I;p++)&#123;e(q=1);<span class="keyword">while</span>    (q&lt;   p&amp;&amp;  strcmp(  l[p     ]         ,l[(q)]))++  q;</span><br><span class="line"> t=stdin;<span class="keyword">if</span>(q&lt;p)&#123;(void)memcpy/* <span class="string">"      */    (&amp;P  [p],&amp;P   [q     ]          ,Q);continue ;&#125;</span></span><br><span class="line"><span class="string">if(strcmp(l[p],"</span>-<span class="string">"))&#123;t=fopen(l         [     p]   ,"</span>rb<span class="string">"   )                  ;if(!t )&#123;&#123;;&#125;  ;</span></span><br><span class="line"><span class="string">printf(05+*o,l[p ]);return+1;                      &#123;;&#125;                       &#125;&#125;_=b= 1&lt;&lt;16   ;</span></span><br><span class="line"><span class="string">*&amp;O=5;do&#123;if(!(P[p].q=realloc   (P[p].q,(P[p].P     +=       b)+1)))&#123;return   01;&#125;O   &amp;=72   /</span></span><br><span class="line"><span class="string">6/*][*/;P[p].o+=d=fread(P[p]      .q       +P[     p           ].       o,  1,b,t)   ;&#125;//</span></span><br><span class="line"><span class="string"> while(d==b)      ;P [p].q[       P[       p]                  .o       ]=  012;d    =0;</span></span><br><span class="line"><span class="string"> e(fclose(t        )  );P         [p]      .p                  =P[      p]  .q;if    (O)</span></span><br><span class="line"><span class="string"> &#123;for(;d&lt;P[            p]          .o     ;d=                   q+     1)    &#123;q=     d;</span></span><br><span class="line"><span class="string">  while(q&lt;P[                        p].o&amp;&amp;P[                    p].q[q]-     10     )&#123;</span></span><br><span class="line"><span class="string">  q++;&#125;b=q-d;                         _=P                         [p].        d     ;</span></span><br><span class="line"><span class="string">  if(b&gt;_)&#123;/*]b                                                                */</span></span><br><span class="line"><span class="string">   P[p].d=b;&#125;&#123;;                                                                &#125;</span></span><br><span class="line"><span class="string">   #undef/*pqdz'.*/  e//                                                      ;</span></span><br><span class="line"><span class="string">   #define/*s8qdb]*/e/**/0                                                   //</span></span><br><span class="line"><span class="string">   //&lt;&lt;.&lt;&lt;.----.&gt;.&lt;&lt;.&gt;++.++&lt;                                              .[&gt;]</span></span><br><span class="line"><span class="string">   /*P[*/P[p].b++;continue;&#125;&#125;&#125;t=                                       stdout;</span></span><br><span class="line"><span class="string">  for (p=1;p&lt;I;p++)&#123;/**/if(P[p].b&gt;i                               )&#123;i=P[p].b;&#125;&#125;</span></span><br><span class="line"><span class="string"> if  (O)&#123;for(p=0;p&lt;i;p++)&#123;q=0;/*[*/while(I               &gt;++q)&#123;_=P[q].p-P[q ].q;</span></span><br><span class="line"><span class="string">b=   0;if(_&lt;P[q ].o)&#123;while(012-*P[q].p)     &#123;putchar(*(P[q].p++));b++;&#125;P[q]. p++;</span></span><br><span class="line"><span class="string">&#125;   ;while (P[  q].d&gt;b++)putchar(040);&#125;             putchar(10);&#125;return 0;&#125;p   =1;</span></span><br><span class="line"><span class="string">   for(;   p&lt;I   ;p++)fwrite(P[p] .q,P[              p].o,1,t);return 0 ;&#125;//</span></span><br><span class="line"><span class="string">  #/*]     ]&lt;.    [-]&lt;[-]&lt;[- ]&lt;[    -]&lt;               [-  ]&lt;;*/elif  e    //b</span></span><br><span class="line"><span class="string"> |(1        &lt;&lt;     ( __LINE__        /*               &gt;&gt;   `*//45))  |     01U</span></span><br><span class="line"><span class="string">             #                       /*               */     endif            //</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">#按esc，然后输入wq保存，重新登陆客户端即可</span></span><br></pre></td></tr></table></figure>
+<p>或者复制这个<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">▽</span><br><span class="line">                              _.._        ,------------.                                                        </span><br><span class="line">                           ,&apos;      `.    ( I want you! )</span><br><span class="line">                          /  __) __` \    `-,----------&apos;</span><br><span class="line">                         (  (`-`(-&apos;)  ) _.-&apos;</span><br><span class="line">                         /)  \  = /  (</span><br><span class="line">                        /&apos;    |--&apos; .  \</span><br><span class="line">                       (  ,---|  `-.)__`</span><br><span class="line">                        )(  `-.,--&apos;   _`-.</span><br><span class="line">                       &apos;/,&apos;          (  Uu&quot;,</span><br><span class="line">                        (_       ,    `/,-&apos; )</span><br><span class="line">                        `.__,  : `-&apos;/  /`--&apos;</span><br><span class="line">                          |     `--&apos;  |</span><br><span class="line">                          `   `-._   /</span><br><span class="line">                           \        (</span><br><span class="line">                           /\ .      \.</span><br><span class="line">                          / |` \     ,-\</span><br><span class="line">                         /  \| .)   /   \</span><br><span class="line">                        ( ,&apos;|\    ,&apos;     :</span><br><span class="line">                        | \,`.`--&quot;/      &#125;</span><br><span class="line">                        `,&apos;    \  |,&apos;    /</span><br><span class="line">                       / &quot;-._   `-/      |</span><br><span class="line">                       &quot;-.   &quot;-.,&apos;|     ;</span><br><span class="line">                      /        _/[&quot;---&apos;&quot;&quot;]</span><br><span class="line">                     :        /  |&quot;-     &apos;</span><br><span class="line">                     &apos;           |      /</span><br><span class="line">                                 `      |</span><br><span class="line">~</span><br></pre></td></tr></table></figure></p>
+<h1 id="在centos下用cmatrix做出×××屏幕代码雨效果"><a href="#在centos下用cmatrix做出×××屏幕代码雨效果" class="headerlink" title="在centos下用cmatrix做出×××屏幕代码雨效果"></a>在centos下用cmatrix做出×××屏幕代码雨效果</h1><p>文章出处：</p>
+<p><a href="http://blog.51cto.com/5232821/2146115" target="_blank" rel="noopener">http://blog.51cto.com/5232821/2146115</a>      作者：hubbywen0<br><strong>1、下载cmatrix-1.2a.tar.gz文件</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># wget https://jaist.dl.sourceforge.net/project/cmatrix/cmatrix/1.2a/cmatrix-1.2a.tar.gz    #centos 下载不了此安装包，需自行下载到本地，rz上传到Linux系统</span></span><br><span class="line">--2018-07-17 15:06:03--  https://jaist.dl.sourceforge.net/project/cmatrix/cmatrix/1.2a/cmatrix-1.2a.tar.gz</span><br><span class="line">Resolving jaist.dl.sourceforge.net (jaist.dl.sourceforge.net)... 150.65.7.130, 2001:df0:2ed:feed::feed</span><br><span class="line">Connecting to jaist.dl.sourceforge.net (jaist.dl.sourceforge.net)|150.65.7.130|:443... connected.</span><br><span class="line">HTTP request sent, awaiting response... 200 OK</span><br><span class="line">Length: 74376 (73K) [application/x-gzip]</span><br><span class="line">Saving to: ‘cmatrix-1.2a.tar.gz’</span><br><span class="line"></span><br><span class="line">100%[=====================================================&gt;] 74,376      4.68KB/s   <span class="keyword">in</span> 16s    </span><br><span class="line"></span><br><span class="line">2018-07-17 15:06:20 (4.68 KB/s) - ‘cmatrix-1.2a.tar.gz’ saved [74376/74376]</span><br></pre></td></tr></table></figure></p>
+<p><strong>2、解压缩cmatrix-1.2a.tar.gz文件</strong><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">[root@localhost ~]<span class="comment"># tar xvf cmatrix-1.2a.tar.gz</span></span><br><span class="line">cmatrix-1.2a/</span><br><span class="line">cmatrix-1.2a/NEWS</span><br><span class="line">cmatrix-1.2a/TODO</span><br><span class="line">cmatrix-1.2a/aclocal.m4</span><br><span class="line">cmatrix-1.2a/README</span><br><span class="line">cmatrix-1.2a/configure</span><br><span class="line">cmatrix-1.2a/configure.in</span><br><span class="line">cmatrix-1.2a/cmatrix.1</span><br><span class="line">cmatrix-1.2a/cmatrix.c</span><br><span class="line">cmatrix-1.2a/config.guess</span><br><span class="line">cmatrix-1.2a/install-sh</span><br><span class="line">cmatrix-1.2a/cmatrix.spec</span><br><span class="line">cmatrix-1.2a/cmatrix.spec.in</span><br><span class="line">cmatrix-1.2a/matrix.fnt</span><br><span class="line">cmatrix-1.2a/config.sub</span><br><span class="line">cmatrix-1.2a/missing</span><br><span class="line">cmatrix-1.2a/mkinstalldirs</span><br><span class="line">cmatrix-1.2a/Makefile.am</span><br><span class="line">cmatrix-1.2a/Makefile.in</span><br><span class="line">cmatrix-1.2a/mtx.pcf</span><br><span class="line">cmatrix-1.2a/config.h.in</span><br><span class="line">cmatrix-1.2a/matrix.psf.gz</span><br><span class="line">cmatrix-1.2a/stamp-h.in</span><br><span class="line">cmatrix-1.2a/AUTHORS</span><br><span class="line">cmatrix-1.2a/INSTALL</span><br><span class="line">cmatrix-1.2a/ChangeLog</span><br><span class="line">cmatrix-1.2a/acconfig.h</span><br><span class="line">cmatrix-1.2a/COPYING</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost ~]<span class="comment"># cd cmatrix-1.2a</span></span><br><span class="line"></span><br><span class="line">[root@localhost cmatrix-1.2a]<span class="comment"># yum install ncurses-deve</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line">[root@bogon cmatrix-1.2a]<span class="comment"># ./configure &amp;&amp; make &amp;&amp; make install</span></span><br><span class="line">loading cache ./config.cache</span><br><span class="line">checking <span class="keyword">for</span> a BSD compatible install... /usr/bin/install -c</span><br><span class="line">checking whether build environment is sane... yes</span><br><span class="line">checking whether make sets <span class="variable">$&#123;MAKE&#125;</span>... yes</span><br><span class="line">checking <span class="keyword">for</span> working aclocal... missing</span><br><span class="line">checking <span class="keyword">for</span> working autoconf... missing</span><br><span class="line">checking <span class="keyword">for</span> working automake... missing</span><br><span class="line">checking <span class="keyword">for</span> working autoheader... missing</span><br><span class="line">checking <span class="keyword">for</span> working makeinfo... missing</span><br><span class="line">checking <span class="keyword">for</span> gcc... no</span><br><span class="line">checking <span class="keyword">for</span> cc... no</span><br><span class="line">configure: error: no acceptable cc found <span class="keyword">in</span> <span class="variable">$PATH</span></span><br><span class="line"></span><br><span class="line">当执行“./configure &amp;&amp; make &amp;&amp; make install ”命令出现如上信息时，表示没有安装gcc，gcc安装过程如下</span><br><span class="line">[root@bogon cmatrix-1.2a]<span class="comment"># yum -y install gcc</span></span><br><span class="line">[root@bogon cmatrix-1.2a]<span class="comment"># yum -y install gcc-c++</span></span><br><span class="line">[root@bogon cmatrix-1.2a]<span class="comment"># yum install make</span></span><br><span class="line"></span><br><span class="line">安装完后再运行“./configure &amp;&amp; make &amp;&amp; make install ”命令，如下：</span><br><span class="line">[root@localhost cmatrix-1.2a]<span class="comment"># ./configure &amp;&amp; make &amp;&amp; make install</span></span><br><span class="line">creating cache ./config.cache</span><br><span class="line">checking <span class="keyword">for</span> a BSD compatible install... /usr/bin/install -c</span><br><span class="line">checking whether build environment is sane... yes</span><br><span class="line">checking whether make sets <span class="variable">$&#123;MAKE&#125;</span>... yes</span><br><span class="line">checking <span class="keyword">for</span> working aclocal... missing</span><br><span class="line">checking <span class="keyword">for</span> working autoconf... missing</span><br><span class="line">checking <span class="keyword">for</span> working automake... missing</span><br><span class="line">checking <span class="keyword">for</span> working autoheader... missing</span><br><span class="line">checking <span class="keyword">for</span> working makeinfo... missing</span><br><span class="line">checking <span class="keyword">for</span> gcc... gcc</span><br><span class="line">checking whether the C compiler (gcc  ) works... yes</span><br><span class="line">checking whether the C compiler (gcc  ) is a cross-compiler... no</span><br><span class="line">checking whether we are using GNU C... yes</span><br><span class="line">checking whether gcc accepts -g... yes</span><br><span class="line">checking <span class="keyword">for</span> a BSD compatible install... /usr/bin/install -c</span><br><span class="line">checking whether make sets <span class="variable">$&#123;MAKE&#125;</span>... (cached) yes</span><br><span class="line">checking <span class="keyword">for</span> main <span class="keyword">in</span> -lncurses... yes</span><br><span class="line">checking how to run the C preprocessor... gcc -E</span><br><span class="line">checking <span class="keyword">for</span> ANSI C header files... yes</span><br><span class="line">checking <span class="keyword">for</span> fcntl.h... yes</span><br><span class="line">checking <span class="keyword">for</span> sys/ioctl.h... yes</span><br><span class="line">checking <span class="keyword">for</span> unistd.h... yes</span><br><span class="line">checking <span class="keyword">for</span> termios.h... yes</span><br><span class="line">checking <span class="keyword">for</span> termio.h... yes</span><br><span class="line">checking <span class="built_in">return</span> <span class="built_in">type</span> of signal handlers... void</span><br><span class="line">checking <span class="keyword">for</span> putenv... yes</span><br><span class="line">checking <span class="keyword">for</span> curses.h... yes</span><br><span class="line">checking <span class="keyword">for</span> ncurses.h... yes</span><br><span class="line">checking <span class="keyword">for</span> tgetent <span class="keyword">in</span> -lncurses... yes</span><br><span class="line">Using ncurses as the termcap library</span><br><span class="line">checking <span class="keyword">for</span> use_default_colors <span class="keyword">in</span> -lncurses... yes</span><br><span class="line">checking <span class="keyword">for</span> resizeterm <span class="keyword">in</span> -lncurses... yes</span><br><span class="line">checking <span class="keyword">for</span> wresize <span class="keyword">in</span> -lncurses... yes</span><br><span class="line">checking <span class="keyword">for</span> consolechars... no</span><br><span class="line">checking <span class="keyword">for</span> setfont... /usr/bin/setfont</span><br><span class="line">checking <span class="keyword">for</span> /usr/lib/kbd/consolefonts... yes</span><br><span class="line">checking <span class="keyword">for</span> /usr/share/consolefonts... no</span><br><span class="line">checking <span class="keyword">for</span> mkfontdir... no</span><br><span class="line">checking <span class="keyword">for</span> /usr/lib/X11/fonts/misc... no</span><br><span class="line">checking <span class="keyword">for</span> /usr/X11R6/lib/X11/fonts/misc... no</span><br><span class="line">configure: warning:  </span><br><span class="line"></span><br><span class="line">*** You <span class="keyword">do</span> not appear to have an X window fonts directory <span class="keyword">in</span> the standard</span><br><span class="line">*** locations (/usr/lib/X11/fonts/misc or /usr/X11R6/lib/X11/fonts/misc). The</span><br><span class="line">*** mtx.pcf font will not be installed.  This means you will probably not</span><br><span class="line">*** be able to use the mtx fonts <span class="keyword">in</span> your x terminals, and hence be unable</span><br><span class="line">*** to use the -x <span class="built_in">command</span> line switch.  Sorry about that...</span><br><span class="line"></span><br><span class="line">updating cache ./config.cache</span><br><span class="line">creating ./config.status</span><br><span class="line">creating Makefile</span><br><span class="line">creating cmatrix.spec</span><br><span class="line">creating config.h</span><br><span class="line">gcc -DHAVE_CONFIG_H -I. -I. -I.     -g -O2 -Wall -Wno-comment -c cmatrix.c</span><br><span class="line">gcc  -g -O2 -Wall -Wno-comment  -o cmatrix  cmatrix.o  -lncurses  -lncurses</span><br><span class="line">make[1]: Entering directory `/root/cmatrix-1.2a<span class="string">'</span></span><br><span class="line"><span class="string">/bin/sh ./mkinstalldirs /usr/local/bin</span></span><br><span class="line"><span class="string">  /usr/bin/install -c  cmatrix /usr/local/bin/cmatrix</span></span><br><span class="line"><span class="string">make  install-man1</span></span><br><span class="line"><span class="string">make[2]: Entering directory `/root/cmatrix-1.2a'</span></span><br><span class="line">/bin/sh ./mkinstalldirs /usr/<span class="built_in">local</span>/man/man1</span><br><span class="line">mkdir /usr/<span class="built_in">local</span>/man</span><br><span class="line">mkdir /usr/<span class="built_in">local</span>/man/man1</span><br><span class="line">/usr/bin/install -c -m 644 ./cmatrix.1 /usr/<span class="built_in">local</span>/man/man1/cmatrix.1</span><br><span class="line">make[2]: Leaving directory `/root/cmatrix-1.2a<span class="string">'</span></span><br><span class="line"><span class="string">Installing matrix fonts in /usr/lib/kbd/consolefonts...</span></span><br><span class="line"><span class="string">make[1]: Leaving directory `/root/cmatrix-1.2a'</span></span><br><span class="line"></span><br><span class="line">**到此，cmatrix安装完成，任意路径，输入cmatrix运行，按q退出。效果如下**</span><br><span class="line">[root@localhost cmatrix-1.2a]<span class="comment"># cmatrix</span></span><br><span class="line">![](http://i2.51cto.com/images/blog/201807/17/abaa3c9ee4b6cf559c3db8173c2cd2bc.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)</span><br><span class="line"></span><br><span class="line">cmatrix常用命令如下:</span><br><span class="line">-a :异步滚动（默认）</span><br><span class="line">-b :随机粗体</span><br><span class="line">-B :全部粗体</span><br><span class="line">-o :使用旧风格滚动</span><br><span class="line">-x :X window 模式</span><br><span class="line">-V :显示版本信息</span><br><span class="line">-u :刷新频率，0-9，也就是滚动的快慢（值越小越快）</span><br><span class="line">-C :显示的颜色，支持green(默认),red,blue,white,yellow,cyan,magenta and black</span><br><span class="line"></span><br><span class="line">[root@localhost ~]<span class="comment"># cmatrix -b -u 3 -C yellow</span></span><br><span class="line">![](http://i2.51cto.com/images/blog/201807/17/4a2e39f2aa2889910d633b6bfb92d18f.png?x-oss-process=image/watermark,size_16,text_QDUxQ1RP5Y2a5a6i,color_FFFFFF,t_100,g_se,x_10,y_10,shadow_90,type_ZmFuZ3poZW5naGVpdGk=)</span><br></pre></td></tr></table></figure>
+<h1 id="Linux上sl工具安装（小火车）"><a href="#Linux上sl工具安装（小火车）" class="headerlink" title="Linux上sl工具安装（小火车）"></a>Linux上sl工具安装（小火车）</h1><p>centos7上跑火车代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirror.centos.org/centos/7/extras/x86_64/Packages/epel-release-7-9.noarch.rpm</span><br><span class="line">yum install -y epel-release-7-9.noarch.rpm</span><br><span class="line">yum install -y sl</span><br><span class="line">sl   <span class="comment">#运行程序</span></span><br></pre></td></tr></table></figure></p>
+<p>centos6上跑火车代码<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">wget http://mirror.centos.org/centos-6/6.10/extras/x86_64/Packages/epel-release-6-8.noarch.rpm</span><br><span class="line">yum install -y epel-release-6-8.noarch.rpm</span><br><span class="line">yum install -y sl</span><br><span class="line">sl</span><br></pre></td></tr></table></figure></p>
+<p>结果如图：<br><img src="https://img-blog.csdnimg.cn/20181101230105477.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<h1 id="打出一个指定行与列的矩形，并使其边框闪烁"><a href="#打出一个指定行与列的矩形，并使其边框闪烁" class="headerlink" title="打出一个指定行与列的矩形，并使其边框闪烁"></a>打出一个指定行与列的矩形，并使其边框闪烁</h1><p>如图：<br><img src="https://img-blog.csdnimg.cn/20181106154559195.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="矩形"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"please input colume: "</span>  col</span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"please input line: "</span>  line</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `seq <span class="variable">$line</span>`;<span class="keyword">do</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> `seq <span class="variable">$col</span>`;<span class="keyword">do</span></span><br><span class="line">                <span class="comment">#if [ $i -eq 1 -o $i -eq $line -o $j -eq 1 -o $j -eq $col ];then</span></span><br><span class="line">                <span class="comment">#如果当前行等于1或者等于行号line，或者当前列等于1或者等于列号col，则</span></span><br><span class="line">                <span class="comment">#       COLOR=$[RANDOM%7+31]</span></span><br><span class="line">                <span class="comment">#       echo -e "\033[1;5;$&#123;COLOR&#125;m*\033[0m\c"</span></span><br><span class="line">                <span class="comment">#else</span></span><br><span class="line">                <span class="comment">#       echo -e "*\c"</span></span><br><span class="line">                <span class="comment">#fi   以上方法为if语句，下面为case语句，都可实现</span></span><br><span class="line">                <span class="keyword">case</span> <span class="variable">$i</span> <span class="keyword">in</span></span><br><span class="line">                1|<span class="variable">$line</span>)</span><br><span class="line">                        COLOR=$[RANDOM%7+31]</span><br><span class="line">                        <span class="built_in">echo</span> -e <span class="string">"\033[1;5;<span class="variable">$&#123;COLOR&#125;</span>m*\033[0m\c"</span></span><br><span class="line">                        ;;</span><br><span class="line">                *)</span><br><span class="line"></span><br><span class="line">                        <span class="keyword">case</span> <span class="variable">$j</span> <span class="keyword">in</span></span><br><span class="line">                        1|<span class="variable">$col</span>)</span><br><span class="line">                                COLOR=$[RANDOM%7+31]</span><br><span class="line">                                <span class="built_in">echo</span> -e <span class="string">"\033[1;5;<span class="variable">$&#123;COLOR&#125;</span>m*\033[0m\c"</span></span><br><span class="line">                                ;;</span><br><span class="line">                        *)</span><br><span class="line">                                <span class="built_in">echo</span> -e <span class="string">"*\c"</span> </span><br><span class="line">                        <span class="keyword">esac</span></span><br><span class="line">                <span class="keyword">esac</span></span><br><span class="line">        <span class="keyword">done</span></span><br><span class="line">        <span class="built_in">echo</span> </span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h1 id="实验：输入一个行号，打印一个等腰三角形"><a href="#实验：输入一个行号，打印一个等腰三角形" class="headerlink" title="实验：输入一个行号，打印一个等腰三角形"></a>实验：输入一个行号，打印一个等腰三角形</h1><p>如图：<br><img src="https://img-blog.csdnimg.cn/20181106160700716.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"Please input line: "</span> line</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> `seq <span class="variable">$line</span>`;<span class="keyword">do</span></span><br><span class="line">        <span class="built_in">let</span> star=<span class="variable">$i</span>*2-1</span><br><span class="line">        <span class="built_in">let</span> space=<span class="variable">$line</span>-<span class="variable">$i</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> `seq <span class="variable">$space</span>`;<span class="keyword">do</span></span><br><span class="line">                <span class="built_in">echo</span> -n <span class="string">" "</span></span><br><span class="line">        <span class="keyword">done</span></span><br><span class="line">        <span class="keyword">for</span> k <span class="keyword">in</span> `seq <span class="variable">$star</span>`;<span class="keyword">do</span></span><br><span class="line">                <span class="built_in">echo</span> -n <span class="string">"*"</span></span><br><span class="line">        <span class="keyword">done</span></span><br><span class="line">        <span class="built_in">echo</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure>
+<h1 id="选菜菜单"><a href="#选菜菜单" class="headerlink" title="选菜菜单"></a>选菜菜单</h1><p>PS3=”Please input a number:”<br>select MENU in lamian huimian gaifan jiaozi baozi quit;do<br>        case $REPLY in<br>        1|2)<br>                echo “The price is 15元”<br>                ;;<br>        3|5)<br>                echo “The price is 20元”<br>                ;;<br>        4)<br>                echo “The price is 25元”<br>        ;;<br>        6)<br>                echo “bye”<br>                break<br>                ;;<br>        *)<br>                echo “Input false”<br>        esac<br>done</p>
+<h1 id="九九乘法表"><a href="#九九乘法表" class="headerlink" title="九九乘法表"></a>九九乘法表</h1><p>打印出九九乘法表<br>例如<br><img src="https://img-blog.csdnimg.cn/20181106161952387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..9&#125;;<span class="keyword">do</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> $(seq <span class="variable">$i</span>);<span class="keyword">do</span></span><br><span class="line">        <span class="built_in">echo</span> -en <span class="string">"<span class="variable">$&#123;i&#125;</span>X<span class="variable">$&#123;j&#125;</span>=$[<span class="variable">$i</span>*<span class="variable">$j</span>]\t"</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">    <span class="built_in">echo</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="打印出国际象棋棋盘"><a href="#打印出国际象棋棋盘" class="headerlink" title="打印出国际象棋棋盘"></a>打印出国际象棋棋盘</h1><p><img src="https://img-blog.csdnimg.cn/20181106162358832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#！bin/bash</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> &#123;1..8&#125;;<span class="keyword">do</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> &#123;1..8&#125;;<span class="keyword">do</span></span><br><span class="line">        flag=$[(j+i)%2]</span><br><span class="line">        <span class="keyword">if</span> [ <span class="variable">$flag</span> -eq 0 ];<span class="keyword">then</span></span><br><span class="line">            <span class="built_in">echo</span> -e <span class="string">"\033[47m  \033[0m\c"</span></span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            <span class="built_in">echo</span> -e <span class="string">"  \c"</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">    <span class="keyword">done</span></span><br><span class="line">    <span class="built_in">echo</span></span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/谷歌chrome浏览器自动启用flash/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="摩托猿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/11/08/谷歌chrome浏览器自动启用flash/" class="post-title-link" itemprop="http://yoursite.com/index.html">谷歌chrome浏览器自动启用flash</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-08 18:18:18 / 修改时间：21:09:00" itemprop="dateCreated datePublished" datetime="2018-11-08T18:18:18+08:00">2018-11-08</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/11/08/谷歌chrome浏览器自动启用flash/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/11/08/谷歌chrome浏览器自动启用flash/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>新版的chrome浏览器不支持启用flash插件了，这也导致有时候打开视频或者微博上传图片时，浏览器提示你flash未启用或者版本过低，这时就算你再下载安装Adobe Flash Player也是不管用的。</p>
+<p>这时我们先去chrome实验室界面<br>在地址栏输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome://flags/#enable-ephemeral-flash-permission</span><br></pre></td></tr></table></figure></p>
+<p>选择取消Disabled。取消该实验室选项，如下图：<img src="https://img-blog.csdnimg.cn/20181108192236425.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+<p>然后去在地址栏输入：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chrome://settings/content/flash</span><br></pre></td></tr></table></figure></p>
+<p>在下面的允许选项添加<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">http://*</span><br><span class="line">https://*</span><br></pre></td></tr></table></figure></p>
+<p>如图：<br><img src="https://img-blog.csdnimg.cn/20181108192520934.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>并且退出浏览器之后不会不保存，Flash选项。<br>此时重启浏览器，你就发现微博上传图片就可以正常使用了<br><img src="https://img-blog.csdnimg.cn/20181108192648655.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/21/shell防止黑客攻击/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="摩托猿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/10/21/shell防止黑客攻击/" class="post-title-link" itemprop="http://yoursite.com/index.html">shell防止黑客攻击</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-21 18:18:18" itemprop="dateCreated datePublished" datetime="2018-10-21T18:18:18+08:00">2018-10-21</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-08 21:08:47" itemprop="dateModified" datetime="2018-11-08T21:08:47+08:00">2018-11-08</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/21/shell防止黑客攻击/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/21/shell防止黑客攻击/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="shell防止黑客攻击"><a href="#shell防止黑客攻击" class="headerlink" title="shell防止黑客攻击"></a>shell防止黑客攻击</h1><p><img src="https://img-blog.csdnimg.cn/20181106170929109.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!bin/bash</span></span><br><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="keyword">while</span> : ;<span class="keyword">do</span></span><br><span class="line">        iplist=`who | sed -rn <span class="string">'/^cracker/s/.*\((.*)\)/\1/p'</span>`    <span class="comment">#取出以cracker开头的黑客IP地址</span></span><br><span class="line">        <span class="keyword">if</span> [ <span class="string">"<span class="variable">$iplist</span>"</span> ] ;<span class="keyword">then</span></span><br><span class="line">                pkill -9 -U cracker </span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"cracker is killed"</span></span><br><span class="line">                <span class="built_in">echo</span> sshd:<span class="variable">$iplist</span> &gt;&gt; /etc/hosts.deny    <span class="comment">#将拦截的IP放到配置文件中，禁止下次连接</span></span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        sleep  10</span><br><span class="line"><span class="keyword">done</span></span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/20/批量ping IP脚本/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="摩托猿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/10/20/批量ping IP脚本/" class="post-title-link" itemprop="http://yoursite.com/index.html">批量ping IP脚本</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-20 18:18:18" itemprop="dateCreated datePublished" datetime="2018-10-20T18:18:18+08:00">2018-10-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-08 21:08:34" itemprop="dateModified" datetime="2018-11-08T21:08:34+08:00">2018-11-08</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/20/批量ping IP脚本/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/20/批量ping IP脚本/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：-tmp-iplist-log"><a href="#批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：-tmp-iplist-log" class="headerlink" title="批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：/tmp/iplist.log"></a>批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：/tmp/iplist.log</h1><p>例如ping百度的IP：123.125.115.110<br>bash scanip00.sh  输入正确格式的IP地址<br><img src="https://img-blog.csdnimg.cn/20181106152508960.png" alt="ping"><br>cat /tmp/iplist.log<br>结果<br><img src="https://img-blog.csdnimg.cn/20181106152703455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="能够Ping通的IP"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="comment">#scanip00.sh    # 脚本名</span></span><br><span class="line">&gt; /tmp/iplist.log   <span class="comment">#每次运行前清空该文件内容</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"Please input a netid:(eg:192.168.34.0) "</span> netid  <span class="comment">#输入IP</span></span><br><span class="line">netid=`<span class="built_in">echo</span> <span class="variable">$netid</span> | sed -nr <span class="string">'s#(.*)\..*#\1#p'</span>`</span><br><span class="line"><span class="built_in">echo</span> netid=<span class="variable">$netid</span></span><br><span class="line"><span class="keyword">for</span> id <span class="keyword">in</span> &#123;1..254&#125;;<span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">if</span> ping -c1 -w1  <span class="variable">$netid</span>.<span class="variable">$id</span> &amp;&gt;/dev/null ;<span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"<span class="variable">$netid</span>.<span class="variable">$id</span>"</span> &gt;&gt; /tmp/iplist.log  <span class="comment">#ping通的放入文件</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="variable">$netid</span>.<span class="variable">$id</span> is up</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">                <span class="built_in">echo</span> <span class="variable">$netid</span>.<span class="variable">$id</span> is down</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        &#125;&amp;                  <span class="comment">#并行执行</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">wait</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+  </section>
+
+  
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
+
+
+
+          </div>
+          
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/haha.gif" alt="摩托猿">
+            
+              <p class="site-author-name" itemprop="name">摩托猿</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
                 </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                    
+                      
+                    
+                    <span class="site-state-item-count">1</span>
+                    <span class="site-state-item-name">分类</span>
+                  
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">8</span>
+                    <span class="site-state-item-name">标签</span>
+                  
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="https://www.lh1.ink/whoami/" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
             </div>
-            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-                <div class="pswp__share-tooltip"></div> 
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/lululuhao" title="GitHub &rarr; https://github.com/lululuhao" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:htluhao@163.com" title="E-Mail &rarr; mailto:htluhao@163.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://music.163.com/#/user/home?id=544125923" title="CloudMusic &rarr; https://music.163.com/#/user/home?id=544125923" rel="noopener" target="_blank"><i class="fa fa-fw fa-music"></i>CloudMusic</a>
+                </span>
+              
             </div>
-            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-            </button>
-            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-            </button>
-            <div class="pswp__caption">
-                <div class="pswp__caption__center"></div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://shuinoo.github.io/" title="https://shuinoo.github.io/" rel="noopener" target="_blank">蔡shuishui</a>
+                  </li>
+                
+              </ul>
             </div>
+          
+          
+            
+          
+          
+
         </div>
+      </section>
+
+      
+
+      
+
     </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; 2016 – <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">摩托猿</span>
+
+  
+
+  
+</div>
+
+<div class="powered-by">
+<i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
 </div>
 
 
 
 
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共79.8k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script id="ribbon" type="text/javascript" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.6.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.6.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.6.0"></script>
+
+
+
+  
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.6.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'vk3KaAky0698trITaDye8Tul-gzGzoHsz',
+        appKey: '3KISEUBblfzGHUAGvFxJvEyo',
+        placeholder: 'Just go go',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+        // ref: https://github.com/ForbesLindesay/unescape-html
+        var unescapeHtml = function(html) {
+          return String(html)
+            .replace(/&quot;/g, '"')
+            .replace(/&#39;/g, '\'')
+            .replace(/&#x3A;/g, ':')
+            // replace all the other &#x; chars
+            .replace(/&#(\d+);/g, function (m, p) { return String.fromCharCode(p); })
+            .replace(/&lt;/g, '<')
+            .replace(/&gt;/g, '>')
+            .replace(/&amp;/g, '&');
+        };
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                content = unescapeHtml(content);
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"log":false,"pluginJsPath":"lib/","pluginModelPath":"assets/","pluginRootPath":"live2dw/","tagMode":false});</script></body>
 </html>

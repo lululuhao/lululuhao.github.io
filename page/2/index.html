@@ -466,7 +466,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/20/iptables/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/20/批量ping IP脚本/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="摩托猿">
@@ -486,7 +486,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/10/20/iptables/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">iptables防火墙</a>
+                <a href="/2018/10/20/批量ping IP脚本/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">批量ping IP脚本</a>
               
             
           </h1>
@@ -528,7 +528,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-12-25 19:37:38" itemprop="dateModified" datetime="2018-12-25T19:37:38+08:00">2018-12-25</time>
+                <time title="修改时间：2018-11-08 21:08:34" itemprop="dateModified" datetime="2018-11-08T21:08:34+08:00">2018-11-08</time>
               
             
           </span>
@@ -542,8 +542,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/10/20/iptables/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/20/iptables/" itemprop="commentCount"></span>
+                <a href="/2018/10/20/批量ping IP脚本/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/20/批量ping IP脚本/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -573,361 +573,8 @@
       
         
           
-            <h1 id="1-Linux防火墙"><a href="#1-Linux防火墙" class="headerlink" title="1. Linux防火墙"></a>1. Linux防火墙</h1><ul>
-<li>防火墙的概念</li>
-<li>iptables的基本认识</li>
-<li>iptables的组成</li>
-<li>iptables的基本语法</li>
-<li>iptables之forward的概念</li>
-<li>iptables之地址转换法则</li>
-<li>SNAT源地址转换的具体实现</li>
-<li>DNAT目标地址转换的具体实现</li>
-</ul>
-<h2 id="1-1-安全技术"><a href="#1-1-安全技术" class="headerlink" title="1.1. 安全技术"></a>1.1. 安全技术</h2><ul>
-<li>入侵检测与管理系统（Intrusion Detection Systems）：特点是不阻断任何网络访问，量化、定位来自内外网络的威胁情况，主要以提供报告和事后监督为主，提供有针对性的指导措施和安全决策依据。一般采用旁路部署方式。</li>
-<li>入侵防御系统（Intrusion Prevention System）：以透明模式工作，分析数据包的内容如：溢出攻击、拒绝服务攻击、木马、蠕虫、系统漏洞等进行准确的分析判断，在判定为攻击行为后立即予以阻断，主动而有效的保护网络的安全，一般采用在线部署方式。</li>
-<li>防火墙（FireWall ）：隔离功能， 工作在网络或主机边缘，对进出网络或主机的数据包基于一定的规则检查，并在匹配某规则时由规则定义的行为进行处理的一组功能的组件，基本上的实现都是默认情况下关闭所有的通过型访问，只开放允许访问的策略。</li>
-</ul>
-<h2 id="1-2-防火墙的分类"><a href="#1-2-防火墙的分类" class="headerlink" title="1.2. 防火墙的分类"></a>1.2. 防火墙的分类</h2><ul>
-<li>主机防火墙：服务范围为当前主机。<br>网络防火墙：服务范围为防火墙一侧的局域网。</li>
-<li>硬件防火墙：在专用硬件级别实现部分功能的防火墙；另一个部分功能基于软件实现， Checkpoint,NetScreen。<br>软件防火墙：运行于通用硬件平台之上的防火墙的应用软件。</li>
-<li>网络层防火墙： OSI模型下四层。<br>应用层防火墙/代理服务器：代理网关， OSI模型七层。</li>
-</ul>
-<h2 id="1-3-网络层防火墙"><a href="#1-3-网络层防火墙" class="headerlink" title="1.3. 网络层防火墙"></a>1.3. 网络层防火墙</h2><ul>
-<li>包过滤防火墙</li>
-<li>网络层对数据包进行选择，选择的依据是系统内设置的过滤逻辑，被称为访问控制列表（ACL），通过检查数据流中每个数据的源地址，目的地址，所用端口号和协议状态等因素，或他们的组合来确定是否允许该数据包通过。</li>
-<li>优点：对用户来说透明，处理速度快且易于维护。</li>
-<li>缺点：无法检查应用层数据，如病毒等。</li>
-</ul>
-<h2 id="1-4-应用层防火墙-代理服务型防火墙（Proxy-Service）"><a href="#1-4-应用层防火墙-代理服务型防火墙（Proxy-Service）" class="headerlink" title="1.4. 应用层防火墙/代理服务型防火墙（Proxy Service）"></a>1.4. 应用层防火墙/代理服务型防火墙（Proxy Service）</h2><ul>
-<li>将所有跨越防火墙的网络通信链路分为两段。</li>
-<li>内外网用户的访问都是通过代理服务器上的“链接”来实现。</li>
-<li>优点： 在应用层对数据进行检查，比较安全。</li>
-<li>缺点：增加防火墙的负载。</li>
-</ul>
-<p>现实生产环境中所使用的防火墙一般都是二者结合体。<br>即先检查网络数据，通过之后再送到应用层去检查。</p>
-<h1 id="2-iptables的基本知识"><a href="#2-iptables的基本知识" class="headerlink" title="2. iptables的基本知识"></a>2. iptables的基本知识</h1><p>Netfilter组件</p>
-<ul>
-<li>内核空间，集成在linux内核中。</li>
-<li>扩展各种网络服务的结构化底层框架。</li>
-<li>内核中选取五个位置放了五个hook(勾子) function（INPUT、OUTPUT、FORWARD、PREROUTING、POSTROUTING），而这五个hook function向用户开放，用户可以通过一个命令工具（iptables）向其写入规则。</li>
-<li>由信息过滤表（table）组成，包含控制IP包处理的规则集（rules），规则被分组放在链（chain）上。</li>
-</ul>
-<p>三种报文流向：</p>
-<ul>
-<li>流入本机：PREROUTING –&gt; INPUT –&gt; 用户空间进程</li>
-<li>流出本机：用户空间进程 –&gt; OUTPUT –&gt; POSTROUTING</li>
-<li>转发：PREROUTING –&gt; FORWARD –&gt; POSTROUTING</li>
-</ul>
-<p>防火墙工具</p>
-<ul>
-<li>iptables<br>命令行工具，工作在用户空间。<br>用来编写规则，写好的规则被送往netfilter，告诉内核如何去处理信息包。</li>
-<li>firewalld<br>CentOS 7 引入了新的前端管理工具。<br>管理工具：<br>firewall-cmd 命令行<br>firewall-config 图形</li>
-</ul>
-<h1 id="3-iptables的组成"><a href="#3-iptables的组成" class="headerlink" title="3. iptables的组成"></a>3. iptables的组成</h1><p>iptables由五个表和五个链以及一些规则组成。</p>
-<h2 id="3-1-五个表"><a href="#3-1-五个表" class="headerlink" title="3.1. 五个表"></a>3.1. 五个表</h2><p>table：filter、nat、mangle、raw、security</p>
-<table>
-<thead>
-<tr>
-<th>table</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>filter</td>
-<td style="text-align:left">过滤规则表，根据预定义的规则过滤符合条件的数据包。</td>
-</tr>
-<tr>
-<td>nat</td>
-<td style="text-align:left">network address translation 地址转换规则表。</td>
-</tr>
-<tr>
-<td>mangle</td>
-<td style="text-align:left">修改数据标记位规则表。</td>
-</tr>
-<tr>
-<td>raw</td>
-<td style="text-align:left">关闭NAT表上启用的连接跟踪机制，加快封包穿越防火墙速度。</td>
-</tr>
-<tr>
-<td>security</td>
-<td style="text-align:left">用于强制访问控制（MAC）网络规则，由Linux安全模块（如SELinux）实现。</td>
-</tr>
-</tbody>
-</table>
-<p>优先级由高到低的顺序为:security –&gt; raw –&gt; mangle –&gt; nat –&gt; filter</p>
-<h2 id="3-2-五个内置链chain，对应5个钩子hook"><a href="#3-2-五个内置链chain，对应5个钩子hook" class="headerlink" title="3.2. 五个内置链chain，对应5个钩子hook"></a>3.2. 五个内置链chain，对应5个钩子hook</h2><ul>
-<li>INPUT</li>
-<li>OUTPUT</li>
-<li>FORWARD</li>
-<li>PREROUTING</li>
-<li>POSTROUTING</li>
-</ul>
-<h2 id="3-3-Netfilter表和链对应关系"><a href="#3-3-Netfilter表和链对应关系" class="headerlink" title="3.3. Netfilter表和链对应关系"></a>3.3. Netfilter表和链对应关系</h2><ul>
-<li>filter：INPUT, FORWARD, OUTPUT</li>
-<li>nat：PREROUTING, INPUT, OUTPUT, POSTROUTING</li>
-<li>mangle：5个都有</li>
-<li>raw：PREROUTING, OUTPUT</li>
-</ul>
-<p><img src="/2018/10/20/iptables/1545563453239.png" alt="1545563453239"></p>
-<h1 id="4-IPTABLES和路由"><a href="#4-IPTABLES和路由" class="headerlink" title="4. IPTABLES和路由"></a>4. IPTABLES和路由</h1><h2 id="4-1-路由功能发生的时间点"><a href="#4-1-路由功能发生的时间点" class="headerlink" title="4.1. 路由功能发生的时间点"></a>4.1. 路由功能发生的时间点</h2><p>报文进入本机后</p>
-<ul>
-<li>判断目标主机是否为本机<ul>
-<li>是：INPUT</li>
-<li>否：FORWARD</li>
-</ul>
-</li>
-</ul>
-<p>报文离开本机之前</p>
-<ul>
-<li>判断由哪个接口送往下一跳</li>
-</ul>
-<p>内核中数据包的传输过程</p>
-<p><img src="/2018/10/20/iptables/1545563568936.png" alt="1545563568936"></p>
-<h2 id="4-2-内核中数据包的传输过程"><a href="#4-2-内核中数据包的传输过程" class="headerlink" title="4.2. 内核中数据包的传输过程"></a>4.2. 内核中数据包的传输过程</h2><ul>
-<li>当一个数据包进入网卡时，数据包首先进入PREROUTING链，内核根据数据包目的IP判断是否需要转送出去。</li>
-<li>如果数据包就是进入本机的，数据包就会沿着图向下移动，到达INPUT链。数据包到达INPUT链后，任何进程都会收到它。本机上运行的程序可以发送数据包，这些数据包经过OUTPUT链，然后到达POSTROUTING链输出。</li>
-<li>如果数据包是要转发出去的，且内核允许转发，数据包就会向右移动，经过FORWARD链，然后到达POSTROUTING链输出。</li>
-</ul>
-<h1 id="5-iptables规则"><a href="#5-iptables规则" class="headerlink" title="5. iptables规则"></a>5. iptables规则</h1><p>规则rule：根据规则的匹配条件尝试匹配报文，对匹配成功的报文根据规则定义的处理动作作出处理。</p>
-<p>匹配条件：默认为与条件，同时满足</p>
-<ul>
-<li>基本匹配： IP，端口， TCP的Flags（SYN，ACK等）</li>
-<li>扩展匹配：通过复杂高级功能匹配</li>
-</ul>
-<p>处理动作：称为target，跳转目标</p>
-<ul>
-<li>内建处理动作： ACCEPT，DROP，REJECT，SNAT，DNAT，MASQUERADE，MARK，LOG…</li>
-<li>自定义处理动作：自定义chain，利用分类管理复杂情形。</li>
-</ul>
-<p>规则要添加在链上，才生效；添加在自定义上不会自动生效</p>
-<p>链chain：</p>
-<ul>
-<li>内置链：每个内置链对应于一个钩子函数。</li>
-<li>自定义链：用于对内置链进行扩展或补充，可实现更灵活的规则组织管理机制；只有Hook钩子调用自定义链时，才生效。</li>
-</ul>
-<h1 id="6-iptables添加要点"><a href="#6-iptables添加要点" class="headerlink" title="6. iptables添加要点"></a>6. iptables添加要点</h1><p>iptables规则添加时考量点</p>
-<ul>
-<li>要实现哪种功能：判断添加在哪张表上</li>
-<li>报文流经的路径：判断添加在哪个链上</li>
-<li>报文的流向：判断源和目的</li>
-<li>匹配规则：业务需要</li>
-</ul>
-<p>链上规则的次序，即为检查的次序，因此隐含一定的法则</p>
-<p>同类规则(访问同一应用)，匹配范围小的放上面<br>不同类规则(访问不同应用)，匹配到报文频率较大的放上面<br>将那些可由一条规则描述的多个规则合并为一个</p>
-<p>iptables 规则优化</p>
-<ul>
-<li>安全放行所有入站和出站的状态为ESTABLISHED状态连接</li>
-</ul>
-<ul>
-<li>谨慎放行入站的新请求</li>
-<li>有特殊目的限制访问功能，要在放行规则之前加以拒绝</li>
-<li>同类规则（访问同一应用），匹配范围小的放在前面，用于特殊处理</li>
-<li>不同类的规则（访问不同应用），匹配范围大的放在前面</li>
-<li>应该将那些可由一条规则能够描述的多个规则合并为一条</li>
-<li>设置默认策略，建议白名单（只放行特定连接）</li>
-<li>​    iptables -P，不建议</li>
-<li>​    建议在规则的最后定义规则做为默认策略</li>
-</ul>
-<p>语法：iptables [-t table] 子命令 chain [-m 匹配条件 [模块选项]] -j 处理动作 [模块选项]</p>
-<p>table:</p>
-<p>raw, mangle, nat, [filter]默认</p>
-<p>实验环境准备：<br>Centos7：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">systemctl stop firewalld.service</span><br><span class="line">systemctl <span class="built_in">disable</span> firewalld.service</span><br></pre></td></tr></table></figure>
-<p>Centos6：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service iptables stop</span><br><span class="line">chkconfig iptables off</span><br></pre></td></tr></table></figure>
-<h1 id="7-iptables命令"><a href="#7-iptables命令" class="headerlink" title="7. iptables命令"></a>7. iptables命令</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">man 8 iptables</span><br><span class="line">iptables [-t table] &#123;-A|-C|-D&#125; chain rule-specification</span><br><span class="line">iptables [-t table] -I chain [rulenum] rule-specification</span><br><span class="line">iptables [-t table] -R chain rulenum rule-specification</span><br><span class="line">iptables [-t table] -D chain rulenum</span><br><span class="line">iptables [-t table] -S [chain [rulenum]]</span><br><span class="line">iptables [-t table] &#123;-F|-L|-Z&#125; [chain [rulenum]] [options...]</span><br><span class="line">iptables [-t table] -N chain</span><br><span class="line">iptables [-t table] -X [chain]</span><br><span class="line">iptables [-t table] -P chain target</span><br><span class="line">iptables [-t table] -E old-chain-name new-chain-name</span><br><span class="line">rule-specification = [matches...] [target]</span><br><span class="line">match = -m matchname [per-match-options]</span><br><span class="line">target = -j targetname [per-target-options]</span><br></pre></td></tr></table></figure>
-<h1 id="8-用法："><a href="#8-用法：" class="headerlink" title="8. 用法："></a>8. 用法：</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables [-t table] SUBCOMMAND chain [-m matchname [per-match-options]] -j targetname [per-target-options]</span><br></pre></td></tr></table></figure>
-<h1 id="9-选项"><a href="#9-选项" class="headerlink" title="9. 选项"></a>9. 选项</h1><h2 id="9-1-表"><a href="#9-1-表" class="headerlink" title="9.1. 表"></a>9.1. 表</h2><p>table，需要实现的功能</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-t table</span><br><span class="line"></span><br><span class="line">table的值：raw, mangle, nat, [filter]默认</span><br></pre></td></tr></table></figure>
-<h2 id="9-2-SUBCOMMAND："><a href="#9-2-SUBCOMMAND：" class="headerlink" title="9.2. SUBCOMMAND："></a>9.2. SUBCOMMAND：</h2><p>1、 链管理：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">-P      Policy，设置默认策略；对filter表中的链而言，其默认策略有：</span><br><span class="line">        ACCEPT：接受</span><br><span class="line">        DROP：丢弃</span><br><span class="line"></span><br><span class="line">-N chain_name           new, 自定义一条新的规则链。</span><br><span class="line">-X chain_name           delete，删除自定义的、空的、规则链。</span><br><span class="line">-E old_name new_name    重命名自定义链；引用计数不为0的自定义链不能够被重命名，也不能被删除。</span><br><span class="line">示例：</span><br><span class="line">一、默认策略</span><br><span class="line">1. 黑名单</span><br><span class="line"><span class="comment"># iptables -P INPUT ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -P OUTPUT ACCEPT</span></span><br><span class="line">2. 白名单</span><br><span class="line">2.1 白名单 之DROP</span><br><span class="line"><span class="comment"># iptables -P INPUT DROP</span></span><br><span class="line"><span class="comment"># iptables -P OUTPUT DROP</span></span><br><span class="line">2.2 白名单 之REJECT</span><br><span class="line"><span class="comment"># iptables -P INPUT DROP</span></span><br><span class="line"><span class="comment"># iptables -P OUTPUT DROP</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">二、自定义链</span><br><span class="line"><span class="comment"># iptables -A cifs_rules -p tcp --dport 139 -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -A cifs_rules -p tcp --dport 445 -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -A cifs_rules -p udp --dport 137:138 -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -A cifs_rules -j RETURN</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># iptables -I INPUT 5 -s 172.18.0.0/16 -j cifs_rules</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># iptable -D INPUT 5          //删除引用</span></span><br><span class="line"><span class="comment"># iptable -F cifs_rules       //清空链规则</span></span><br><span class="line"><span class="comment"># iptable -X cifs_rules       //删除链</span></span><br></pre></td></tr></table></figure>
-<p>2、查看：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">-L      list, 列出指定链上的所有规则，本选项须置后。</span><br><span class="line">-n      numberic，以数字格式显示地址和端口号。</span><br><span class="line">-v      verbose，详细信息。</span><br><span class="line">-vv     更详细。</span><br><span class="line">-x      exactly，显示计数器结果的精确值，而非单位转换后的易读值。</span><br><span class="line">--line-numbers      显示规则的序号。</span><br><span class="line">-S      selected，以iptables-save 命令格式显示链上规则。</span><br><span class="line">常用组合：</span><br><span class="line">-vnL</span><br><span class="line">-vvnxL --line-numbers</span><br></pre></td></tr></table></figure>
-<p>3、规则管理：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">-A      append，追加</span><br><span class="line">-I      insert, 插入，要指明插入至的规则编号，默认为第一条。</span><br><span class="line">-D      delete，删除</span><br><span class="line">        (1) 指明规则序号。</span><br><span class="line">        (2) 指明规则本身。</span><br><span class="line">-R      replace，替换，将指定的规则替换为新规则；不能仅修改规则中的部分，而是整条规则完全替换</span><br><span class="line">-F      flush，清空指定的规则链。</span><br><span class="line">-Z      zero，置零。</span><br><span class="line">        iptables的每条规则都有两个计数器</span><br><span class="line">        (1) 匹配到的报文的个数。</span><br><span class="line">        (2) 匹配到的所有报文的大小之和。</span><br></pre></td></tr></table></figure>
-<h2 id="9-3-chain："><a href="#9-3-chain：" class="headerlink" title="9.3. chain："></a>9.3. chain：</h2><p>PREROUTING， INPUT， FORWARD， OUTPUT， POSTROUTING<br>自定义链</p>
-<h2 id="9-4-匹配条件"><a href="#9-4-匹配条件" class="headerlink" title="9.4. 匹配条件"></a>9.4. 匹配条件</h2><ul>
-<li>基本：通用的， PARAMETERS</li>
-<li>扩展：需加载模块， MATCH EXTENTIONS</li>
-</ul>
-<h2 id="9-5-基本匹配条件："><a href="#9-5-基本匹配条件：" class="headerlink" title="9.5. 基本匹配条件："></a>9.5. 基本匹配条件：</h2><p>无需加载模块，由iptables/netfilter自行提供。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[!] -s, --<span class="built_in">source</span> address[/mask][,...]       源IP地址或范围。不能是离散值。</span><br><span class="line">[!] -d, --destination address[/mask][,...]  目标IP地址或范围。</span><br><span class="line">[!] -p, --protocol protocol                 指定协议，可使用数字如0（all）。</span><br><span class="line">                                            protocol: tcp, udp, icmp, icmpv6, udplite, esp, ah, sctp, mh or “all“</span><br><span class="line">                                            参看： /etc/protocols</span><br><span class="line">[!] -i, --<span class="keyword">in</span>-interface name                 报文流入的接口；只能应用于数据报文流入环节，只应用于INPUT、 FORWARD、 PREROUTING链。</span><br><span class="line">[!] -o, --out-interface name                报文流出的接口；只能应用于数据报文流出的环节，只应用于FORWARD、 OUTPUT、 POSTROUTING链。</span><br></pre></td></tr></table></figure>
-<h2 id="9-6-扩展匹配条件："><a href="#9-6-扩展匹配条件：" class="headerlink" title="9.6. 扩展匹配条件："></a>9.6. 扩展匹配条件：</h2><p>需要加载扩展模块（/usr/lib64/xtables/*.so），方可生效。</p>
-<p>查看帮助</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">man iptables-extensions</span><br></pre></td></tr></table></figure>
-<h3 id="9-6-1-隐式扩展："><a href="#9-6-1-隐式扩展：" class="headerlink" title="9.6.1. 隐式扩展："></a>9.6.1. 隐式扩展：</h3><p>在使用-p选项指明了特定的协议时，无需再用-m选项指明扩展模块的扩展机制，不需要手动加载扩展模块。</p>
-<p>1、tcp协议的扩展选项<br>-p tcp：隐含了-m tcp</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[!] --<span class="built_in">source</span>-port, --sport port[:port]      匹配报文源端口，可为端口范围。</span><br><span class="line">[!] --destination-port,--dport port[:port]  匹配报文目标端口，可为范围。</span><br><span class="line">[!] --tcp-flags mask comp</span><br><span class="line">                                            mask 需检查的标志位列表，用分号（,）分隔</span><br><span class="line">                                                例如 SYN,ACK,FIN,RST</span><br><span class="line">                                            comp 在mask列表中必须为1的标志位列表，无指定则必须为0，用分号（,）分隔</span><br><span class="line">    示例：</span><br><span class="line">    --tcp-flags SYN,ACK,FIN,RST SYN 表示要检查的标志位为SYN,ACK,FIN,RST四个，其中SYN必须为1，余下的必须为0</span><br><span class="line">    --tcp-flags SYN,ACK,FIN,RST SYN,ACK</span><br><span class="line">    --tcp-flags ALL ALL</span><br><span class="line">    --tcp_flags ALL NONE</span><br><span class="line">[!] --syn                                   用于匹配第一次握手。</span><br><span class="line">                                            相当于： --tcp-flags SYN,ACK,FIN,RST SYN</span><br></pre></td></tr></table></figure>
-<p>2、udp扩展<br>-p udp：隐含了-m udp</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[!] --<span class="built_in">source</span>-port, --sport port[:port]      匹配报文的源端口或端口范围。</span><br><span class="line">[!] --destination-port,--dport port[:port]  匹配报文的目标端口或端口范围。</span><br></pre></td></tr></table></figure>
-<p>3、icmp<br>-p icmp：隐含了-m icmp</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[!] --icmp-type &#123;<span class="built_in">type</span>[/code]|typename&#125;</span><br><span class="line">    <span class="built_in">type</span>/code</span><br><span class="line">        0/0 <span class="built_in">echo</span>-reply      icmp应答</span><br><span class="line">        8/0 <span class="built_in">echo</span>-request    icmp请求</span><br></pre></td></tr></table></figure>
-<h3 id="9-6-2-显式扩展："><a href="#9-6-2-显式扩展：" class="headerlink" title="9.6.2. 显式扩展："></a>9.6.2. 显式扩展：</h3><p>必须使用-m选项指明要调用的扩展模块的扩展机制，要手动加载扩展模块。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[-m matchname [per-match-options]]</span><br></pre></td></tr></table></figure>
-<p>显式扩展：必须显式地指明使用的扩展模块进行的扩展。</p>
-<p>使用帮助：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">CentOS 6: man iptables</span><br><span class="line">CentOS 7: man iptables-extensions</span><br></pre></td></tr></table></figure>
-<p>1、multiport扩展<br>以离散方式定义多端口匹配，最多指定15个端口。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[!] --<span class="built_in">source</span>-ports,--sports port[,port|,port:port]...</span><br><span class="line">指定多个源端口</span><br><span class="line"></span><br><span class="line">[!] --destination-ports,--dports port[,port|,port:port]...</span><br><span class="line">指定多个目标端口</span><br><span class="line"></span><br><span class="line">[!] --ports port[,port|,port:port]...</span><br><span class="line">多个源或目标端口</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">iptables -A INPUT -s 172.16.0.0/16 -d 172.16.100.10 -p tcp -m multiport --dports 20:22,80 -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>2、iprange扩展<br>指明连续的（但一般不是整个网络）ip地址范围。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[!] --src-range from[-to]   源IP地址范围。</span><br><span class="line">[!] --dst-range from[-to]   目标IP地址范围。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">iptables -A INPUT -d 172.16.1.100 -p tcp --dport 80 -m iprange --src-range 172.16.1.5-172.16.1.10 -j DROP</span><br></pre></td></tr></table></figure>
-<p>3、mac扩展<br>指明源MAC地址<br>适用于： PREROUTING，FORWARD，INPUT chains</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">[!] --mac-source XX:XX:XX:XX:XX:XX</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">iptables -A INPUT -s 172.16.0.100 -m mac --mac-source 00:50:56:12:34:56 -j ACCEPT</span><br><span class="line">iptables -A INPUT -s 172.16.0.100 -j REJECT</span><br></pre></td></tr></table></figure>
-<p>3、set扩展<br>依赖于ipset命令行工具；<br>set存在类型，常用的有两个：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">hash</span>:net 网络地址的集合</span><br><span class="line"><span class="built_in">hash</span>:ip  IP地址的集合</span><br></pre></td></tr></table></figure>
-<p>使用方式：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">//先创建集合：</span><br><span class="line">ipset create NAME TYPE</span><br><span class="line">//向集合添加元素：</span><br><span class="line">ipset add NAME ELEMENT</span><br><span class="line">示例：</span><br><span class="line">yum install ipset</span><br><span class="line">ipset create allowpinghosts <span class="built_in">hash</span>:ip   //如果是网段用<span class="built_in">hash</span>:net</span><br><span class="line">ipset list</span><br><span class="line">ipset add allowpinghosts 172.18.0.100</span><br><span class="line">ipset add allowpinghosts 172.18.0.200</span><br><span class="line">ipset list</span><br><span class="line">                </span><br><span class="line">iptables -I INPUT 4 -p icmp --icmp-type 8 -m <span class="built_in">set</span> --match-set allowpinghosts src -j ACCEPT</span><br><span class="line">iptables -I OUTPUT 4 -p icmp --icmp-type 0 -m <span class="built_in">set</span> --match-set allowpinghosts dst -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>4、string扩展<br>对报文中的应用层数据做字符串模式匹配检测</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">--algo &#123;bm|kmp&#125;             字符串匹配检测算法  </span><br><span class="line">    bm： Boyer-Moore  </span><br><span class="line">    kmp： Knuth-Pratt-Morris  </span><br><span class="line">--from offset               开始偏移</span><br><span class="line">--to offset                 结束偏移</span><br><span class="line">[!] --string pattern        要检测的字符串模式</span><br><span class="line">[!] --hex-string pattern    要检测字符串模式， 16进制格式</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">iptables -I INPUT -m string --string <span class="string">"sex"</span> --algo bm -j REJECT</span><br><span class="line">iptables -I OUTPUT -m string --string <span class="string">"sex"</span> --algo bm -j REJECT</span><br></pre></td></tr></table></figure>
-<p>5、time扩展<br>根据将报文到达的时间与指定的时间范围进行匹配。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">--datestart YYYY[-MM[-DD[Thh[:mm[:ss]]]]]   日期</span><br><span class="line">--datestop YYYY[-MM[-DD[Thh[:mm[:ss]]]]]</span><br><span class="line">--timestart hh:mm[:ss]                      时间</span><br><span class="line">--timestop hh:mm[:ss]</span><br><span class="line">[!] --monthdays day[,day...]                每个月的几号。</span><br><span class="line">[!] --weekdays day[,day...]                 星期几， 1 – 7 分别表示星期一到星期日。</span><br><span class="line">--kerneltz                                  内核时区，不建议使用，CentOS7系统默认为UTC。</span><br><span class="line">                                            注意：centos6 不支持kerneltz ，--localtz指定本地时区(默认)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">iptables -A INPUT -s 172.16.0.0/16 -d 172.16.100.10 -p tcp --dport 80 -m time --timestart 14:30 --timestop 18:30 --weekdays Sat,Sun --kerneltz -j DROP</span><br></pre></td></tr></table></figure>
-<p>6、connlimit扩展<br>根据每客户端IP做并发连接数数量匹配。<br>可防止CC(Challenge Collapsar挑战黑洞)攻击。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--connlimit-upto <span class="comment">#      连接的数量小于等于#时匹配</span></span><br><span class="line">--connlimit-above <span class="comment">#     连接的数量大于#时匹配</span></span><br><span class="line">上述二个选线通常分别与默认的拒绝或允许策略配合使用。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">iptables -A INPUT -d 172.16.100.10 -p tcp --dport 22 -m connlimit --connlimit-above 2 -j REJECT</span><br></pre></td></tr></table></figure>
-<p>7、limit扩展<br>基于收发报文的速率做匹配。<br>令牌桶过滤器，令牌桶（bucket），突发尖峰</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--<span class="built_in">limit</span> <span class="comment">#[/second|/minute|/hour|/day]</span></span><br><span class="line">--<span class="built_in">limit</span>-burst number</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">iptables -I INPUT -d 172.16.100.10 -p icmp --icmp-type 8 -m <span class="built_in">limit</span> --<span class="built_in">limit</span> 10/minute --<span class="built_in">limit</span>-burst 5 -j ACCEPT</span><br><span class="line">iptables -I INPUT 2 -p icmp -j REJECT</span><br></pre></td></tr></table></figure>
-<p>8、state扩展<br>根据“连接追踪机制”去检查连接的状态。<br>较耗资源，消耗cpu，消耗内核空间的内存。</p>
-<p>conntrack机制：追踪本机上的请求和响应之间的关系。</p>
-<p>状态有如下几种：</p>
-<ul>
-<li>NEW：新发出请求；连接追踪信息库中不存在此连接的相关信息条目，因此，将其识别为第一次发出的请求。</li>
-<li>ESTABLISHED： NEW状态之后，连接追踪信息库中为其建立的条目失效之前期间内所进行的通信状态。</li>
-<li>RELATED：新发起的但与已有连接相关联的连接，如： ftp协议中的数据连接与命令连接之间的关系。</li>
-<li>INVALID：无效的连接，如flag标记不正确。</li>
-<li>UNTRACKED：未进行追踪的连接，如raw表中关闭追踪。</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">[!] --state state</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">iptables -F</span><br><span class="line"></span><br><span class="line">入栈方向:</span><br><span class="line">已建立的连接都放行</span><br><span class="line">22,21,139,445,80 NEW</span><br><span class="line">iptables -A INPUT -m state --state ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp -m multiport --dports 21:22,80,139,445 -m state --state NEW -j ACCEPT</span><br><span class="line">iptables -I INPUT 3 -p tcp -m state --state RELATED -j ACCEPT</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">出栈方向:</span><br><span class="line">已建立的连接都放行</span><br><span class="line">iptables -A OUTPUT -m state --state ESTABLISHED -j ACCEPT</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">默认策略</span><br><span class="line">iptables -A INPUT ! -i lo -j REJECT</span><br><span class="line">iptables -A OUTPUT ! -i lo -j REJECT</span><br><span class="line">可以合并</span><br><span class="line">iptables -A INPUT -m state --state RELATED,ESTABLISHED -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>已经追踪到的并记录下来的连接信息库</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/proc/net/nf_conntrack</span><br></pre></td></tr></table></figure>
-<p>调整连接追踪功能所能够容纳的最大连接数量</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/proc/sys/net/nf_conntrack_max</span><br></pre></td></tr></table></figure>
-<p>不同的协议的连接追踪时长</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/proc/sys/net/netfilter/</span><br></pre></td></tr></table></figure>
-<p>注意：CentOS7 需要加载模块：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">modprobe nf_conntrack</span><br></pre></td></tr></table></figure>
-<p>iptables的链接跟踪表最大容量为</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/proc/sys/net/nf_conntrack_max</span><br><span class="line">各种状态的超时链接会从表中删除；当模板满载时，后续连接可能会超时。</span><br></pre></td></tr></table></figure>
-<p>解决方法两个：</p>
-<p>(1) 加大nf_conntrack_max 值</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysctl.conf</span><br><span class="line">net.nf_conntrack_max = 393216</span><br><span class="line">net.netfilter.nf_conntrack_max = 393216</span><br><span class="line">//不修改/etc/sysctl.conf文件内容，而是在/etc/sysctl.d/下单独创建一个配置文件nf_conntrack_max.conf</span><br><span class="line"></span><br><span class="line">vim /etc/sysctl.d/nf_conntrack_max.conf</span><br><span class="line">net.nf_conntrack_max = 1000000</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
-<p>(2) 降低 nf_conntrack timeout时间</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysctl.conf</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_established = 300</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_time_wait = 120</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_close_wait = 60</span><br><span class="line">net.netfilter.nf_conntrack_tcp_timeout_fin_wait = 120</span><br><span class="line">iptables -t nat -L -n</span><br></pre></td></tr></table></figure>
-<p>开放被动模式的ftp服务</p>
-<p>(1) 装载ftp连接追踪的专用模块：<br>跟踪模块路径：/lib/modules/kernelversion/kernel/net/netfilter</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/sysconfig/iptables-config      配置文件</span><br><span class="line">IPTABLES_MODULES=<span class="string">"nf_conntrack_ftp"</span></span><br><span class="line"></span><br><span class="line">vim /etc/sysconfig/modules/nf_conntrack.modules</span><br><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line">/sbin/modprobe nf_conntrack_ftp</span><br><span class="line"></span><br><span class="line">modproble nf_conntrack_ftp</span><br><span class="line">modinfo nf_conntrack_ftp</span><br><span class="line">lsmod | grep nf_conntrack_ftp</span><br></pre></td></tr></table></figure>
-<p>(2) 放行请求报文：<br>命令连接： NEW, ESTABLISHED<br>数据连接： RELATED, ESTABLISHED</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">iptables –I INPUT -d LocalIP -p tcp -m state --state ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line">iptables -A INPUT -d LocalIP -p tcp --dport 21 -m state --state NEW -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>(3) 放行响应报文：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">iptables -I OUTPUT -s LocalIP -p tcp -m state --state ESTABLISHED -j ACCEPT</span><br></pre></td></tr></table></figure>
-<p>开放被动模式的ftp服务示例</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">yum install vsftpd</span><br><span class="line">systemctl start vsftpd</span><br><span class="line">modprobe nf_conntrack_ftp</span><br><span class="line">iptables -F</span><br><span class="line">iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT</span><br><span class="line">iptables -A INPUT -p tcp --dport 21 -m state --state NEW -j ACCEPT</span><br><span class="line">iptables -A OUTPUT -m state --state ESTABLISHED -j ACCEPT</span><br><span class="line">iptables -P INPUT DROP</span><br><span class="line">iptables -P OUTPUT DROP</span><br><span class="line">iptables -vnL</span><br></pre></td></tr></table></figure>
-<h2 id="9-7-处理动作："><a href="#9-7-处理动作：" class="headerlink" title="9.7. 处理动作："></a>9.7. 处理动作：</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">-j targetname [per-target-options]</span><br><span class="line">//target</span><br><span class="line">ACCEPT      接受</span><br><span class="line">DROP        丢弃</span><br><span class="line">REJECT      拒绝。弹回，快速断开。--reject-with:icmp-port-unreachable默认</span><br><span class="line">RETURN      返回调用链</span><br><span class="line">REDIRECT    端口重定向</span><br><span class="line">LOG         记录日志， dmesg</span><br><span class="line">MARK        做防火墙标记</span><br><span class="line">DNAT        目标地址转换</span><br><span class="line">SNAT        源地址转换</span><br><span class="line">MASQUERADE  地址伪装</span><br><span class="line">...</span><br><span class="line">自定义链：</span><br></pre></td></tr></table></figure>
-<p>Target：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">LOG：非中断target，本身不拒绝和允许，放在拒绝和允许规则前，并将日志记录在/var/<span class="built_in">log</span>/messages系统日志中。</span><br><span class="line"></span><br><span class="line">--<span class="built_in">log</span>-level level </span><br><span class="line">级别： debug， info， notice, warning, error, crit, alert,emerg</span><br><span class="line"></span><br><span class="line">--<span class="built_in">log</span>-prefix prefix </span><br><span class="line">日志前缀，用于区别不同的日志，最多29个字符</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">iptables -I INPUT -s 10.0.1.0/24 -p tcp -m multiport --dports 80,21,22,23 -m state --state NEW -j LOG --<span class="built_in">log</span>-prefix <span class="string">"new connections: "</span></span><br></pre></td></tr></table></figure>
-<h1 id="10-规则"><a href="#10-规则" class="headerlink" title="10. 规则"></a>10. 规则</h1><p>任何不允许的访问，应该在请求到达时给予拒绝。<br>规则在链接上的次序即为其检查时的生效次序。</p>
-<p>基于上述，规则优化</p>
-<ol>
-<li>安全放行所有入站和出站的状态为ESTABLISHED状态连接。</li>
-<li>谨慎放行入站的新请求。</li>
-<li>有特殊目的限制访问功能，要在放行规则之前加以拒绝。</li>
-<li>同类规则（访问同一应用），匹配范围小的放在前面，用于特殊处理。</li>
-<li>不同类的规则（访问不同应用），匹配范围大的放在前面。</li>
-<li>应该将那些可由一条规则能够描述的多个规则合并为一条。</li>
-<li>设置默认策略，建议白名单（只放行特定连接）。<br>1） iptables -P，不建议。<br>2） 建议在规则的最后定义规则做为默认策略。</li>
-</ol>
-<h1 id="11-保存及加载规则"><a href="#11-保存及加载规则" class="headerlink" title="11. 保存及加载规则"></a>11. 保存及加载规则</h1><p>规则有效期限：<br>使用iptables命令定义的规则，手动删除之前，其生效期限为kernel存活期限。</p>
-<h2 id="11-1-保存规则"><a href="#11-1-保存规则" class="headerlink" title="11.1. 保存规则"></a>11.1. 保存规则</h2><p>保存规则至指定的文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">- CentOS 6</span><br><span class="line">service iptables save</span><br><span class="line">将规则覆盖保存至/etc/sysconfig/iptables文件中。</span><br><span class="line"></span><br><span class="line">- CentOS 7</span><br><span class="line">iptables-save &gt; /PATH/TO/SOME_RULES_FILE</span><br><span class="line">也可以保存至/etc/sysconfig/iptables文件中。</span><br><span class="line">/usr/libexec/iptables/iptables.init save</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">iptables-save &gt; /etc/sysconfig/iptables</span><br></pre></td></tr></table></figure>
-<h2 id="11-2-载入规则"><a href="#11-2-载入规则" class="headerlink" title="11.2. 载入规则"></a>11.2. 载入规则</h2><p>查看iptables.service，<br>里面start时会读取文件/etc/sysconfig/iptables，即自动从/etc/sysconfig/iptables 重新载入规则。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">CentOS 6：</span><br><span class="line">service iptables restart</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CentOS 7</span><br><span class="line">iptables-restore &lt; /PATH/FROM/SOME_RULES_FILE</span><br><span class="line"></span><br><span class="line">-n, --noflush   不清除原有规则</span><br><span class="line">-t, --<span class="built_in">test</span>      仅分析生成规则集，但不提交开机自动重载规则</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line">iptables-restore &lt; /etc/sysconfig/iptables</span><br></pre></td></tr></table></figure>
-<p>开机自动重载规则文件中的规则：</p>
-<p>(1) 用脚本保存各iptables命令；让此脚本开机后自动运行<br>/etc/rc.d/rc.local文件中添加脚本路径</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.d/rc.local</span><br><span class="line">/PATH/TO/SOME_SCRIPT_FILE</span><br></pre></td></tr></table></figure>
-<p>(2) 用规则文件保存各规则，开机时自动载入此规则文件中的规则<br>/etc/rc.d/rc.local文件添加</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/rc.d/rc.local</span><br><span class="line">iptables-restore &lt; /PATH/FROM/IPTABLES_RULES_FILE</span><br></pre></td></tr></table></figure>
-<p>(3)自定义Unit File，进行iptables-restore</p>
-<h1 id="12-网络防火墙"><a href="#12-网络防火墙" class="headerlink" title="12. 网络防火墙"></a>12. 网络防火墙</h1><p>iptables/netfilter网络防火墙：</p>
-<ul>
-<li>(1) 充当网关</li>
-<li>(2) 使用filter表的FORWARD链</li>
-</ul>
-<p>注意的问题：</p>
-<ul>
-<li>(1) 请求-响应报文均会经由FORWARD链，要注意规则的方向性。</li>
-<li>(2) 如果要启用conntrack机制，建议将双方向的状态为ESTABLISHED的报文直接放行。</li>
-</ul>
-<p>需要启用核心转发功能</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">/proc/sys/net/ipv4/ip_forward</span><br><span class="line">sysctl -w net.ipv4.ip_forward=1</span><br></pre></td></tr></table></figure>
-<p>示例环境：<br>主机C — （ip0）防火墙F（IP1） — 服务器S</p>
-<table>
-<thead>
-<tr>
-<th>主机</th>
-<th>IP</th>
-<th>服务，端口</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>主机C</td>
-<td>172.18.0.101</td>
-<td></td>
-</tr>
-<tr>
-<td>防火墙F</td>
-<td>ip0：172.18.0.1 ip1：192.168.0.1</td>
-<td></td>
-</tr>
-<tr>
-<td>服务器S</td>
-<td>192.168.0.66</td>
-<td>httpd，80端口 dns，53 vsftpd，21，被动模式</td>
-</tr>
-</tbody>
-</table>
-<p>示例：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">1. 开启核心转发功能</span><br><span class="line"><span class="comment"># sysctl -w net.ipv4.ip_forward=1</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2. 配置路由</span><br><span class="line"><span class="comment"># route add -net 192.168.10.0/24 gw 172.18.0.66</span></span><br><span class="line"><span class="comment"># route add -net default gw 172.18.0.66</span></span><br><span class="line">注意：其实开启核心转发功能会自动添加接口连接网络的路由。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3. 配置转发</span><br><span class="line">访问httpd、dns、vsftpd服务器</span><br><span class="line"><span class="comment"># iptables -A FORWARD -s 172.18.0.0/16 -p tcp -m multiport --dports 80,21,53 -m state --state NEW -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -A FORWARD -s 172.18.0.0/16 -p udp --dport 53 -m state --state NEW -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -A FORWARD -s 172.18.0.0./16 -p tcp -m state --state RELATED -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -A FORWARD -m state --state ESTABLISHED -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -A FORWARD -j DROP</span></span><br><span class="line">注意：(1) 方向：NEW、RELATED，自左至右。ESTABLISHED，双方向。</span><br></pre></td></tr></table></figure>
-<h1 id="13-NAT"><a href="#13-NAT" class="headerlink" title="13. NAT"></a>13. NAT</h1><p>NAT：network address translation</p>
-<ul>
-<li>隐藏：设置初衷，用来隐藏请求报文中的地址信息。</li>
-<li>解决ip地址不足问题。</li>
-<li>请求报文：修改源/目标IP，自定义如何修改。</li>
-<li>响应报文：修改源/目标IP，连接跟踪机制自动实现。</li>
-</ul>
-<p>SNAT：source NAT</p>
-<ul>
-<li>作用于POSTROUTING, INPUT</li>
-<li>让本地网络中的主机通过某一特定地址访问外部网络，实现地址伪装。</li>
-<li>请求报文：修改源IP</li>
-</ul>
-<p>DNAT：destination NAT</p>
-<ul>
-<li>作用于PREROUTING , OUTPUT</li>
-<li>把本地网络中的主机上的某服务开放给外部网络访问(发布服务和端口映射)，但隐藏真实IP。</li>
-<li>请求报文：修改目标IP</li>
-</ul>
-<p>PNAT：port nat，端口和IP都进行修改。</p>
-<h1 id="14-SNAT"><a href="#14-SNAT" class="headerlink" title="14. SNAT"></a>14. SNAT</h1><h2 id="14-1-SNAT：固定IP"><a href="#14-1-SNAT：固定IP" class="headerlink" title="14.1. SNAT：固定IP"></a>14.1. SNAT：固定IP</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--to-source [ipaddr[-ipaddr]][:port[-port]]</span><br><span class="line">--random</span><br><span class="line">iptables -t nat -A POSTROUTING -s LocalNET ! -d LocalNet -j SNAT --to-source ExtIP</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"><span class="comment"># iptables -t nat -A POSTROUTING -s 10.0.1.0/24 ! –d 10.0.1.0/24 -j SNAT --to-source 172.18.1.6-172.18.1.9</span></span><br></pre></td></tr></table></figure>
-<p>讲解：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">-s 10.0.1.0/24                      对源地址（-s 10.0.1.0/24）进行SNAT。</span><br><span class="line">-to-source 172.18.1.6-172.18.1.9    源地址转为（）。</span><br><span class="line">! –d 10.0.1.0/24                    不对内部网路隐藏源地址。可能有多个内部网络（网络接口）都要去除。</span><br></pre></td></tr></table></figure>
-<h2 id="14-2-MASQUERADE：动态IP，如拨号网络"><a href="#14-2-MASQUERADE：动态IP，如拨号网络" class="headerlink" title="14.2. MASQUERADE：动态IP，如拨号网络"></a>14.2. MASQUERADE：动态IP，如拨号网络</h2><p>地址伪装</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">--to-ports port[-port]</span><br><span class="line">--random</span><br><span class="line">iptables -t nat -A POSTROUTING -s LocalNET ! -d LocalNet -j MASQUERADE [--to-ports port[-port]]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">示例：</span><br><span class="line"><span class="comment"># iptables -t nat -A POSTROUTING -s 10.0.1.0/24 ! –d 10.0.1.0/24 -j MASQUERADE</span></span><br></pre></td></tr></table></figure>
-<h1 id="15-DNAT"><a href="#15-DNAT" class="headerlink" title="15. DNAT"></a>15. DNAT</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">--to-destination [ipaddr[-ipaddr]][:port[-port]]</span><br><span class="line"><span class="comment"># iptables -t nat -A PREROUTING -d ExtIP -p tcp|udp --dport PORT -j DNAT --to-destination InterSeverIP[:PORT]</span></span><br></pre></td></tr></table></figure>
-<h2 id="15-1-DNAT"><a href="#15-1-DNAT" class="headerlink" title="15.1. DNAT"></a>15.1. DNAT</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line"><span class="comment"># iptables -t nat -A PREROUTING -s 0/0 -d 172.18.100.6 -p tcp --dport 22 -j DNAT --to-destination 10.0.1.22</span></span><br><span class="line"><span class="comment"># iptables -t nat -A PREROUTING -s 0/0 -d 172.18.100.6 -p tcp --dport 80 -j DNAT --to-destination 10.0.1.22</span></span><br></pre></td></tr></table></figure>
-<h2 id="15-2-PAT"><a href="#15-2-PAT" class="headerlink" title="15.2. PAT"></a>15.2. PAT</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">示例：</span><br><span class="line"><span class="comment"># iptables -t nat -A PREROUTING -s 0/0 -d 172.18.100.6 -p tcp --dport 80 -j DNAT --to-destination 10.0.1.22:8080</span></span><br><span class="line"></span><br><span class="line">假设mysql在内网工作在正常服务端口，但告知外面工作在6789端口上</span><br><span class="line"><span class="comment"># iptables -t nat -A PREROUTING -d 10.0.10.62 -p tcp --dport 6789 -j DNAT --to-destination 192.168.0.110:3306</span></span><br></pre></td></tr></table></figure>
-<h2 id="15-3-REDIRECT"><a href="#15-3-REDIRECT" class="headerlink" title="15.3. REDIRECT"></a>15.3. REDIRECT</h2><p>可用于： PREROUTING OUTPUT 自定义链<br>通过改变目标IP和端口，将接受的包转发至不同端口。响应报文也是由连接追踪自动修改的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--to-ports port[-port]</span><br><span class="line">示例：</span><br><span class="line">iptables -t nat -A PREROUTING -d 172.16.100.10 -p tcp --dport 80 -j REDIRECT --to-ports 8080</span><br></pre></td></tr></table></figure>
-<p>讲解：普通用户不能使用小于1024端口。例如httpd默认端口为80。普通用户可监听在8080端口。当有访问80端口的请求到达时，请求会被重定向到8080端口。</p>
-<h1 id="16-练习"><a href="#16-练习" class="headerlink" title="16. 练习"></a>16. 练习</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dns, httpd: ALL</span><br><span class="line">nfs, smaba, vsftpd: LOCALNET</span><br><span class="line">mysql: LOCALHOST</span><br><span class="line">ping: ALL, 10/minute</span><br><span class="line">ssh: 3conns/IP, worktime</span><br></pre></td></tr></table></figure>
-<p>一、禁用selinux和firewalld</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># setenforce 0</span></span><br><span class="line"><span class="comment"># sed -i 's/^SELINUX=.*/SELINUX=disabled/' /etc/selinux/config</span></span><br><span class="line"><span class="comment"># systemctl stop firewalld</span></span><br><span class="line"><span class="comment"># systemctl disable firewalld</span></span><br></pre></td></tr></table></figure>
-<p>二、安装软件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># yum install -y httpd nfs-utils samba bind mariadb-server vsftpd iptables-services</span></span><br><span class="line"><span class="comment"># systemctl start httpd nfs smb named mariadb vsftpd iptables</span></span><br><span class="line"><span class="comment"># systemctl enable httpd nfs smb named mariadb vsftpd iptables</span></span><br></pre></td></tr></table></figure>
-<p>三、iptables配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># iptables -P INPUT ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -P OUTPUT ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -F</span></span><br></pre></td></tr></table></figure>
-<p>开始配置</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">1. ssh: 3conns/IP, worktime</span><br><span class="line"><span class="comment"># iptables -A INPUT -p tcp --dport 22 -m connlimit --connlimit-upto 3 -m time --timestart 8:00 --timestop 18:00 --weekdays 1,2,3,4,5 --kerneltz -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -A OUTPUT -p tcp --sport 22 -j ACCEPT</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">2. dns, httpd: ALL</span><br><span class="line">//dns</span><br><span class="line"><span class="comment"># iptables -I INPUT -p udp --dport 53 -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -I OUTPUT -p udp --sport 53 -j ACCEPT</span></span><br><span class="line">//httpd</span><br><span class="line"><span class="comment"># iptables -I INPUT -p tcp --dport 80 -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -I OUTPUT -p tcp --sport 80 -j ACCEPT</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">3. nfs, samba, vsftpd: LOCALNET</span><br><span class="line">//samba</span><br><span class="line"><span class="comment"># iptables -I INPUT -p tcp -s 192.168.10.0/24 -m multiport --dports 139,445 -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -I OUTPUT -p tcp -d 192.168.10.0/24 -m multiport --sports 139,445 -j ACCEPT</span></span><br><span class="line"></span><br><span class="line">//nfs</span><br><span class="line"><span class="comment"># iptables -I INPUT -p tcp -s 192.168.10.0/24 -m multiport --dports 111,2049,875,32803,32769,892,662,2020 -j ACCEPT </span></span><br><span class="line"><span class="comment"># iptables -I INPUT -p udp -s 192.168.10.0/24 -m multiport --dports 111,2049 -j ACCEPT </span></span><br><span class="line"></span><br><span class="line">//vsftpd</span><br><span class="line"><span class="comment"># modprobe nf_conntrack_ftp</span></span><br><span class="line"><span class="comment"># iptables -I INPUT -p tcp --dport 21 -s 192.168.10.0/24 -m state --state NEW -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -I INPUT -s 192.168.10.0/24 -m state --state RELATED -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -I INPUT -s 192.168.10.0/24 -m state --state ESTABLISHED -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -I OUTPUT -d 192.168.10.0/24 -m state --state ESTABLISHED -j ACCEPT</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">4. mysql: LOCALHOST</span><br><span class="line"><span class="comment"># iptables -I INPUT -p tcp --dport 3306 -i lo -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -I OUTPUT -p tcp --sport 3306 -o lo -j ACCEPT</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">5. ping: ALL, 10/minute</span><br><span class="line"><span class="comment"># iptables -I INPUT -p icmp --icmp-type 8 -m limit --limit 10/minute -j ACCEPT</span></span><br><span class="line"><span class="comment"># iptables -I OUTPUT -p icmp --icmp-type 0 -j ACCEPT</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">x. 最后的drop策略</span><br><span class="line"><span class="comment"># iptables -A INPUT ! -i lo -j DROP</span></span><br><span class="line"><span class="comment"># iptables -A OUTPUT ! -o lo -j DROP</span></span><br></pre></td></tr></table></figure>
+            <h1 id="批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：-tmp-iplist-log"><a href="#批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：-tmp-iplist-log" class="headerlink" title="批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：/tmp/iplist.log"></a>批量ping一个网络ID中的254个IP地址，并把能够Ping通的地址放到：/tmp/iplist.log</h1><p>例如ping百度的IP：123.125.115.110<br>bash scanip00.sh  输入正确格式的IP地址<br><img src="https://img-blog.csdnimg.cn/20181106152508960.png" alt="ping"><br>cat /tmp/iplist.log<br>结果<br><img src="https://img-blog.csdnimg.cn/20181106152703455.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="能够Ping通的IP"></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#********************************************************************</span></span><br><span class="line"><span class="comment">#scanip00.sh    # 脚本名</span></span><br><span class="line">&gt; /tmp/iplist.log   <span class="comment">#每次运行前清空该文件内容</span></span><br><span class="line"><span class="built_in">read</span> -p <span class="string">"Please input a netid:(eg:192.168.34.0) "</span> netid  <span class="comment">#输入IP</span></span><br><span class="line">netid=`<span class="built_in">echo</span> <span class="variable">$netid</span> | sed -nr <span class="string">'s#(.*)\..*#\1#p'</span>`</span><br><span class="line"><span class="built_in">echo</span> netid=<span class="variable">$netid</span></span><br><span class="line"><span class="keyword">for</span> id <span class="keyword">in</span> &#123;1..254&#125;;<span class="keyword">do</span></span><br><span class="line">        &#123;</span><br><span class="line">        <span class="keyword">if</span> ping -c1 -w1  <span class="variable">$netid</span>.<span class="variable">$id</span> &amp;&gt;/dev/null ;<span class="keyword">then</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="string">"<span class="variable">$netid</span>.<span class="variable">$id</span>"</span> &gt;&gt; /tmp/iplist.log  <span class="comment">#ping通的放入文件</span></span><br><span class="line">                <span class="built_in">echo</span> <span class="variable">$netid</span>.<span class="variable">$id</span> is up</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">                <span class="built_in">echo</span> <span class="variable">$netid</span>.<span class="variable">$id</span> is down</span><br><span class="line">        <span class="keyword">fi</span></span><br><span class="line">        &#125;&amp;                  <span class="comment">#并行执行</span></span><br><span class="line"><span class="keyword">done</span></span><br><span class="line"><span class="built_in">wait</span></span><br></pre></td></tr></table></figure>
           
         
       
@@ -1768,190 +1415,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/磁盘备份及raid0和raid10的组建/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="摩托猿">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/haha.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Apologize's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/10/15/磁盘备份及raid0和raid10的组建/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">磁盘备份及raid0和raid10的组建</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-15 18:18:18" itemprop="dateCreated datePublished" datetime="2018-10-15T18:18:18+08:00">2018-10-15</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-08 21:07:41" itemprop="dateModified" datetime="2018-11-08T21:07:41+08:00">2018-11-08</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/10/15/磁盘备份及raid0和raid10的组建/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/15/磁盘备份及raid0和raid10的组建/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="blkid-查询各个设备UUID"><a href="#blkid-查询各个设备UUID" class="headerlink" title="blkid 查询各个设备UUID"></a>blkid 查询各个设备UUID</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mount -U <span class="string">'UUID'</span> 加挂载点  挂载设备</span><br><span class="line">umount /mnt/sdb1  卸载挂载设备sdb1（无占用）  </span><br><span class="line">lsof /mnt/sdb1   有用户占用时，查询sdb1占用进程和用户</span><br><span class="line">fuser -km /mnt/sdb1  结束sdb1的所有占用</span><br><span class="line">cat /proc/mounts 查询所有的挂载点</span><br><span class="line">umount -o remount +挂载点 重新挂载，某些设备不能取消挂载</span><br><span class="line"></span><br><span class="line">df -P  对其系统信息显示</span><br><span class="line">du    显示当前目录每个文件夹的大小</span><br><span class="line">du -sh  显示当前目录的总大小</span><br><span class="line">du -sh /*查询根目录下每个目录有多大</span><br><span class="line"></span><br><span class="line">dd 命令**********************</span><br><span class="line">dd <span class="keyword">if</span>= /dev读取的文件    of=/输出的文件，没有则新建该文件</span><br></pre></td></tr></table></figure>
-<p>例子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">f1=abcdefghi</span><br><span class="line">f2= 123456</span><br><span class="line">dd <span class="keyword">if</span>=f2 of=f1 bs=1 count=2 skip=3 seek=4 一次1块，跳过源文件的3个（123），读取两个（45），f1跳过4个，把ef替代了</span><br><span class="line">输出信息为abcd45 </span><br><span class="line"></span><br><span class="line">备份：</span><br><span class="line">dd <span class="keyword">if</span>=/dev/sdx of=/dev/sdy</span><br><span class="line">将本地的/dev/sdx整盘备份到/dev/sdy</span><br><span class="line">dd <span class="keyword">if</span>=/dev/sdx of=/path/to/image</span><br><span class="line">将/dev/sdx全盘数据备份到指定路径的image文件</span><br><span class="line">dd <span class="keyword">if</span>=/dev/sdx | gzip &gt;/path/to/image.gz</span><br><span class="line">备份/dev/sdx全盘数据，并利用gzip压缩，保存到指定路径</span><br><span class="line">恢复：</span><br><span class="line">dd <span class="keyword">if</span>=/path/to/image of=/dev/sdx</span><br><span class="line">将备份文件恢复到指定盘</span><br><span class="line">gzip -dc /path/to/image.gz | dd of=/dev/sdx</span><br><span class="line">将压缩的备份文件恢复到指定盘</span><br></pre></td></tr></table></figure></p>
-<h1 id="拷贝内存资料到硬盘"><a href="#拷贝内存资料到硬盘" class="headerlink" title="拷贝内存资料到硬盘"></a>拷贝内存资料到硬盘</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/mem of=/root/mem.bin bs=1024</span><br><span class="line">将内存里的数据拷贝到root目录下的mem.bin文件</span><br><span class="line">从光盘拷贝iso镜像</span><br><span class="line">dd <span class="keyword">if</span>=/dev/cdrom of=/root/cd.iso</span><br><span class="line">拷贝光盘数据到root文件夹下，并保存为cd.iso文件</span><br><span class="line">销毁磁盘数据</span><br><span class="line">dd <span class="keyword">if</span>=/dev/urandom of=/dev/sda1</span><br><span class="line">利用随机的数据填充硬盘，在某些必要的场合可以用来销毁数据，执行此操作以后，</span><br><span class="line">/dev/sda1将无法挂载，创建和拷贝操作无法执行</span><br></pre></td></tr></table></figure>
-<h1 id="测试硬盘写速度"><a href="#测试硬盘写速度" class="headerlink" title="测试硬盘写速度"></a>测试硬盘写速度</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/root/1Gb.file bs=1024 count=1000000</span><br><span class="line">测试硬盘读速度</span><br><span class="line">dd <span class="keyword">if</span>=/root/1Gb.file bs=64k | dd of=/dev/null</span><br><span class="line">partx -d --nr 1 /dev/sdb  删除硬盘sdb上的第一个分区</span><br><span class="line">删除硬盘上的一个分区</span><br></pre></td></tr></table></figure>
-<p>raid 01 容错率3分之1<br>raid 10 容错率3分之2<br>所以一般都用raid 10 或者20.30 </p>
-<p>简述 raid0，raid1，raid5，raid10 的区别和各自特点：</p>
-<blockquote>
-<p>raid0:RAID0 具有低成本、高读写性能、 100% 的高存储空间利用率等优点，但是它不提供数据冗余保护，一<br>旦数据损坏，将无法恢复。 因此， RAID0 一般适用于对性能要求严格但对数据安全性和可靠性不高的<br>应用。<br>raid1:RAID1 称为镜像，它将数据完全一致地分别写到工作磁盘和镜像磁盘，从而达到安全性好、技术简单、<br>管理方便。 RAID1 拥有完全容错的能力，但实现成本高。<br>raid5:RAID5 的磁盘上同时存储数据和校验数据，数据块和对应的校验信息存保存在不同的磁盘上，当一个数<br>据盘损坏时，系统可以根据同一条带的其他数据块和对应的校验数据来重建损坏的数据。与其他 RAID<br>等级一样，重建数据时， RAID5 的性能会受到较大的影响。RAID5 兼顾存储性能、数据安全和存储成<br>本等各方面因素，它可以理解为 RAID0 和 RAID1 的折中方案，是目前综合性能最佳的数据保护解决方<br>案。<br>raid10：RAID10 是先做镜像再作条带化，是对虚拟磁盘实现镜像，保证数据安全性的同时又提高了性能，整<br>体磁盘利用率均仅为 50%。</p>
-</blockquote>
-<p>raid5在视频第12天第三个视频64分钟开始</p>
-<h1 id="实验：实现raid0"><a href="#实验：实现raid0" class="headerlink" title="实验：实现raid0"></a>实验：实现raid0</h1><p>VMware中添加两块200G硬盘，重启虚拟机<br>输入lsblk查看多了一个sdb 硬盘<br>fdisk /dev/sdb<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel</span><br><span class="line">Building a new DOS disklabel with disk identifier 0x25e5fb5c.</span><br><span class="line">Changes will remain <span class="keyword">in</span> memory only, until you decide to write them.</span><br><span class="line">After that, of course, the previous content won<span class="string">'t be recoverable.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">WARNING: DOS-compatible mode is deprecated. It'</span>s strongly recommended to</span><br><span class="line">         switch off the mode (<span class="built_in">command</span> <span class="string">'c'</span>) and change display units to</span><br><span class="line">         sectors (<span class="built_in">command</span> <span class="string">'u'</span>).</span><br><span class="line"></span><br><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): n</span><br><span class="line">Command action</span><br><span class="line">   e   extended</span><br><span class="line">   p   primary partition (1-4)</span><br><span class="line">1</span><br><span class="line">Invalid partition number <span class="keyword">for</span> <span class="built_in">type</span> `1<span class="string">'</span></span><br><span class="line"><span class="string">Command action</span></span><br><span class="line"><span class="string">   e   extended</span></span><br><span class="line"><span class="string">   p   primary partition (1-4)</span></span><br><span class="line"><span class="string">p</span></span><br><span class="line"><span class="string">Partition number (1-4): 1</span></span><br><span class="line"><span class="string">First cylinder (1-26108, default 1): </span></span><br><span class="line"><span class="string">Using default value 1</span></span><br><span class="line"><span class="string">Last cylinder, +cylinders or +size&#123;K,M,G&#125; (1-26108, default 26108): +50G</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Command (m for help): t</span></span><br><span class="line"><span class="string">Selected partition 1</span></span><br><span class="line"><span class="string">Hex code (type L to list codes): fd</span></span><br><span class="line"><span class="string">Changed system type of partition 1 to fd (Linux raid autodetect)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Command (m for help): p</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Disk /dev/sdc: 214.7 GB, 214748364800 bytes</span></span><br><span class="line"><span class="string">255 heads, 63 sectors/track, 26108 cylinders</span></span><br><span class="line"><span class="string">Units = cylinders of 16065 * 512 = 8225280 bytes</span></span><br><span class="line"><span class="string">Sector size (logical/physical): 512 bytes / 512 bytes</span></span><br><span class="line"><span class="string">I/O size (minimum/optimal): 512 bytes / 512 bytes</span></span><br><span class="line"><span class="string">Disk identifier: 0x25e5fb5c</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   Device Boot      Start         End      Blocks   Id  System</span></span><br><span class="line"><span class="string">/dev/sdc1               1        6528    52436128+  fd  Linux raid autodetect</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Command (m for help): w</span></span><br><span class="line"><span class="string">The partition table has been altered!</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Calling ioctl() to re-read partition table.</span></span><br><span class="line"><span class="string">Syncing disks.</span></span><br><span class="line"><span class="string">然后按w保存分区信息**************************</span></span><br></pre></td></tr></table></figure></p>
-<p>分区完成<br>若lsblk后没有新建的分区，可以输入partx -a /dev/sdb  来通知内核重新读取分区表<br>或者输入partprobe 进行分区同步</p>
-<hr>
-<p>重复以上步骤将sdc也创建一个50G的分区<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br><span class="line">NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda      8:0    0  200G  0 disk </span><br><span class="line">├─sda1   8:1    0    1G  0 part /boot</span><br><span class="line">├─sda2   8:2    0 48.8G  0 part /</span><br><span class="line">├─sda3   8:3    0 29.3G  0 part /data</span><br><span class="line">├─sda4   8:4    0    1K  0 part </span><br><span class="line">└─sda5   8:5    0    2G  0 part [SWAP]</span><br><span class="line">sdb      8:16   0  200G  0 disk </span><br><span class="line">└─sdb1   8:17   0   50G  0 part </span><br><span class="line">sdc      8:32   0  200G  0 disk </span><br><span class="line">└─sdc1   8:33   0   50G  0 part </span><br><span class="line">sr0     11:0    1  3.7G  0 rom </span><br><span class="line">可以看到sdb1和sdc1两个50G的分区</span><br><span class="line">将两个分区组成raid0</span><br><span class="line">mdadm -C -a yes /dev/md0 -l 0 -n 2 /dev/sd&#123;b,c&#125;1</span><br><span class="line">lsblk</span><br><span class="line">NAME    MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT</span><br><span class="line">sda       8:0    0  200G  0 disk  </span><br><span class="line">├─sda1    8:1    0    1G  0 part  /boot</span><br><span class="line">├─sda2    8:2    0 48.8G  0 part  /</span><br><span class="line">├─sda3    8:3    0 29.3G  0 part  /data</span><br><span class="line">├─sda4    8:4    0    1K  0 part  </span><br><span class="line">└─sda5    8:5    0    2G  0 part  [SWAP]</span><br><span class="line">sdb       8:16   0  200G  0 disk  </span><br><span class="line">└─sdb1    8:17   0   10G  0 part  </span><br><span class="line">  └─md0   9:0    0   20G  0 raid0 /mnt/raid</span><br><span class="line">sdc       8:32   0  200G  0 disk  </span><br><span class="line">└─sdc1    8:33   0   10G  0 part  </span><br><span class="line">  └─md0   9:0    0   20G  0 raid0 /mnt/raid</span><br><span class="line">sr0      11:0    1  3.7G  0 rom </span><br><span class="line">mkfs.ext4 /dev/md0    给raid0创建文件系统</span><br><span class="line">blkid</span><br><span class="line">mkdir /mnt/raid     创建挂载点</span><br><span class="line">tune2fs -L /mnt/raid /dev/md0   挂载md0  </span><br><span class="line">输入partprobe 进行分区同步</span><br><span class="line">df -h 可以看到raid0组建完成</span><br></pre></td></tr></table></figure></p>
-<hr>
-<h1 id="测试组建raid前后速度"><a href="#测试组建raid前后速度" class="headerlink" title="测试组建raid前后速度"></a>测试组建raid前后速度</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/mnt/raid/f1 bs=1M count=1024   raid0速度</span><br><span class="line">1024+0 records <span class="keyword">in</span></span><br><span class="line">1024+0 records out</span><br><span class="line">1073741824 bytes (1.1 GB) copied, 4.94718 s, 217 MB/s</span><br><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/data/f2 bs=1M count=1024    普通硬盘速度</span><br><span class="line">1024+0 records <span class="keyword">in</span></span><br><span class="line">1024+0 records out</span><br><span class="line">1073741824 bytes (1.1 GB) copied, 23.4932 s, 45.7 MB/s</span><br><span class="line">********************************************************************8</span><br><span class="line">raid0和raid1组建区别</span><br><span class="line">mdadm -C -a yes /dev/md0 -l 0 -n 2 /dev/sd&#123;b,c&#125;1   raid0</span><br><span class="line">mdadm -C -a yes /dev/md0 -l 1 -n 2 /dev/sd&#123;b,c&#125;1   raid1</span><br><span class="line"></span><br><span class="line">将-l 后的类别改为1就是raid1</span><br></pre></td></tr></table></figure>
-<h1 id="RAID10组建"><a href="#RAID10组建" class="headerlink" title="RAID10组建"></a>RAID10组建</h1><p>组建raid10就是先组建两个raid0，组合成raid1<br>再次添加两个硬盘sdd,sde重启系统，或者刷新硬件信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mdadm -C -a yes /dev/md0 -l 0 -n 2 /dev/sd&#123;d,e&#125;1</span><br><span class="line">umount /dev/md0   取消挂载md0</span><br><span class="line">mdadm -C -a yes /dev/md2 -l 1 -n 2 /dev/md&#123;0,1&#125;   将两个raid0组建为raid10</span><br><span class="line">lsblk  查看是否有md2</span><br><span class="line">df -h看到没有md2</span><br><span class="line">mkfs.ext4 /dev/md2  创建文件系统</span><br><span class="line">mkdir /mnt/raid111  创建挂载点</span><br><span class="line">mount /dev/md2 /mnt/raid111  挂载raid10</span><br><span class="line">vim /etc/fstab  写入raid10 信息,重启后raid10不会丢失</span><br><span class="line">partprobe 同布信息</span><br><span class="line">df -h 可以看到有了md2</span><br><span class="line"></span><br><span class="line">mdadm -D /dev/md0    删除raid0</span><br></pre></td></tr></table></figure></p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-<div>
-  
-</div>
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/Linux进程管理/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -2089,6 +1552,190 @@
 <p>并行执行<br>同时运行多个进程，提高效率<br>方法1<br>vi all.sh<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">f1.sh&amp;</span><br><span class="line">f2.sh&amp;</span><br><span class="line">f3.sh&amp;</span><br><span class="line">方法2</span><br><span class="line">(f1.sh&amp;);(f2.sh&amp;);(f3.sh&amp;)</span><br><span class="line">方法3</span><br><span class="line">&#123; f1.sh&amp; f2.sh&amp; f3.sh&amp; &#125;</span><br></pre></td></tr></table></figure></p>
 <p>例子： 同时ping四个地址<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">ping -c2 127.0.0.1</span><br><span class="line">ping 127.0.0.2</span><br><span class="line">&#125;&amp;</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">ping -c2 127.0.0.3</span><br><span class="line">ping 127.0.0.4</span><br><span class="line">&#125;&amp;</span><br></pre></td></tr></table></figure></p>
 <p>例子：<br>并行ping172.18.133网段的254个IP，并输出结果<br><img src="https://img-blog.csdnimg.cn/20181108195422192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/磁盘备份及raid0和raid10的组建/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="摩托猿">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/10/15/磁盘备份及raid0和raid10的组建/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">磁盘备份及raid0和raid10的组建</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-15 18:18:18" itemprop="dateCreated datePublished" datetime="2018-10-15T18:18:18+08:00">2018-10-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-08 21:07:41" itemprop="dateModified" datetime="2018-11-08T21:07:41+08:00">2018-11-08</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/15/磁盘备份及raid0和raid10的组建/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/15/磁盘备份及raid0和raid10的组建/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="blkid-查询各个设备UUID"><a href="#blkid-查询各个设备UUID" class="headerlink" title="blkid 查询各个设备UUID"></a>blkid 查询各个设备UUID</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">mount -U <span class="string">'UUID'</span> 加挂载点  挂载设备</span><br><span class="line">umount /mnt/sdb1  卸载挂载设备sdb1（无占用）  </span><br><span class="line">lsof /mnt/sdb1   有用户占用时，查询sdb1占用进程和用户</span><br><span class="line">fuser -km /mnt/sdb1  结束sdb1的所有占用</span><br><span class="line">cat /proc/mounts 查询所有的挂载点</span><br><span class="line">umount -o remount +挂载点 重新挂载，某些设备不能取消挂载</span><br><span class="line"></span><br><span class="line">df -P  对其系统信息显示</span><br><span class="line">du    显示当前目录每个文件夹的大小</span><br><span class="line">du -sh  显示当前目录的总大小</span><br><span class="line">du -sh /*查询根目录下每个目录有多大</span><br><span class="line"></span><br><span class="line">dd 命令**********************</span><br><span class="line">dd <span class="keyword">if</span>= /dev读取的文件    of=/输出的文件，没有则新建该文件</span><br></pre></td></tr></table></figure>
+<p>例子<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">f1=abcdefghi</span><br><span class="line">f2= 123456</span><br><span class="line">dd <span class="keyword">if</span>=f2 of=f1 bs=1 count=2 skip=3 seek=4 一次1块，跳过源文件的3个（123），读取两个（45），f1跳过4个，把ef替代了</span><br><span class="line">输出信息为abcd45 </span><br><span class="line"></span><br><span class="line">备份：</span><br><span class="line">dd <span class="keyword">if</span>=/dev/sdx of=/dev/sdy</span><br><span class="line">将本地的/dev/sdx整盘备份到/dev/sdy</span><br><span class="line">dd <span class="keyword">if</span>=/dev/sdx of=/path/to/image</span><br><span class="line">将/dev/sdx全盘数据备份到指定路径的image文件</span><br><span class="line">dd <span class="keyword">if</span>=/dev/sdx | gzip &gt;/path/to/image.gz</span><br><span class="line">备份/dev/sdx全盘数据，并利用gzip压缩，保存到指定路径</span><br><span class="line">恢复：</span><br><span class="line">dd <span class="keyword">if</span>=/path/to/image of=/dev/sdx</span><br><span class="line">将备份文件恢复到指定盘</span><br><span class="line">gzip -dc /path/to/image.gz | dd of=/dev/sdx</span><br><span class="line">将压缩的备份文件恢复到指定盘</span><br></pre></td></tr></table></figure></p>
+<h1 id="拷贝内存资料到硬盘"><a href="#拷贝内存资料到硬盘" class="headerlink" title="拷贝内存资料到硬盘"></a>拷贝内存资料到硬盘</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/mem of=/root/mem.bin bs=1024</span><br><span class="line">将内存里的数据拷贝到root目录下的mem.bin文件</span><br><span class="line">从光盘拷贝iso镜像</span><br><span class="line">dd <span class="keyword">if</span>=/dev/cdrom of=/root/cd.iso</span><br><span class="line">拷贝光盘数据到root文件夹下，并保存为cd.iso文件</span><br><span class="line">销毁磁盘数据</span><br><span class="line">dd <span class="keyword">if</span>=/dev/urandom of=/dev/sda1</span><br><span class="line">利用随机的数据填充硬盘，在某些必要的场合可以用来销毁数据，执行此操作以后，</span><br><span class="line">/dev/sda1将无法挂载，创建和拷贝操作无法执行</span><br></pre></td></tr></table></figure>
+<h1 id="测试硬盘写速度"><a href="#测试硬盘写速度" class="headerlink" title="测试硬盘写速度"></a>测试硬盘写速度</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/root/1Gb.file bs=1024 count=1000000</span><br><span class="line">测试硬盘读速度</span><br><span class="line">dd <span class="keyword">if</span>=/root/1Gb.file bs=64k | dd of=/dev/null</span><br><span class="line">partx -d --nr 1 /dev/sdb  删除硬盘sdb上的第一个分区</span><br><span class="line">删除硬盘上的一个分区</span><br></pre></td></tr></table></figure>
+<p>raid 01 容错率3分之1<br>raid 10 容错率3分之2<br>所以一般都用raid 10 或者20.30 </p>
+<p>简述 raid0，raid1，raid5，raid10 的区别和各自特点：</p>
+<blockquote>
+<p>raid0:RAID0 具有低成本、高读写性能、 100% 的高存储空间利用率等优点，但是它不提供数据冗余保护，一<br>旦数据损坏，将无法恢复。 因此， RAID0 一般适用于对性能要求严格但对数据安全性和可靠性不高的<br>应用。<br>raid1:RAID1 称为镜像，它将数据完全一致地分别写到工作磁盘和镜像磁盘，从而达到安全性好、技术简单、<br>管理方便。 RAID1 拥有完全容错的能力，但实现成本高。<br>raid5:RAID5 的磁盘上同时存储数据和校验数据，数据块和对应的校验信息存保存在不同的磁盘上，当一个数<br>据盘损坏时，系统可以根据同一条带的其他数据块和对应的校验数据来重建损坏的数据。与其他 RAID<br>等级一样，重建数据时， RAID5 的性能会受到较大的影响。RAID5 兼顾存储性能、数据安全和存储成<br>本等各方面因素，它可以理解为 RAID0 和 RAID1 的折中方案，是目前综合性能最佳的数据保护解决方<br>案。<br>raid10：RAID10 是先做镜像再作条带化，是对虚拟磁盘实现镜像，保证数据安全性的同时又提高了性能，整<br>体磁盘利用率均仅为 50%。</p>
+</blockquote>
+<p>raid5在视频第12天第三个视频64分钟开始</p>
+<h1 id="实验：实现raid0"><a href="#实验：实现raid0" class="headerlink" title="实验：实现raid0"></a>实验：实现raid0</h1><p>VMware中添加两块200G硬盘，重启虚拟机<br>输入lsblk查看多了一个sdb 硬盘<br>fdisk /dev/sdb<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line">Device contains neither a valid DOS partition table, nor Sun, SGI or OSF disklabel</span><br><span class="line">Building a new DOS disklabel with disk identifier 0x25e5fb5c.</span><br><span class="line">Changes will remain <span class="keyword">in</span> memory only, until you decide to write them.</span><br><span class="line">After that, of course, the previous content won<span class="string">'t be recoverable.</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Warning: invalid flag 0x0000 of partition table 4 will be corrected by w(rite)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">WARNING: DOS-compatible mode is deprecated. It'</span>s strongly recommended to</span><br><span class="line">         switch off the mode (<span class="built_in">command</span> <span class="string">'c'</span>) and change display units to</span><br><span class="line">         sectors (<span class="built_in">command</span> <span class="string">'u'</span>).</span><br><span class="line"></span><br><span class="line">Command (m <span class="keyword">for</span> <span class="built_in">help</span>): n</span><br><span class="line">Command action</span><br><span class="line">   e   extended</span><br><span class="line">   p   primary partition (1-4)</span><br><span class="line">1</span><br><span class="line">Invalid partition number <span class="keyword">for</span> <span class="built_in">type</span> `1<span class="string">'</span></span><br><span class="line"><span class="string">Command action</span></span><br><span class="line"><span class="string">   e   extended</span></span><br><span class="line"><span class="string">   p   primary partition (1-4)</span></span><br><span class="line"><span class="string">p</span></span><br><span class="line"><span class="string">Partition number (1-4): 1</span></span><br><span class="line"><span class="string">First cylinder (1-26108, default 1): </span></span><br><span class="line"><span class="string">Using default value 1</span></span><br><span class="line"><span class="string">Last cylinder, +cylinders or +size&#123;K,M,G&#125; (1-26108, default 26108): +50G</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Command (m for help): t</span></span><br><span class="line"><span class="string">Selected partition 1</span></span><br><span class="line"><span class="string">Hex code (type L to list codes): fd</span></span><br><span class="line"><span class="string">Changed system type of partition 1 to fd (Linux raid autodetect)</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Command (m for help): p</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Disk /dev/sdc: 214.7 GB, 214748364800 bytes</span></span><br><span class="line"><span class="string">255 heads, 63 sectors/track, 26108 cylinders</span></span><br><span class="line"><span class="string">Units = cylinders of 16065 * 512 = 8225280 bytes</span></span><br><span class="line"><span class="string">Sector size (logical/physical): 512 bytes / 512 bytes</span></span><br><span class="line"><span class="string">I/O size (minimum/optimal): 512 bytes / 512 bytes</span></span><br><span class="line"><span class="string">Disk identifier: 0x25e5fb5c</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">   Device Boot      Start         End      Blocks   Id  System</span></span><br><span class="line"><span class="string">/dev/sdc1               1        6528    52436128+  fd  Linux raid autodetect</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Command (m for help): w</span></span><br><span class="line"><span class="string">The partition table has been altered!</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">Calling ioctl() to re-read partition table.</span></span><br><span class="line"><span class="string">Syncing disks.</span></span><br><span class="line"><span class="string">然后按w保存分区信息**************************</span></span><br></pre></td></tr></table></figure></p>
+<p>分区完成<br>若lsblk后没有新建的分区，可以输入partx -a /dev/sdb  来通知内核重新读取分区表<br>或者输入partprobe 进行分区同步</p>
+<hr>
+<p>重复以上步骤将sdc也创建一个50G的分区<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">lsblk</span><br><span class="line">NAME   MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT</span><br><span class="line">sda      8:0    0  200G  0 disk </span><br><span class="line">├─sda1   8:1    0    1G  0 part /boot</span><br><span class="line">├─sda2   8:2    0 48.8G  0 part /</span><br><span class="line">├─sda3   8:3    0 29.3G  0 part /data</span><br><span class="line">├─sda4   8:4    0    1K  0 part </span><br><span class="line">└─sda5   8:5    0    2G  0 part [SWAP]</span><br><span class="line">sdb      8:16   0  200G  0 disk </span><br><span class="line">└─sdb1   8:17   0   50G  0 part </span><br><span class="line">sdc      8:32   0  200G  0 disk </span><br><span class="line">└─sdc1   8:33   0   50G  0 part </span><br><span class="line">sr0     11:0    1  3.7G  0 rom </span><br><span class="line">可以看到sdb1和sdc1两个50G的分区</span><br><span class="line">将两个分区组成raid0</span><br><span class="line">mdadm -C -a yes /dev/md0 -l 0 -n 2 /dev/sd&#123;b,c&#125;1</span><br><span class="line">lsblk</span><br><span class="line">NAME    MAJ:MIN RM  SIZE RO TYPE  MOUNTPOINT</span><br><span class="line">sda       8:0    0  200G  0 disk  </span><br><span class="line">├─sda1    8:1    0    1G  0 part  /boot</span><br><span class="line">├─sda2    8:2    0 48.8G  0 part  /</span><br><span class="line">├─sda3    8:3    0 29.3G  0 part  /data</span><br><span class="line">├─sda4    8:4    0    1K  0 part  </span><br><span class="line">└─sda5    8:5    0    2G  0 part  [SWAP]</span><br><span class="line">sdb       8:16   0  200G  0 disk  </span><br><span class="line">└─sdb1    8:17   0   10G  0 part  </span><br><span class="line">  └─md0   9:0    0   20G  0 raid0 /mnt/raid</span><br><span class="line">sdc       8:32   0  200G  0 disk  </span><br><span class="line">└─sdc1    8:33   0   10G  0 part  </span><br><span class="line">  └─md0   9:0    0   20G  0 raid0 /mnt/raid</span><br><span class="line">sr0      11:0    1  3.7G  0 rom </span><br><span class="line">mkfs.ext4 /dev/md0    给raid0创建文件系统</span><br><span class="line">blkid</span><br><span class="line">mkdir /mnt/raid     创建挂载点</span><br><span class="line">tune2fs -L /mnt/raid /dev/md0   挂载md0  </span><br><span class="line">输入partprobe 进行分区同步</span><br><span class="line">df -h 可以看到raid0组建完成</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h1 id="测试组建raid前后速度"><a href="#测试组建raid前后速度" class="headerlink" title="测试组建raid前后速度"></a>测试组建raid前后速度</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/mnt/raid/f1 bs=1M count=1024   raid0速度</span><br><span class="line">1024+0 records <span class="keyword">in</span></span><br><span class="line">1024+0 records out</span><br><span class="line">1073741824 bytes (1.1 GB) copied, 4.94718 s, 217 MB/s</span><br><span class="line">dd <span class="keyword">if</span>=/dev/zero of=/data/f2 bs=1M count=1024    普通硬盘速度</span><br><span class="line">1024+0 records <span class="keyword">in</span></span><br><span class="line">1024+0 records out</span><br><span class="line">1073741824 bytes (1.1 GB) copied, 23.4932 s, 45.7 MB/s</span><br><span class="line">********************************************************************8</span><br><span class="line">raid0和raid1组建区别</span><br><span class="line">mdadm -C -a yes /dev/md0 -l 0 -n 2 /dev/sd&#123;b,c&#125;1   raid0</span><br><span class="line">mdadm -C -a yes /dev/md0 -l 1 -n 2 /dev/sd&#123;b,c&#125;1   raid1</span><br><span class="line"></span><br><span class="line">将-l 后的类别改为1就是raid1</span><br></pre></td></tr></table></figure>
+<h1 id="RAID10组建"><a href="#RAID10组建" class="headerlink" title="RAID10组建"></a>RAID10组建</h1><p>组建raid10就是先组建两个raid0，组合成raid1<br>再次添加两个硬盘sdd,sde重启系统，或者刷新硬件信息<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">mdadm -C -a yes /dev/md0 -l 0 -n 2 /dev/sd&#123;d,e&#125;1</span><br><span class="line">umount /dev/md0   取消挂载md0</span><br><span class="line">mdadm -C -a yes /dev/md2 -l 1 -n 2 /dev/md&#123;0,1&#125;   将两个raid0组建为raid10</span><br><span class="line">lsblk  查看是否有md2</span><br><span class="line">df -h看到没有md2</span><br><span class="line">mkfs.ext4 /dev/md2  创建文件系统</span><br><span class="line">mkdir /mnt/raid111  创建挂载点</span><br><span class="line">mount /dev/md2 /mnt/raid111  挂载raid10</span><br><span class="line">vim /etc/fstab  写入raid10 信息,重启后raid10不会丢失</span><br><span class="line">partprobe 同布信息</span><br><span class="line">df -h 可以看到有了md2</span><br><span class="line"></span><br><span class="line">mdadm -D /dev/md0    删除raid0</span><br></pre></td></tr></table></figure></p>
 
           
         
@@ -2795,20 +2442,6 @@
           
 
           
-          
-            <div class="links-of-blogroll motion-element links-of-blogroll-block">
-              <div class="links-of-blogroll-title">
-                <i class="fa  fa-fw fa-link"></i>
-                Links
-              </div>
-              <ul class="links-of-blogroll-list">
-                
-                  <li class="links-of-blogroll-item">
-                    <a href="https://shuinoo.github.io/" title="https://shuinoo.github.io/" rel="noopener" target="_blank">蔡shuishui</a>
-                  </li>
-                
-              </ul>
-            </div>
           
           
             

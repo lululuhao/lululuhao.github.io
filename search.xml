@@ -181,17 +181,17 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[实验：centos6删除内核并恢复]]></title>
-    <url>%2F2018%2F10%2F02%2F%E5%AE%9E%E9%AA%8C%EF%BC%9Acentos6%E5%88%A0%E9%99%A4%E5%86%85%E6%A0%B8%E5%B9%B6%E6%81%A2%E5%A4%8D%2F</url>
-    <content type="text"><![CDATA[实验：centos6 rm -f /boot/vmlinuz-2.6.32-754.el6.x86_64 恢复 rm -f /boot/vmlinuz-2.6.32-754.el6.x86_64重启在进度条时按下esc，只能按一下选择CD-ROM选择Rescue installed system提示根目录被修改为chroot /mnt/sysimage进入shell创建挂载点并挂载光盘因为vmlinuz-2.6.32-754.el6.x86_64在kernel包里，所以安装kernel包，并用—root告诉它根在/mnt/sysimage查看/boot下生成了vmlinuz-2.6.32-754.el6.x86_64文件输入exit退出shellReboot重启]]></content>
+    <title><![CDATA[Linux下各压缩工具的使用方法]]></title>
+    <url>%2F2018%2F10%2F02%2FLinux%E4%B8%8B%E5%90%84%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%2F</url>
+    <content type="text"><![CDATA[压缩工具compress compress +文件【多个文件时压缩每个文件为单独的压缩文件】 压缩该文件，压缩后该文件消失，生成一个.z的压缩文件compress -c +文件 &gt; 文件.gz压缩文件并显示过程 不会丢失源文件，利用重定向保留原文件uncompress +文件【同解压】 等于 compress -d+文件 解压该文件，解压后该文件消失，生成不带.z的原文件 gzip gzip +文件【多个文件时压缩每个文件为单独的压缩文件】 压缩该文件，压缩后该文件消失，生成一个.gz的压缩文件zcat -c +文件 &gt; 文件.gz压缩文件并显示过程 不会丢失源文件，利用重定向保留原文件gunzip +文件【同解压】 等于 gzip -d+文件 解压该文件，解压后该文件消失，生成不带.gz的原文件 bzip2 bzip2 +文件【多个文件时压缩每个文件为单独的压缩文件】 压缩该文件，压缩后该文件消失，生成一个.bz2的压缩文件bzip2 -k 压缩文件并保留原文件不会丢失源文件，利用重定向保留原文件bzip2 -d+文件 等于bunzip2 解压该文件，解压后该文件消失，生成不带.bz2的原文件bzcat +文件 查看压缩文件而不执行解压 xz xz +文件【多个文件时压缩每个文件为单独的压缩文件】 压缩该文件，压缩后该文件消失，生成一个.xz的压缩文件zx -k 压缩文件并保留原文件不会丢失源文件，利用重定向保留原文件zx -d+文件 等于unzx 解压该文件，解压后该文件消失，生成不带.zx的原文件xzcat +文件 查看压缩文件而不执行解压处理-开头的文件时前面加–以上压缩只能压缩单个文件，而不能压缩文件夹压缩比 xz &gt; bzip2 &gt; gzip &gt; compress zipzip +生成文件名 +要压缩的文件名 压缩文件12zip -r /backup/sysconfig /etc/sysconfig 加-r是压缩文件夹，将etc下的文件sysconfig打包压缩生成sysconfig.zip文件放到backup文件夹 unzip sysconfig.zip 解压文件 +p可以保留权限 tar123tar -cvf etc.tar etc 将整个etc文件夹打包保存为etc.tar ，其中后缀名tar要手动添加，只有打包而没有压缩文件 tar -rf etc.tar text 追加text文件到tar. tar xvf etc.tar -C /data 解压文件到data文件夹 例子将data下的文件夹etc先打包再压缩的三种方法，压缩比 xz &gt;bz2 &gt;gz`bashtar zcvf etc.tar.gz /data/etctar jcvf etc.tar.bz2 /data/etctar Jcvf etc.tar.xz /data/etctar cvf etc.tar.xz #解压到当前目录tar xf etc.tar.bz2 #解压到当前目录split -b 2M -d /data/bigfile.tar.xz bigfile #把大文件bigfile.tar.xz切割为每2M一个的小文件，并以bigfile开头后面加数字，如bigfile1,bigfile2,bigfile3cat bigfile* &gt; bigfile.tar.xz #合并切割的这些文件]]></content>
       <tags>
         <tag>L·H</tag>
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Linux下各压缩工具的使用方法]]></title>
-    <url>%2F2018%2F10%2F02%2FLinux%E4%B8%8B%E5%90%84%E5%8E%8B%E7%BC%A9%E5%B7%A5%E5%85%B7%E7%9A%84%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95%2F</url>
-    <content type="text"><![CDATA[压缩工具compress compress +文件【多个文件时压缩每个文件为单独的压缩文件】 压缩该文件，压缩后该文件消失，生成一个.z的压缩文件compress -c +文件 &gt; 文件.gz压缩文件并显示过程 不会丢失源文件，利用重定向保留原文件uncompress +文件【同解压】 等于 compress -d+文件 解压该文件，解压后该文件消失，生成不带.z的原文件 gzip gzip +文件【多个文件时压缩每个文件为单独的压缩文件】 压缩该文件，压缩后该文件消失，生成一个.gz的压缩文件zcat -c +文件 &gt; 文件.gz压缩文件并显示过程 不会丢失源文件，利用重定向保留原文件gunzip +文件【同解压】 等于 gzip -d+文件 解压该文件，解压后该文件消失，生成不带.gz的原文件 bzip2 bzip2 +文件【多个文件时压缩每个文件为单独的压缩文件】 压缩该文件，压缩后该文件消失，生成一个.bz2的压缩文件bzip2 -k 压缩文件并保留原文件不会丢失源文件，利用重定向保留原文件bzip2 -d+文件 等于bunzip2 解压该文件，解压后该文件消失，生成不带.bz2的原文件bzcat +文件 查看压缩文件而不执行解压 xz xz +文件【多个文件时压缩每个文件为单独的压缩文件】 压缩该文件，压缩后该文件消失，生成一个.xz的压缩文件zx -k 压缩文件并保留原文件不会丢失源文件，利用重定向保留原文件zx -d+文件 等于unzx 解压该文件，解压后该文件消失，生成不带.zx的原文件xzcat +文件 查看压缩文件而不执行解压处理-开头的文件时前面加–以上压缩只能压缩单个文件，而不能压缩文件夹压缩比 xz &gt; bzip2 &gt; gzip &gt; compress zipzip +生成文件名 +要压缩的文件名 压缩文件12zip -r /backup/sysconfig /etc/sysconfig 加-r是压缩文件夹，将etc下的文件sysconfig打包压缩生成sysconfig.zip文件放到backup文件夹 unzip sysconfig.zip 解压文件 +p可以保留权限 tar123tar -cvf etc.tar etc 将整个etc文件夹打包保存为etc.tar ，其中后缀名tar要手动添加，只有打包而没有压缩文件 tar -rf etc.tar text 追加text文件到tar. tar xvf etc.tar -C /data 解压文件到data文件夹 例子将data下的文件夹etc先打包再压缩的三种方法，压缩比 xz &gt;bz2 &gt;gz`bashtar zcvf etc.tar.gz /data/etctar jcvf etc.tar.bz2 /data/etctar Jcvf etc.tar.xz /data/etctar cvf etc.tar.xz #解压到当前目录tar xf etc.tar.bz2 #解压到当前目录split -b 2M -d /data/bigfile.tar.xz bigfile #把大文件bigfile.tar.xz切割为每2M一个的小文件，并以bigfile开头后面加数字，如bigfile1,bigfile2,bigfile3cat bigfile* &gt; bigfile.tar.xz #合并切割的这些文件]]></content>
+    <title><![CDATA[实验：centos6删除内核并恢复]]></title>
+    <url>%2F2018%2F10%2F02%2F%E5%AE%9E%E9%AA%8C%EF%BC%9Acentos6%E5%88%A0%E9%99%A4%E5%86%85%E6%A0%B8%E5%B9%B6%E6%81%A2%E5%A4%8D%2F</url>
+    <content type="text"><![CDATA[实验：centos6 rm -f /boot/vmlinuz-2.6.32-754.el6.x86_64 恢复 rm -f /boot/vmlinuz-2.6.32-754.el6.x86_64重启在进度条时按下esc，只能按一下选择CD-ROM选择Rescue installed system提示根目录被修改为chroot /mnt/sysimage进入shell创建挂载点并挂载光盘因为vmlinuz-2.6.32-754.el6.x86_64在kernel包里，所以安装kernel包，并用—root告诉它根在/mnt/sysimage查看/boot下生成了vmlinuz-2.6.32-754.el6.x86_64文件输入exit退出shellReboot重启]]></content>
       <tags>
         <tag>L·H</tag>
       </tags>

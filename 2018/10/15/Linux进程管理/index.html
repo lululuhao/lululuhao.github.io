@@ -139,19 +139,19 @@
 
 
 
-  <meta name="description" content="ps常见选项ps12345678910111213C cmdlist 指定命令，多个命令用，分隔L 显示线程e: 显示所有进程，相当于-Af: 显示完整格式程序信息F: 显示更完整格式的进程信息H: 以进程层级格式显示进程相关信息u userlist 指定有效的用户ID或名称U userlist 指定真正的用户ID或名称g gid或groupname 指定有效的gid或组名称G gid或group">
+  <meta name="description" content="PS命令基础ps常见选项ps 12345678910111213C cmdlist 指定命令，多个命令用，分隔L 显示线程e: 显示所有进程，相当于-Af: 显示完整格式程序信息F: 显示更完整格式的进程信息H: 以进程层级格式显示进程相关信息u userlist 指定有效的用户ID或名称U userlist 指定真正的用户ID或名称g gid或groupname 指定有效的gid或组名称G g">
 <meta name="keywords" content="L·H">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux进程管理">
 <meta property="og:url" content="http://yoursite.com/2018/10/15/Linux进程管理/index.html">
 <meta property="og:site_name" content="Apologize&#39;s blogs">
-<meta property="og:description" content="ps常见选项ps12345678910111213C cmdlist 指定命令，多个命令用，分隔L 显示线程e: 显示所有进程，相当于-Af: 显示完整格式程序信息F: 显示更完整格式的进程信息H: 以进程层级格式显示进程相关信息u userlist 指定有效的用户ID或名称U userlist 指定真正的用户ID或名称g gid或groupname 指定有效的gid或组名称G gid或group">
+<meta property="og:description" content="PS命令基础ps常见选项ps 12345678910111213C cmdlist 指定命令，多个命令用，分隔L 显示线程e: 显示所有进程，相当于-Af: 显示完整格式程序信息F: 显示更完整格式的进程信息H: 以进程层级格式显示进程相关信息u userlist 指定有效的用户ID或名称U userlist 指定真正的用户ID或名称g gid或groupname 指定有效的gid或组名称G g">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181108195422192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2018-11-08T13:09:14.400Z">
+<meta property="og:updated_time" content="2019-03-23T06:31:52.290Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux进程管理">
-<meta name="twitter:description" content="ps常见选项ps12345678910111213C cmdlist 指定命令，多个命令用，分隔L 显示线程e: 显示所有进程，相当于-Af: 显示完整格式程序信息F: 显示更完整格式的进程信息H: 以进程层级格式显示进程相关信息u userlist 指定有效的用户ID或名称U userlist 指定真正的用户ID或名称g gid或groupname 指定有效的gid或组名称G gid或group">
+<meta name="twitter:description" content="PS命令基础ps常见选项ps 12345678910111213C cmdlist 指定命令，多个命令用，分隔L 显示线程e: 显示所有进程，相当于-Af: 显示完整格式程序信息F: 显示更完整格式的进程信息H: 以进程层级格式显示进程相关信息u userlist 指定有效的用户ID或名称U userlist 指定真正的用户ID或名称g gid或groupname 指定有效的gid或组名称G g">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20181108195422192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70">
 
 
@@ -346,7 +346,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">37</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">35</span></a>
 
   </li>
         
@@ -531,7 +531,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-08 21:09:14" itemprop="dateModified" datetime="2018-11-08T21:09:14+08:00">2018-11-08</time>
+                <time title="修改时间：2019-03-23 14:31:52" itemprop="dateModified" datetime="2019-03-23T14:31:52+08:00">2019-03-23</time>
               
             
           </span>
@@ -574,13 +574,15 @@
       
 
       
-        <p>ps常见选项<br>ps<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">C cmdlist 指定命令，多个命令用，分隔</span><br><span class="line">L 显示线程</span><br><span class="line">e: 显示所有进程，相当于-A</span><br><span class="line">f: 显示完整格式程序信息</span><br><span class="line">F: 显示更完整格式的进程信息</span><br><span class="line">H: 以进程层级格式显示进程相关信息</span><br><span class="line">u userlist 指定有效的用户ID或名称</span><br><span class="line">U userlist 指定真正的用户ID或名称</span><br><span class="line">g gid或groupname 指定有效的gid或组名称</span><br><span class="line">G gid或groupname 指定真正的gid或组名称</span><br><span class="line">p pid 显示指pid的进程</span><br><span class="line">-ppid pid 显示属于pid的子进程</span><br><span class="line">M 显示SELinux信息，相当于Z</span><br></pre></td></tr></table></figure></p>
+        <a id="more"></a>
+<h2 id="PS命令基础"><a href="#PS命令基础" class="headerlink" title="PS命令基础"></a>PS命令基础</h2><p>ps常见选项<br>ps</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">C cmdlist 指定命令，多个命令用，分隔</span><br><span class="line">L 显示线程</span><br><span class="line">e: 显示所有进程，相当于-A</span><br><span class="line">f: 显示完整格式程序信息</span><br><span class="line">F: 显示更完整格式的进程信息</span><br><span class="line">H: 以进程层级格式显示进程相关信息</span><br><span class="line">u userlist 指定有效的用户ID或名称</span><br><span class="line">U userlist 指定真正的用户ID或名称</span><br><span class="line">g gid或groupname 指定有效的gid或组名称</span><br><span class="line">G gid或groupname 指定真正的gid或组名称</span><br><span class="line">p pid 显示指pid的进程</span><br><span class="line">-ppid pid 显示属于pid的子进程</span><br><span class="line">M 显示SELinux信息，相当于Z</span><br></pre></td></tr></table></figure>
 <p>ps输出属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">VSZ: Virtual memory SiZe，虚拟内存集，线性内存</span><br><span class="line">RSS: ReSident Size, 常驻内存集</span><br><span class="line">STAT：进程状态</span><br><span class="line">R：running</span><br><span class="line">S: interruptable sleeping</span><br><span class="line">D: uninterruptable sleeping</span><br><span class="line">T: stopped</span><br><span class="line">Z: zombie</span><br><span class="line">+: 前台进程</span><br><span class="line">l: 多线程进程</span><br><span class="line">L：内存分页并带锁</span><br><span class="line">N：低优先级进程</span><br><span class="line">&lt;: 高优先级进程</span><br><span class="line">s: session leader，会话（子进程）发起者</span><br></pre></td></tr></table></figure></p>
 <p>ps示例</p>
 <blockquote>
 <p>询你拥有的所有进程<br>ps -x<br>示指定用户名(RUID)或用户ID的进程<br>ps -fU apache<br>ps -fU 48<br>示指定用户名(EUID)或用户ID的进程<br>ps -fu wang<br>ps -fu 1000<br>看以root用户权限（实际和有效ID）运行的每个进程<br>ps -U root -u root<br>出某个组拥有的所有进程（实际组ID：RGID或名称）<br>ps -fG nginx<br>列出有效组名称（或会话）所拥有的所有进程<br>ps -fg mysql<br>ps -fg 27<br>示指定的进程ID对应的进程<br>ps -fp 1234<br>父进程ID来显示其下所有的进程，如显示父进程为1234的所有进程<br>ps -f –ppid 1234<br>示指定PID的多个进程<br>ps -fp 1204,1239,1263<br>按tty显示所属进程<br>ps -ft pts/0<br>自定义格式显示文件系统组,ni值开始时间和进程的时间<br>ps -p 1234 -o pid,ppid,fgroup,ni,lstart,etime<br>用其PID查找进程名称：<br>ps -p 1244 -o comm=<br>以其名称选择特定进程，显示其所有子进程<br>ps -C sshd,bash<br>找指定进程名所有的所属PID，在编写需要从std输出或文件读取PID的脚本时<br>这个参数很有用<br>ps -C httpd,sshd -o pid=<br>查一个进程的执行时间<br>ps -eo comm,etime,user | grep nginx</p>
 </blockquote>
-<h1 id="搜索进程"><a href="#搜索进程" class="headerlink" title="搜索进程"></a>搜索进程</h1><p>灵活：ps 选项 | 其它命令<br>预定义的模式：pgrep<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pgrep [options] pattern</span><br><span class="line">-u uid: effective user，生效者</span><br><span class="line">-U uid: real user，真正发起运行命令者</span><br><span class="line">-t terminal: 与指定终端相关的进程</span><br><span class="line">-l: 显示进程名</span><br><span class="line">-a: 显示完整格式的进程名</span><br><span class="line">-P pid: 显示指定进程的子进程</span><br><span class="line">确切的程序名称：/sbin/pidof</span><br><span class="line">pidof bash</span><br></pre></td></tr></table></figure></p>
+<h2 id="搜索进程"><a href="#搜索进程" class="headerlink" title="搜索进程"></a>搜索进程</h2><p>灵活：ps 选项 | 其它命令<br>预定义的模式：pgrep<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">pgrep [options] pattern</span><br><span class="line">-u uid: effective user，生效者</span><br><span class="line">-U uid: real user，真正发起运行命令者</span><br><span class="line">-t terminal: 与指定终端相关的进程</span><br><span class="line">-l: 显示进程名</span><br><span class="line">-a: 显示完整格式的进程名</span><br><span class="line">-P pid: 显示指定进程的子进程</span><br><span class="line">确切的程序名称：/sbin/pidof</span><br><span class="line">pidof bash</span><br></pre></td></tr></table></figure></p>
 <h2 id="进程管理工具top"><a href="#进程管理工具top" class="headerlink" title="进程管理工具top"></a>进程管理工具top</h2><p>top：有许多内置命令<br>排序：<br>P：以占据的CPU百分比,%CPU<br>M：占据内存百分比,%MEM<br>T：累积占据CPU时长,TIME+<br>首部信息显示：<br>uptime信息：l命令<br>tasks及cpu信息：t命令<br>cpu分别显示：1 (数字)<br>memory信息：m命令<br>退出命令：q<br>修改刷新时间间隔：s<br>终止指定进程：k<br>保存文件：W<br>top选项：<br>-d # 指定刷新时间间隔，默认为3秒<br>-b 全部显示所有进程<br>-n # 刷新多少次后退出<br>-H 线程模式，示例：top -H -p pidof mysqld</p>
 <h2 id="htop命令：EPEL源"><a href="#htop命令：EPEL源" class="headerlink" title="htop命令：EPEL源"></a>htop命令：EPEL源</h2><p>选项：<br>-d #: 指定延迟时间；<br>-u UserName: 仅显示指定用户的进程<br>-s COLUME: 以指定字段进行排序<br>子命令：<br>s：跟踪选定进程的系统调用<br>l：显示选定进程打开的文件列表<br>a：将选定的进程绑定至某指定CPU核心<br>t：显示进程树</p>
 <p>内存空间<br>存空间使用状态：</p>
@@ -738,8 +740,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/15/磁盘备份及raid0和raid10的组建/" rel="next" title="磁盘备份及raid0和raid10的组建">
-                <i class="fa fa-chevron-left"></i> 磁盘备份及raid0和raid10的组建
+              <a href="/2018/10/11/逻辑卷LVM的管理/" rel="next" title="逻辑卷LVM的管理">
+                <i class="fa fa-chevron-left"></i> 逻辑卷LVM的管理
               </a>
             
           </div>
@@ -748,8 +750,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/16/计划任务/" rel="prev" title="计划任务">
-                计划任务 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/15/磁盘备份及raid0和raid10的组建/" rel="prev" title="磁盘备份及raid0和raid10的组建">
+                磁盘备份及raid0和raid10的组建 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -827,7 +829,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">35</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -949,7 +951,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#搜索进程"><span class="nav-number">1.</span> <span class="nav-text">搜索进程</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#进程管理工具top"><span class="nav-number">1.1.</span> <span class="nav-text">进程管理工具top</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#htop命令：EPEL源"><span class="nav-number">1.2.</span> <span class="nav-text">htop命令：EPEL源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存工具"><span class="nav-number">1.3.</span> <span class="nav-text">内存工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统监控工具"><span class="nav-number">1.4.</span> <span class="nav-text">系统监控工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iotop常用参数"><span class="nav-number">1.5.</span> <span class="nav-text">iotop常用参数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#PS命令基础"><span class="nav-number">1.</span> <span class="nav-text">PS命令基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索进程"><span class="nav-number">2.</span> <span class="nav-text">搜索进程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进程管理工具top"><span class="nav-number">3.</span> <span class="nav-text">进程管理工具top</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#htop命令：EPEL源"><span class="nav-number">4.</span> <span class="nav-text">htop命令：EPEL源</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内存工具"><span class="nav-number">5.</span> <span class="nav-text">内存工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统监控工具"><span class="nav-number">6.</span> <span class="nav-text">系统监控工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#iotop常用参数"><span class="nav-number">7.</span> <span class="nav-text">iotop常用参数</span></a></li></ol></div>
             
 
           </div>
@@ -995,7 +997,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共86.9k字</span>
+  <span class="post-count">博客全站共86.8k字</span>
 </div>
 
         

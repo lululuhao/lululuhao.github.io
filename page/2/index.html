@@ -1182,183 +1182,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/计划任务/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Apologize">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/haha.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Apologize's blogs">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/10/16/计划任务/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Crontab</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-10-16 18:18:18" itemprop="dateCreated datePublished" datetime="2018-10-16T18:18:18+08:00">2018-10-16</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-03-23 14:48:15" itemprop="dateModified" datetime="2019-03-23T14:48:15+08:00">2019-03-23</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2018/10/16/计划任务/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/16/计划任务/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Crontab"><a href="#Crontab" class="headerlink" title="Crontab"></a>Crontab</h1><p><img src="D:\blog\source\img\5C1553323662201.png" alt="1553323662201"></p>
-<p>计划任务<br>Linux任务计划、周期性任务执行<br>• 未来的某时间点执行一次任务<br>at 指定时间点，执行一次性任务<br>batch 系统自行选择空闲时间去执行此处指定的任务<br>• 周期性运行某任务<br>cron</p>
-<p>at任务 (按ctrl+D保存)<br>包：at<br>at命令：at [option] TIME<br>常用选项：</p>
-<p>-V 显示版本信息<br>-t time 时间格式 [[CC]YY]MMDDhhmm[.ss]<br>-l 列出指定队列中等待运行的作业；相当于atq<br>-d 删除指定的作业；相当于atrm<br>-c 查看具体作业任务<br>-f /path/file 指定的文件中读取任务<br>-m 当任务被完成之后，将给用户发送邮件，即使没有标准输出<br>注意：作业执行命令的结果中的标准输出和错误以邮件通知给相关用户<br>at时间格式<br>HH:MM 02:00<br>在今日的 HH:MM 进行，若该时刻已过，则明天此时执行任务<br>HH:MM YYYY-MM-DD 02:00 2016-09-20<br>规定在某年某月的某一天的特殊时刻进行该项任务<br>HH:MM[am|pm] [Month] [Date]<br>04pm March 17<br>17:20 tomorrow<br>HH:MM[am|pm] + number [minutes|hours|days|weeks]<br>在某个时间点再加几个时间后才进行该项任务<br>now + 5 min<br>02pm + 3 days</p>
-<p>计划任务cron<br>放在/var/spool/cron/下<br>crontab -e 创建计划任务</p>
-<p>@reboot Run once after reboot<br>@yearly 0 0 1 1 <em><br>@annually 0 0 1 1 </em><br>@monthly 0 0 1 <em> </em><br>@weekly 0 0 <em> </em> 0<br>@daily 0 0 <em> </em> <em><br>@hourly 0 </em> <em> </em> *<br>示例：每3小时echo和wall命令<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">0 */3 * * * centos /bin/<span class="built_in">echo</span> “howdy”; wall “welcome to Magedu!”</span><br><span class="line">etc/cron.hourly 下0anacron放着关机后未执行的计划任务，会在开机后一个合适的时间自动运行</span><br><span class="line">etc/anacrontab记录了每天每周每月因关机未执行的计划任务自动执行的时间设置,配置文件：/etc/anacrontab，负责执行/etc/ cron.daily /etc/cron.weekly</span><br><span class="line">/etc/cron.monthly中系统任务</span><br></pre></td></tr></table></figure></p>
-<p>字段1：如果在这些日子里没有运行这些任务……<br>• 字段2：在重新引导后等待这么多分钟后运行它<br>• 字段3：任务识别器，在日志文件中标识<br>• 字段4：要执行的任务<br>crontab命令：</p>
-<p>crontab [-u user] [-l | -r | -e] [-i]<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">-l 列出所有任务</span><br><span class="line">-e 编辑任务</span><br><span class="line">-r 移除所有任务</span><br><span class="line">-I 同-r一同使用，以交互式模式移除指定任务</span><br><span class="line">-u user 仅root可运行，指定用户管理cron任务</span><br></pre></td></tr></table></figure></p>
-<p>控制用户执行计划任务：<br>/etc/cron.{allow,deny}</p>
-<p>at和crontab<br>一次性作业使用 at<br>重复性作业使用crontab<br>Create at time crontab -e<br>List at -l crontab -l<br>Details at -c jobnum crontab -l<br>Remove at -d jobnum crontab -r<br>Edit N/A crontab -e<br>没有被重定向的输出会被邮寄给用户<br>root能够修改其它用户的作业</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-<div>
-  
-</div>
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/三次握手及子网划分/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1533,7 +1356,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/Linux进程管理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/16/计划任务/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Apologize">
@@ -1553,7 +1376,7 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/10/15/Linux进程管理/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Linux进程管理</a>
+                <a href="/2018/10/16/计划任务/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Crontab</a>
               
             
           </h1>
@@ -1578,7 +1401,7 @@
                 
               
 
-              <time title="创建时间：2018-10-15 18:18:18" itemprop="dateCreated datePublished" datetime="2018-10-15T18:18:18+08:00">2018-10-15</time>
+              <time title="创建时间：2018-10-16 18:18:18" itemprop="dateCreated datePublished" datetime="2018-10-16T18:18:18+08:00">2018-10-16</time>
             
 
             
@@ -1595,7 +1418,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-23 15:09:45" itemprop="dateModified" datetime="2019-03-23T15:09:45+08:00">2019-03-23</time>
+                <time title="修改时间：2019-03-23 15:28:19" itemprop="dateModified" datetime="2019-03-23T15:28:19+08:00">2019-03-23</time>
               
             
           </span>
@@ -1609,8 +1432,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/10/15/Linux进程管理/#comments" itemprop="discussionUrl">
-                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/15/Linux进程管理/" itemprop="commentCount"></span>
+                <a href="/2018/10/16/计划任务/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/16/计划任务/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1639,11 +1462,11 @@
 
       
         
-          <h2 id="PS命令基础"><a href="#PS命令基础" class="headerlink" title="PS命令基础"></a>PS命令基础</h2>
+          <h1 id="Crontab"><a href="#Crontab" class="headerlink" title="Crontab"></a>Crontab</h1><p><img src="img\5C1553323662201.png" alt="1553323662201"></p>
           <!--noindex-->
           
             <div class="post-button text-center">
-              <a class="btn" href="/2018/10/15/Linux进程管理/#more" rel="contents">
+              <a class="btn" href="/2018/10/16/计划任务/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -1818,6 +1641,180 @@
           
             <div class="post-button text-center">
               <a class="btn" href="/2018/10/15/磁盘备份及raid0和raid10的组建/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+         
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+<div>
+  
+</div>
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/15/Linux进程管理/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Apologize">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/haha.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Apologize's blogs">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/10/15/Linux进程管理/" class="post-title-link" itemprop="http://yoursite.com/page/2/index.html">Linux进程管理</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-10-15 18:18:18" itemprop="dateCreated datePublished" datetime="2018-10-15T18:18:18+08:00">2018-10-15</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-03-23 15:09:45" itemprop="dateModified" datetime="2019-03-23T15:09:45+08:00">2019-03-23</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/10/15/Linux进程管理/#comments" itemprop="discussionUrl">
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2018/10/15/Linux进程管理/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="PS命令基础"><a href="#PS命令基础" class="headerlink" title="PS命令基础"></a>PS命令基础</h2>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2018/10/15/Linux进程管理/#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>

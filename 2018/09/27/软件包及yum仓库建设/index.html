@@ -139,18 +139,18 @@
 
 
 
-  <meta name="description" content="软件包管理程序包的来源获取程序包的途径：(1) 系统发版的光盘或官方的服务器CentOS镜像：https://www.centos.org/download/http://mirrors.aliyun.comhttp://mirrors.sohu.comhttp://mirrors.163.com(2) 项目官方站点(3) 第三方组织：Fedora-EPEL：Extra Packages for">
+  <meta name="description" content="软件包管理">
 <meta name="keywords" content="L·H">
 <meta property="og:type" content="article">
 <meta property="og:title" content="软件包管理">
 <meta property="og:url" content="http://yoursite.com/2018/09/27/软件包及yum仓库建设/index.html">
 <meta property="og:site_name" content="Apologize&#39;s blogs">
-<meta property="og:description" content="软件包管理程序包的来源获取程序包的途径：(1) 系统发版的光盘或官方的服务器CentOS镜像：https://www.centos.org/download/http://mirrors.aliyun.comhttp://mirrors.sohu.comhttp://mirrors.163.com(2) 项目官方站点(3) 第三方组织：Fedora-EPEL：Extra Packages for">
+<meta property="og:description" content="软件包管理">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-08T13:04:18.536Z">
+<meta property="og:updated_time" content="2019-03-23T07:14:20.277Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="软件包管理">
-<meta name="twitter:description" content="软件包管理程序包的来源获取程序包的途径：(1) 系统发版的光盘或官方的服务器CentOS镜像：https://www.centos.org/download/http://mirrors.aliyun.comhttp://mirrors.sohu.comhttp://mirrors.163.com(2) 项目官方站点(3) 第三方组织：Fedora-EPEL：Extra Packages for">
+<meta name="twitter:description" content="软件包管理">
 
 
 
@@ -344,7 +344,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">35</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">36</span></a>
 
   </li>
         
@@ -529,7 +529,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-08 21:04:18" itemprop="dateModified" datetime="2018-11-08T21:04:18+08:00">2018-11-08</time>
+                <time title="修改时间：2019-03-23 15:14:20" itemprop="dateModified" datetime="2019-03-23T15:14:20+08:00">2019-03-23</time>
               
             
           </span>
@@ -572,7 +572,8 @@
       
 
       
-        <h1 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h1><p>程序包的来源<br>获取程序包的途径：<br>(1) 系统发版的光盘或官方的服务器<br>CentOS镜像：<br><a href="https://www.centos.org/download/">https://www.centos.org/download/</a><br><a href="http://mirrors.aliyun.com">http://mirrors.aliyun.com</a><br><a href="http://mirrors.sohu.com">http://mirrors.sohu.com</a><br><a href="http://mirrors.163.com">http://mirrors.163.com</a><br>(2) 项目官方站点<br>(3) 第三方组织：<br>Fedora-EPEL：<br>Extra Packages for Enterprise Linux<br>Rpmforge:RHEL推荐，包很全<br>搜索引擎：<br><a href="http://pkgs.org">http://pkgs.org</a><br><a href="http://rpmfind.net">http://rpmfind.net</a><br><a href="http://rpm.pbone.net">http://rpm.pbone.net</a><br><a href="https://sourceforge.net/">https://sourceforge.net/</a><br>(4) 自己制作<br>注意：第三方包建议要检查其合法性<br>来源合法性,程序包的完整性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[install-options]</span><br><span class="line">--<span class="built_in">test</span>: 测试安装，但不真正执行安装，即dry run模式</span><br><span class="line">--nodeps：忽略依赖关系</span><br><span class="line">--replacepkgs| replacefiles</span><br><span class="line">--nosignature: 不检查来源合法性</span><br><span class="line">--nodigest：不检查包完整性</span><br><span class="line">--noscripts：不执行程序包脚本</span><br><span class="line">%pre: 安装前脚本--nopre</span><br><span class="line">%post: 安装后脚本--nopost</span><br><span class="line">%preun: 卸载前脚本--nopreun</span><br><span class="line">%postun: 卸载后脚本--nopostun</span><br></pre></td></tr></table></figure></p>
+        <h1 id="软件包管理"><a href="#软件包管理" class="headerlink" title="软件包管理"></a>软件包管理</h1><a id="more"></a>
+<p>程序包的来源<br>获取程序包的途径：<br>(1) 系统发版的光盘或官方的服务器<br>CentOS镜像：<br><a href="https://www.centos.org/download/">https://www.centos.org/download/</a><br><a href="http://mirrors.aliyun.com">http://mirrors.aliyun.com</a><br><a href="http://mirrors.sohu.com">http://mirrors.sohu.com</a><br><a href="http://mirrors.163.com">http://mirrors.163.com</a><br>(2) 项目官方站点<br>(3) 第三方组织：<br>Fedora-EPEL：<br>Extra Packages for Enterprise Linux<br>Rpmforge:RHEL推荐，包很全<br>搜索引擎：<br><a href="http://pkgs.org">http://pkgs.org</a><br><a href="http://rpmfind.net">http://rpmfind.net</a><br><a href="http://rpm.pbone.net">http://rpm.pbone.net</a><br><a href="https://sourceforge.net/">https://sourceforge.net/</a><br>(4) 自己制作<br>注意：第三方包建议要检查其合法性<br>来源合法性,程序包的完整性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[install-options]</span><br><span class="line">--<span class="built_in">test</span>: 测试安装，但不真正执行安装，即dry run模式</span><br><span class="line">--nodeps：忽略依赖关系</span><br><span class="line">--replacepkgs| replacefiles</span><br><span class="line">--nosignature: 不检查来源合法性</span><br><span class="line">--nodigest：不检查包完整性</span><br><span class="line">--noscripts：不执行程序包脚本</span><br><span class="line">%pre: 安装前脚本--nopre</span><br><span class="line">%post: 安装后脚本--nopost</span><br><span class="line">%preun: 卸载前脚本--nopreun</span><br><span class="line">%postun: 卸载后脚本--nopostun</span><br></pre></td></tr></table></figure></p>
 <h1 id="救援模式进入"><a href="#救援模式进入" class="headerlink" title="救援模式进入"></a>救援模式进入</h1><p>getent +命令或者文件或者用户  看是否存在<br>例子  getent f1.txt 看f1是否存在<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">rpm -qpi 查询还未安装的包内的文件</span><br><span class="line">rpm -qi  查询包的说信息</span><br><span class="line">rpm -q +命令名字 查询命令版本号    </span><br><span class="line">rpm -ql +tree  查询tree包里有什么文件</span><br><span class="line">rpm -q tree &amp;&gt; /dev/null ||rpm -ivh /cdrom/Package/tree-1.6.0-10.el7.x86_64.rpm  查询tree软件是否安装，如果没有安装则安装文件 </span><br><span class="line">rpm -e +软件名  卸载该软件</span><br><span class="line">rpm -upgrade 升级，一般情况下不用升级，直接卸载老版本安装新版本</span><br><span class="line">rpm --oldpackage 降级</span><br><span class="line">rpm -ivh +软件 + --force  强制安装 </span><br><span class="line">rpm -qa | wc -l  查询有多少个包</span><br></pre></td></tr></table></figure></p>
 <p>包校验</p>
 <p>包来源合法性验正及完整性验证<br>完整性验证：SHA256<br>来源合法性验证：RSA<br>公钥加密<br>对称加密：加密、解密使用同一密钥<br>非对称加密：密钥是成对儿的<br>public key: 公钥，公开所有人<br>secret key: 私钥, 不能公开<br>导入所需要公钥<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">rpm -K|checksigrpmfile检查包的完整性和签名</span><br><span class="line">rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7</span><br><span class="line">CentOS 7发行版光盘提供：RPM-GPG-KEY-CentOS-7</span><br><span class="line">rpm -qa“gpg-pubkey*”</span><br></pre></td></tr></table></figure></p>
@@ -728,8 +729,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/29/用户、组和权限/" rel="prev" title="用户、组和权限">
-                用户、组和权限 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/28/epel源安装（Centos6.10和Centos7.5）/" rel="prev" title="epel源安装（Centos6.10和Centos7.5）">
+                epel源安装（Centos6.10和Centos7.5） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -807,7 +808,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -975,7 +976,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共86.8k字</span>
+  <span class="post-count">博客全站共87k字</span>
 </div>
 
         

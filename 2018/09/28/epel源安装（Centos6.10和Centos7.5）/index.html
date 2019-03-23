@@ -139,18 +139,18 @@
 
 
 
-  <meta name="description" content="Centos6.10123456rpm -e epel-release                 #首先卸载以前装的epel 以免影响wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-6.repo   #下载阿里提供的epelyum clean all">
+  <meta name="description" content="epel源设置">
 <meta name="keywords" content="L·H">
 <meta property="og:type" content="article">
 <meta property="og:title" content="epel源安装（Centos6.10和Centos7.5）">
 <meta property="og:url" content="http://yoursite.com/2018/09/28/epel源安装（Centos6.10和Centos7.5）/index.html">
 <meta property="og:site_name" content="Apologize&#39;s blogs">
-<meta property="og:description" content="Centos6.10123456rpm -e epel-release                 #首先卸载以前装的epel 以免影响wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-6.repo   #下载阿里提供的epelyum clean all">
+<meta property="og:description" content="epel源设置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-08T13:04:28.409Z">
+<meta property="og:updated_time" content="2019-03-23T07:10:53.121Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="epel源安装（Centos6.10和Centos7.5）">
-<meta name="twitter:description" content="Centos6.10123456rpm -e epel-release                 #首先卸载以前装的epel 以免影响wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-6.repo   #下载阿里提供的epelyum clean all">
+<meta name="twitter:description" content="epel源设置">
 
 
 
@@ -344,7 +344,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">37</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">36</span></a>
 
   </li>
         
@@ -529,7 +529,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-08 21:04:28" itemprop="dateModified" datetime="2018-11-08T21:04:28+08:00">2018-11-08</time>
+                <time title="修改时间：2019-03-23 15:10:53" itemprop="dateModified" datetime="2019-03-23T15:10:53+08:00">2019-03-23</time>
               
             
           </span>
@@ -572,7 +572,9 @@
       
 
       
-        <p>Centos6.10<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rpm -e epel-release                 <span class="comment">#首先卸载以前装的epel 以免影响</span></span><br><span class="line">wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-6.repo   <span class="comment">#下载阿里提供的epel</span></span><br><span class="line">yum clean all                                                                    <span class="comment">#清理缓存</span></span><br><span class="line">yum makecache                                                        <span class="comment">#生成缓存</span></span><br><span class="line">rm -rf /etc/yum.repos.d/*                              <span class="comment"># 删除原来的epel源配置</span></span><br><span class="line">wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-6.repo http://mirrors.aliyun.com/repo/Centos-6.repo <span class="comment"># 修改为阿里云的源</span></span><br></pre></td></tr></table></figure></p>
+        <h1 id="epel源设置"><a href="#epel源设置" class="headerlink" title="epel源设置"></a>epel源设置</h1><a id="more"></a>
+<p>Centos6.10</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rpm -e epel-release                 <span class="comment">#首先卸载以前装的epel 以免影响</span></span><br><span class="line">wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-6.repo   <span class="comment">#下载阿里提供的epel</span></span><br><span class="line">yum clean all                                                                    <span class="comment">#清理缓存</span></span><br><span class="line">yum makecache                                                        <span class="comment">#生成缓存</span></span><br><span class="line">rm -rf /etc/yum.repos.d/*                              <span class="comment"># 删除原来的epel源配置</span></span><br><span class="line">wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-6.repo http://mirrors.aliyun.com/repo/Centos-6.repo <span class="comment"># 修改为阿里云的源</span></span><br></pre></td></tr></table></figure>
 <p>Centos7.5<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">rpm -e epel-release               <span class="comment">#首先卸载以前装的epel 以免影响</span></span><br><span class="line">wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-7.repo    <span class="comment">#下载阿里提供的epel</span></span><br><span class="line">yum clean all                        <span class="comment">#清理缓存</span></span><br><span class="line">yum makecache                              <span class="comment">#生成缓存</span></span><br><span class="line">rm -rf /etc/yum.repos.d/*              <span class="comment">#删除原来的epel源配置</span></span><br><span class="line">wget -P /etc/yum.repos.d/ http://mirrors.aliyun.com/repo/epel-7.repo http://mirrors.aliyun.com/repo/Centos-7.repo  修改为阿里云的源</span><br></pre></td></tr></table></figure></p>
 
       
@@ -770,8 +772,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -788,7 +799,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">37</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -901,6 +912,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#epel源设置"><span class="nav-number">1.</span> <span class="nav-text">epel源设置</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -940,7 +967,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共86.9k字</span>
+  <span class="post-count">博客全站共87k字</span>
 </div>
 
         

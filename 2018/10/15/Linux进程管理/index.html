@@ -139,19 +139,19 @@
 
 
 
-  <meta name="description" content="PS命令基础ps常见选项ps 12345678910111213C cmdlist 指定命令，多个命令用，分隔L 显示线程e: 显示所有进程，相当于-Af: 显示完整格式程序信息F: 显示更完整格式的进程信息H: 以进程层级格式显示进程相关信息u userlist 指定有效的用户ID或名称U userlist 指定真正的用户ID或名称g gid或groupname 指定有效的gid或组名称G g">
+  <meta name="description" content="PS命令基础">
 <meta name="keywords" content="L·H">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Linux进程管理">
 <meta property="og:url" content="http://yoursite.com/2018/10/15/Linux进程管理/index.html">
 <meta property="og:site_name" content="Apologize&#39;s blogs">
-<meta property="og:description" content="PS命令基础ps常见选项ps 12345678910111213C cmdlist 指定命令，多个命令用，分隔L 显示线程e: 显示所有进程，相当于-Af: 显示完整格式程序信息F: 显示更完整格式的进程信息H: 以进程层级格式显示进程相关信息u userlist 指定有效的用户ID或名称U userlist 指定真正的用户ID或名称g gid或groupname 指定有效的gid或组名称G g">
+<meta property="og:description" content="PS命令基础">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181108195422192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-03-23T06:31:52.290Z">
+<meta property="og:updated_time" content="2019-03-23T07:09:45.705Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Linux进程管理">
-<meta name="twitter:description" content="PS命令基础ps常见选项ps 12345678910111213C cmdlist 指定命令，多个命令用，分隔L 显示线程e: 显示所有进程，相当于-Af: 显示完整格式程序信息F: 显示更完整格式的进程信息H: 以进程层级格式显示进程相关信息u userlist 指定有效的用户ID或名称U userlist 指定真正的用户ID或名称g gid或groupname 指定有效的gid或组名称G g">
+<meta name="twitter:description" content="PS命令基础">
 <meta name="twitter:image" content="https://img-blog.csdnimg.cn/20181108195422192.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70">
 
 
@@ -346,7 +346,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">35</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">36</span></a>
 
   </li>
         
@@ -531,7 +531,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-03-23 14:31:52" itemprop="dateModified" datetime="2019-03-23T14:31:52+08:00">2019-03-23</time>
+                <time title="修改时间：2019-03-23 15:09:45" itemprop="dateModified" datetime="2019-03-23T15:09:45+08:00">2019-03-23</time>
               
             
           </span>
@@ -574,8 +574,8 @@
       
 
       
-        <a id="more"></a>
-<h2 id="PS命令基础"><a href="#PS命令基础" class="headerlink" title="PS命令基础"></a>PS命令基础</h2><p>ps常见选项<br>ps</p>
+        <h2 id="PS命令基础"><a href="#PS命令基础" class="headerlink" title="PS命令基础"></a>PS命令基础</h2><a id="more"></a>
+<p>ps常见选项<br>ps</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">C cmdlist 指定命令，多个命令用，分隔</span><br><span class="line">L 显示线程</span><br><span class="line">e: 显示所有进程，相当于-A</span><br><span class="line">f: 显示完整格式程序信息</span><br><span class="line">F: 显示更完整格式的进程信息</span><br><span class="line">H: 以进程层级格式显示进程相关信息</span><br><span class="line">u userlist 指定有效的用户ID或名称</span><br><span class="line">U userlist 指定真正的用户ID或名称</span><br><span class="line">g gid或groupname 指定有效的gid或组名称</span><br><span class="line">G gid或groupname 指定真正的gid或组名称</span><br><span class="line">p pid 显示指pid的进程</span><br><span class="line">-ppid pid 显示属于pid的子进程</span><br><span class="line">M 显示SELinux信息，相当于Z</span><br></pre></td></tr></table></figure>
 <p>ps输出属性<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">VSZ: Virtual memory SiZe，虚拟内存集，线性内存</span><br><span class="line">RSS: ReSident Size, 常驻内存集</span><br><span class="line">STAT：进程状态</span><br><span class="line">R：running</span><br><span class="line">S: interruptable sleeping</span><br><span class="line">D: uninterruptable sleeping</span><br><span class="line">T: stopped</span><br><span class="line">Z: zombie</span><br><span class="line">+: 前台进程</span><br><span class="line">l: 多线程进程</span><br><span class="line">L：内存分页并带锁</span><br><span class="line">N：低优先级进程</span><br><span class="line">&lt;: 高优先级进程</span><br><span class="line">s: session leader，会话（子进程）发起者</span><br></pre></td></tr></table></figure></p>
 <p>ps示例</p>
@@ -750,8 +750,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/10/16/计划任务/" rel="prev" title="Crontab">
-                Crontab <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/16/三次握手及子网划分/" rel="prev" title="三次握手及子网划分">
+                三次握手及子网划分 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -829,7 +829,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -997,7 +997,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共86.8k字</span>
+  <span class="post-count">博客全站共87k字</span>
 </div>
 
         

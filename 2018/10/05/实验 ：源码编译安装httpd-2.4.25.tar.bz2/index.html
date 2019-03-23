@@ -139,18 +139,20 @@
 
 
 
-  <meta name="description" content="实验 ：源码编译安装httpd-2.4.25.tar.bz2123456789101112131415161718191.	yum groupinstall &quot;development tools&quot;2.	yum install apr-devel apr-util-devel pcre-devel openssl-devel3.	useradd -r -u 80 -d /data/www/ -s /">
+  <meta name="description" content="实验 ：源码编译安装httpd-2.4.25.tar.bz2">
 <meta name="keywords" content="L·H">
 <meta property="og:type" content="article">
 <meta property="og:title" content="实验 ：源码编译安装httpd-2.4.25.tar.bz2">
 <meta property="og:url" content="http://yoursite.com/2018/10/05/实验 ：源码编译安装httpd-2.4.25.tar.bz2/index.html">
 <meta property="og:site_name" content="Apologize&#39;s blogs">
-<meta property="og:description" content="实验 ：源码编译安装httpd-2.4.25.tar.bz2123456789101112131415161718191.	yum groupinstall &quot;development tools&quot;2.	yum install apr-devel apr-util-devel pcre-devel openssl-devel3.	useradd -r -u 80 -d /data/www/ -s /">
+<meta property="og:description" content="实验 ：源码编译安装httpd-2.4.25.tar.bz2">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-08T13:06:44.324Z">
+<meta property="og:image" content="http://yoursite.com/2018/10/05/实验%20：源码编译安装httpd-2.4.25.tar.bz2/img/5C1553325341559.png">
+<meta property="og:updated_time" content="2019-03-23T07:16:42.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="实验 ：源码编译安装httpd-2.4.25.tar.bz2">
-<meta name="twitter:description" content="实验 ：源码编译安装httpd-2.4.25.tar.bz2123456789101112131415161718191.	yum groupinstall &quot;development tools&quot;2.	yum install apr-devel apr-util-devel pcre-devel openssl-devel3.	useradd -r -u 80 -d /data/www/ -s /">
+<meta name="twitter:description" content="实验 ：源码编译安装httpd-2.4.25.tar.bz2">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/05/实验%20：源码编译安装httpd-2.4.25.tar.bz2/img/5C1553325341559.png">
 
 
 
@@ -344,7 +346,7 @@
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">35</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">36</span></a>
 
   </li>
         
@@ -529,7 +531,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-08 21:06:44" itemprop="dateModified" datetime="2018-11-08T21:06:44+08:00">2018-11-08</time>
+                <time title="修改时间：2019-03-23 15:16:42" itemprop="dateModified" datetime="2019-03-23T15:16:42+08:00">2019-03-23</time>
               
             
           </span>
@@ -572,7 +574,9 @@
       
 
       
-        <h1 id="实验-：源码编译安装httpd-2-4-25-tar-bz2"><a href="#实验-：源码编译安装httpd-2-4-25-tar-bz2" class="headerlink" title="实验 ：源码编译安装httpd-2.4.25.tar.bz2"></a>实验 ：源码编译安装httpd-2.4.25.tar.bz2</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1.	yum groupinstall <span class="string">"development tools"</span></span><br><span class="line">2.	yum install apr-devel apr-util-devel pcre-devel openssl-devel</span><br><span class="line">3.	useradd -r -u 80 -d /data/www/ -s /sbin/nologin httpd</span><br><span class="line">4.	mkdir httpd</span><br><span class="line">5.	<span class="built_in">cd</span> httpd</span><br><span class="line">6.	rz 选择httpd-2.4.25.tar.bz2</span><br><span class="line">7.	tar xf httpd-2.4.25.tar.bz2</span><br><span class="line">8.	<span class="built_in">cd</span> httpd-2.4.25/</span><br><span class="line">9.	cat README  <span class="comment">#查看安装介绍</span></span><br><span class="line">10.	cat INSTALL   <span class="comment">#查看功能帮助介绍</span></span><br><span class="line">11.	./configure --prefix=/app/httpd --sysconfdir=/etc/httpd24 --<span class="built_in">enable</span>-ssl --<span class="built_in">disable</span>-status</span><br><span class="line">12.	make &amp;&amp; make install</span><br><span class="line">13.	<span class="built_in">echo</span> <span class="string">'PATH=/app/httpd/bin:$PATH'</span> &gt; /etc/profile.d/httpd.sh</span><br><span class="line">14.	. /etc/profile.d/httpd.sh</span><br><span class="line">15.	apachectl start</span><br><span class="line">16.	<span class="comment">#然后查询网卡信息，在浏览器输入桥接地址看是否出现it works!</span></span><br><span class="line">17.	<span class="comment">#修改it works!，可用vim /root/http/httpd-2.4.25/docs/docroot/index.html，修改index.html</span></span><br><span class="line">18. <span class="built_in">echo</span> ‘PATH=/app/httpd/bin:<span class="variable">$PATH</span>’ &gt; /etc/profile.d/httpd.sh</span><br><span class="line">添加将路径添加到PATH变量</span><br></pre></td></tr></table></figure>
+        <h1 id="实验-：源码编译安装httpd-2-4-25-tar-bz2"><a href="#实验-：源码编译安装httpd-2-4-25-tar-bz2" class="headerlink" title="实验 ：源码编译安装httpd-2.4.25.tar.bz2"></a>实验 ：源码编译安装httpd-2.4.25.tar.bz2</h1><p><img src="img\5C1553325341559.png" alt="1553325341559"></p>
+<a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">1.	yum groupinstall <span class="string">"development tools"</span></span><br><span class="line">2.	yum install apr-devel apr-util-devel pcre-devel openssl-devel</span><br><span class="line">3.	useradd -r -u 80 -d /data/www/ -s /sbin/nologin httpd</span><br><span class="line">4.	mkdir httpd</span><br><span class="line">5.	<span class="built_in">cd</span> httpd</span><br><span class="line">6.	rz 选择httpd-2.4.25.tar.bz2</span><br><span class="line">7.	tar xf httpd-2.4.25.tar.bz2</span><br><span class="line">8.	<span class="built_in">cd</span> httpd-2.4.25/</span><br><span class="line">9.	cat README  <span class="comment">#查看安装介绍</span></span><br><span class="line">10.	cat INSTALL   <span class="comment">#查看功能帮助介绍</span></span><br><span class="line">11.	./configure --prefix=/app/httpd --sysconfdir=/etc/httpd24 --<span class="built_in">enable</span>-ssl --<span class="built_in">disable</span>-status</span><br><span class="line">12.	make &amp;&amp; make install</span><br><span class="line">13.	<span class="built_in">echo</span> <span class="string">'PATH=/app/httpd/bin:$PATH'</span> &gt; /etc/profile.d/httpd.sh</span><br><span class="line">14.	. /etc/profile.d/httpd.sh</span><br><span class="line">15.	apachectl start</span><br><span class="line">16.	<span class="comment">#然后查询网卡信息，在浏览器输入桥接地址看是否出现it works!</span></span><br><span class="line">17.	<span class="comment">#修改it works!，可用vim /root/http/httpd-2.4.25/docs/docroot/index.html，修改index.html</span></span><br><span class="line">18. <span class="built_in">echo</span> ‘PATH=/app/httpd/bin:<span class="variable">$PATH</span>’ &gt; /etc/profile.d/httpd.sh</span><br><span class="line">添加将路径添加到PATH变量</span><br></pre></td></tr></table></figure>
 <h1 id="编译安装"><a href="#编译安装" class="headerlink" title="编译安装"></a>编译安装</h1><p>编译安装</p>
 <ol>
 <li>.configure               <strong><em>**</em></strong>配置<br>(1) 通过选项传递参数，指定启用特性、安装路径等；执行时会参考用户的指定以及Makefile.in文件生成Makefile<br>2、make 根据Makefile文件，构建应用程序  <strong><strong>***</strong></strong>编译<br>3、make install 复制文件到相应路径  <strong><strong><strong>**</strong></strong></strong>安装<br>du -sh 查看当前目录占用空间大小</li>
@@ -801,7 +805,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">35</span>
+                    <span class="site-state-item-count">36</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -969,7 +973,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共86.8k字</span>
+  <span class="post-count">博客全站共87k字</span>
 </div>
 
         

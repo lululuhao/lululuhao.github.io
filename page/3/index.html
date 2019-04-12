@@ -815,6 +815,108 @@
             
               
                 
+                <a class="post-title-link" href="/2018/10/02/实验：centos6删除内核并恢复/" itemprop="url">
+                  实验：centos6删除内核并恢复
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2018-10-02T18:18:18+08:00" content="2018-10-02">
+              2018-10-02
+            </time>
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2018/10/02/实验：centos6删除内核并恢复/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/02/实验：centos6删除内核并恢复/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>实验：centos6 rm -f /boot/vmlinuz-2.6.32-754.el6.x86_64  恢复</p>
+<p>rm -f /boot/vmlinuz-2.6.32-754.el6.x86_64<br>重启<br>在进度条时按下esc，只能按一下<br><img src="https://img-blog.csdnimg.cn/20181210190835745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择CD-ROM<br><img src="https://img-blog.csdnimg.cn/20181210190855572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择Rescue installed system<br><img src="https://img-blog.csdnimg.cn/20181210190919170.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181210190933259.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/201812101909439.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181210190955473.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181210191009174.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181210191019387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>提示根目录被修改为chroot /mnt/sysimage<br><img src="https://img-blog.csdnimg.cn/20181210191039415.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>进入shell<br>创建挂载点并挂载光盘<br><img src="https://img-blog.csdnimg.cn/20181210191100625.png" alt="在这里插入图片描述"><br>因为vmlinuz-2.6.32-754.el6.x86_64在kernel包里，所以安装kernel包，并用—root告诉它根在/mnt/sysimage<br><img src="https://img-blog.csdnimg.cn/20181210191131413.png" alt="在这里插入图片描述"><br>查看/boot下生成了vmlinuz-2.6.32-754.el6.x86_64文件<br><img src="https://img-blog.csdnimg.cn/20181210191157682.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181210191206556.png" alt="在这里插入图片描述"><br>输入exit退出shell<br><img src="https://img-blog.csdnimg.cn/20181210191226233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>Reboot重启</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2018/10/02/Linux下各压缩工具的使用方法/" itemprop="url">
                   Linux下各压缩工具的使用方法
                 </a>
@@ -1101,108 +1203,6 @@
 <hr>
 <p>第三次博客：<br>TXT:10-08–10-14<br>PDF 6开始-PDF9  </p>
 <hr>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope="" itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2018/10/02/实验：centos6删除内核并恢复/" itemprop="url">
-                  实验：centos6删除内核并恢复
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2018-10-02T18:18:18+08:00" content="2018-10-02">
-              2018-10-02
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2018/10/02/实验：centos6删除内核并恢复/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2018/10/02/实验：centos6删除内核并恢复/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>实验：centos6 rm -f /boot/vmlinuz-2.6.32-754.el6.x86_64  恢复</p>
-<p>rm -f /boot/vmlinuz-2.6.32-754.el6.x86_64<br>重启<br>在进度条时按下esc，只能按一下<br><img src="https://img-blog.csdnimg.cn/20181210190835745.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择CD-ROM<br><img src="https://img-blog.csdnimg.cn/20181210190855572.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>选择Rescue installed system<br><img src="https://img-blog.csdnimg.cn/20181210190919170.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181210190933259.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/201812101909439.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181210190955473.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181210191009174.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181210191019387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>提示根目录被修改为chroot /mnt/sysimage<br><img src="https://img-blog.csdnimg.cn/20181210191039415.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>进入shell<br>创建挂载点并挂载光盘<br><img src="https://img-blog.csdnimg.cn/20181210191100625.png" alt="在这里插入图片描述"><br>因为vmlinuz-2.6.32-754.el6.x86_64在kernel包里，所以安装kernel包，并用—root告诉它根在/mnt/sysimage<br><img src="https://img-blog.csdnimg.cn/20181210191131413.png" alt="在这里插入图片描述"><br>查看/boot下生成了vmlinuz-2.6.32-754.el6.x86_64文件<br><img src="https://img-blog.csdnimg.cn/20181210191157682.png" alt="在这里插入图片描述"><br><img src="https://img-blog.csdnimg.cn/20181210191206556.png" alt="在这里插入图片描述"><br>输入exit退出shell<br><img src="https://img-blog.csdnimg.cn/20181210191226233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"><br>Reboot重启</p>
 
           
         

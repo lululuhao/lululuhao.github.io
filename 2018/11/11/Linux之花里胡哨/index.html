@@ -102,7 +102,7 @@
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181106160700716.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181106161952387.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181106162358832.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MzU1MTE1Mg==,size_16,color_FFFFFF,t_70">
-<meta property="og:updated_time" content="2019-03-23T07:23:54.749Z">
+<meta property="og:updated_time" content="2019-04-12T03:07:05.768Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux之花里胡哨">
 <meta name="twitter:description" content="Linux之花里胡哨">
@@ -337,9 +337,10 @@
       
 
       
-        <h1 id="Linux之花里胡哨"><a href="#Linux之花里胡哨" class="headerlink" title="Linux之花里胡哨"></a>Linux之花里胡哨</h1><p><img src="img\5C1553323418761.png" alt="1553323418761"></p>
+        <h1 id="Linux之花里胡哨"><a href="#Linux之花里胡哨" class="headerlink" title="Linux之花里胡哨"></a>Linux之花里胡哨</h1><p><img src="img/5C1553323418761.png" alt="1553323418761"></p>
 <a id="more"></a>
-<h1 id="笔记本电脑查询已连接WIFI密码"><a href="#笔记本电脑查询已连接WIFI密码" class="headerlink" title="笔记本电脑查询已连接WIFI密码"></a>笔记本电脑查询已连接WIFI密码</h1><p>###本方法适用于忘了WiFi密码或者通过其他手段连上WiFi却不知道密码的<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#按Windows+R，输入cmd启动命令行</span></span><br><span class="line"><span class="comment">#命令行中输入</span></span><br><span class="line">netsh wlan show profiles   <span class="comment">#列出已保存WiFi</span></span><br><span class="line">netsh wlan show profiles name=12345 key=clear </span><br><span class="line"><span class="comment">#即可查询WiFi名称为12345的密码，在安全设置中，密码即为下方关键内容</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="笔记本电脑查询已连接WIFI密码"><a href="#笔记本电脑查询已连接WIFI密码" class="headerlink" title="笔记本电脑查询已连接WIFI密码"></a>笔记本电脑查询已连接WIFI密码</h1><p>###本方法适用于忘了WiFi密码或者通过其他手段连上WiFi却不知道密码的</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#按Windows+R，输入cmd启动命令行</span></span><br><span class="line"><span class="comment">#命令行中输入</span></span><br><span class="line">netsh wlan show profiles   <span class="comment">#列出已保存WiFi</span></span><br><span class="line">netsh wlan show profiles name=12345 key=clear </span><br><span class="line"><span class="comment">#即可查询WiFi名称为12345的密码，在安全设置中，密码即为下方关键内容</span></span><br></pre></td></tr></table></figure>
 <h1 id="Linux下取出指定位的随机密码"><a href="#Linux下取出指定位的随机密码" class="headerlink" title="Linux下取出指定位的随机密码"></a>Linux下取出指定位的随机密码</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat /dev/urandom |tr -dc <span class="string">'a-zA-Z0-9_'</span> |head -c12 <span class="comment">#取出12位的随机密码，尾数改变改为8即取8位</span></span><br></pre></td></tr></table></figure>
 <h1 id="Linux命令颜色和欢迎界面！"><a href="#Linux命令颜色和欢迎界面！" class="headerlink" title="Linux命令颜色和欢迎界面！"></a>Linux命令颜色和欢迎界面！</h1><p>在全局设置中写入配置</p>
 <h3 id="字体颜色和背景设置"><a href="#字体颜色和背景设置" class="headerlink" title="字体颜色和背景设置"></a>字体颜色和背景设置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile.d/env.sh   <span class="comment">#打开配置文件</span></span><br><span class="line">PS1=<span class="string">"\[\e[1;32m\][\u@\h \W]\\$\[\e[0m\]"</span></span><br><span class="line"><span class="comment">#按esc，然后输入wq保存，重新登陆客户端即可</span></span><br></pre></td></tr></table></figure>
@@ -391,16 +392,16 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/11/DevOps 之基于Jenkins实现的CI与CD/" rel="next" title="DevOps">
-                <i class="fa fa-chevron-left"></i> DevOps
+              <a href="/2018/11/08/谷歌chrome浏览器自动启用flash/" rel="next" title="Chrome浏览器启用flash">
+                <i class="fa fa-chevron-left"></i> Chrome浏览器启用flash
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/12/03/新装系统后必须做的几件事/" rel="prev" title="装centos系统后必须要做的几件事！！！">
-                装centos系统后必须要做的几件事！！！ <i class="fa fa-chevron-right"></i>
+              <a href="/2018/11/11/DevOps 之基于Jenkins实现的CI与CD/" rel="prev" title="DevOps">
+                DevOps <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
